@@ -1,26 +1,37 @@
 {
-  "name": "food-ordering-app",
+  "name": "Ecommerce-app-2023",
   "version": "1.0.0",
-  "description": "A Common Food Ordering interface for different eating joints within NU. Developed on MERN Stack.",
+  "description": "ecommerce rest api",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "app": "concurrently \"npm run server\" \"npm run client\" "
+    "client": "npm start --prefix ./client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Vaibhav Mishra",
+  "license": "MIT",
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "bcrypt": "^5.1.0",
+    "braintree": "^3.13.0",
     "colors": "^1.4.0",
-    "concurrently": "^8.0.1",
+    "concurrently": "^7.6.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mongoose": "^7.0.4",
+    "express-formidable": "^1.2.0",
+    "formidable": "^2.1.1",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.4",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.20",
+    "react-icons": "^4.7.1",
+    "slugify": "^1.6.5"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
