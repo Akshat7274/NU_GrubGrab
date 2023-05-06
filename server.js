@@ -7,6 +7,15 @@ import authRoutes from "./routes/authRoute.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import cors from "cors";
+// const express = require('express')
+// const colors = require('colors')
+// const dotenv = require('dotenv')
+// const morgan = require('morgan')
+// const connectDB = require('./config/db')
+// const authRoutes = require('./routes/authRoute')
+// const categoryRoutes = require('./routes/categoryRoutes')
+// const productRoutes = require('./routes/productRoutes')
+// const cors = require("cors")
 
 //configure env
 dotenv.config();
