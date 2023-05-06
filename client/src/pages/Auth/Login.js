@@ -1,18 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 import "../../styles/AuthStyles.css";
 import { useAuth } from "../../context/auth";
+import LoginB from "../../components/Button/Login";
+import {gapi} from "gapi-script"
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [auth, setAuth] = useAuth();
-
+  
   const navigate = useNavigate();
   const location = useLocation();
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId:process.env.GOOGLE_CLIENT_ID,
+        scope:""
+      })
+    };
 
+    gapi.load('client:auth2',start)
+  });
   // form function
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -82,6 +94,7 @@ const Login = () => {
           <button type="submit" className="btn btn-primary">
             LOGIN
           </button>
+          <LoginB />
         </form>
       </div>
     </Layout>

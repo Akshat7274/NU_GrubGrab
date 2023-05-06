@@ -8,6 +8,7 @@ import { AuthProvider } from "./context/auth";
 import { SearchProvider } from "./context/search";
 import { CartProvider } from "./context/cart";
 import "antd/dist/reset.css";
+import {GoogleOAuthProvider} from "@react-oauth/google";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,7 +16,9 @@ root.render(
     <SearchProvider>
       <CartProvider>
         <BrowserRouter>
-          <App />
+          <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID}>
+            <App />
+          </GoogleOAuthProvider>
         </BrowserRouter>
       </CartProvider>
     </SearchProvider>
