@@ -11,6 +11,7 @@
     "antd": "^5.1.7",
     "axios": "^1.2.5",
     "braintree-web-drop-in-react": "^1.2.1",
+    "Ecommerce-app-2023": "file:..",
     "gapi-script": "^1.2.0",
     "moment": "^2.29.4",
     "passport": "^0.6.0",

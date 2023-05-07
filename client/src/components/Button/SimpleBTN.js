@@ -1,6 +1,4 @@
 import styles from "./styles.module.css";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/auth";
 
 function Login() {
   const googleAuth = () => {

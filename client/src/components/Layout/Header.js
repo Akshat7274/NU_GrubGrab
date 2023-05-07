@@ -7,7 +7,6 @@ import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import { Badge } from "antd";
-import { token } from "morgan";
 
 const Header = (userDetails) => {
   const [user, setUser] = useState(null);
@@ -22,7 +21,7 @@ const Header = (userDetails) => {
         user: data.user._json,
         token: data.token
       });
-      localStorage.setItem("auth", JSON.stringify(data.user));
+      localStorage.setItem("auth", JSON.stringify({token: data.token, isGoogle: data.isGoogle}));
 		} catch (err) {
 			console.log(err);
 		}
