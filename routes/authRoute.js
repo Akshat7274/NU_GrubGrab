@@ -12,6 +12,8 @@ import {
 } from "../controllers/authController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 import passport from "passport";
+import JWT from "jsonwebtoken";
+import { token } from "morgan";
 
 //router object
 const router = express.Router();
@@ -42,13 +44,23 @@ router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
 
 //google login
 
-router.get("/login/success",(req,res) => {
+router.get("/login/success", async(req,res) => {
   if(req.user) {
-    res.status(200).json({
-      error: false,
-      message: "Succesfully Logged In",
-      user: req.user,
-    })
+    try {
+      const token = await JWT.sign({ _id: req.user.id }, process.env.JWT_SECRET, {
+        expiresIn: "7d",
+      });
+      // const isGoogle = true;
+      res.status(200).json({
+        error: false,
+        message: "Succesfully Logged In",
+        user: req.user,
+        token: token,
+        isGoogle: "true"
+      })
+    } catch (error) {
+      console.log(error);
+    }
   }
   else{
     res.status(403).json({error:true,message:"Not Authorized"})
@@ -73,6 +85,15 @@ router.get("/logout", (req,res) => {
   req.logout();
   res.redirect("http://localhost:3000")
 })
+
+//google logout
+router.post('/google/logout', function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/login');
+  });
+});
+
 //update profile
 router.put("/profile", requireSignIn, updateProfileController);
 

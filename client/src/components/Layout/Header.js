@@ -7,6 +7,7 @@ import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import { Badge } from "antd";
+import { token } from "morgan";
 
 const Header = (userDetails) => {
   const [user, setUser] = useState(null);
@@ -15,10 +16,11 @@ const Header = (userDetails) => {
 		try {
 			const url = `/api/v1/auth/login/success`;
 			const { data } = await axios.get(url, { withCredentials: true });
-			setUser(data.user._json);
+      setUser(data.user._json);
       setAuth({
         ...auth,
-        user: data.user._json
+        user: data.user._json,
+        token: data.token
       });
       localStorage.setItem("auth", JSON.stringify(data.user));
 		} catch (err) {
@@ -33,13 +35,19 @@ const Header = (userDetails) => {
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
   const categories = useCategory();
-  const handleLogout = () => {
+  const handleLogout = async () => {
     setAuth({
       ...auth,
       user: null,
       token: "",
     });
     localStorage.removeItem("auth");
+    try {
+      const data = await axios.post("/api/v1/auth/google/logout")
+      toast.success("Google Logout handled")
+    } catch (error) {
+      console.log(error);
+    }
     toast.success("Logout Successfully");
 
   };

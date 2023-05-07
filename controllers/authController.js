@@ -107,6 +107,7 @@ export const loginController = async (req, res) => {
         role: user.role,
       },
       token,
+      isGoogle: "false",
     });
   } catch (error) {
     console.log(error);

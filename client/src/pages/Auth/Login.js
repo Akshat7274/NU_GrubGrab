@@ -40,7 +40,10 @@ const Login = () => {
           user: res.data.user,
           token: res.data.token,
         });
-        localStorage.setItem("auth", JSON.stringify(res.data));
+        // alert(res.data)
+        // alert(res.data.token)
+        // alert(res.data.isGoogle)
+        localStorage.setItem("auth", JSON.stringify({token:res.data.token, isGoogle:res.data.isGoogle}));
         navigate(location.state || "/");
       } else {
         toast.error(res.data.message);
