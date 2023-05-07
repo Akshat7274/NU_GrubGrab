@@ -9,7 +9,7 @@ import Layout from "./../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
 import "../styles/Homepage.css";
 
-const HomePage = () => {
+const HomePage = (userDetails) => {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
@@ -31,7 +31,7 @@ const HomePage = () => {
       console.log(error);
     }
   };
-
+  
   useEffect(() => {
     getAllCategory();
     getTotal();
@@ -107,7 +107,7 @@ const HomePage = () => {
     }
   };
   return (
-    <Layout title={"ALl Products - Best offers "}>
+    <Layout title={"NU Grub Grab"}>
       {/* banner image */}
       <img
         src="/images/banner.png"

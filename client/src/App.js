@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { useState,useEffect } from "react";
+import axios from "axios";
 import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -26,10 +28,26 @@ import CartPage from "./pages/CartPage";
 import AdminOrders from "./pages/Admin/AdminOrders";
 import OtpForm from "./pages/otp/OtpForm";
 function App() {
+  const [user, setUser] = useState(null);
+
+	const getUser = async () => {
+		try {
+			const url = `/api/v1/auth/login/success`;
+			const { data } = await axios.get(url, { withCredentials: true });
+			setUser(data.user._json);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	useEffect(() => {
+		getUser();
+	}, []);
+
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage user={user} />} />
         <Route path="/product/:slug" element={<ProductDetails />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/cart" element={<CartPage />} />

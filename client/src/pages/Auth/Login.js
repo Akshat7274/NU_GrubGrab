@@ -5,7 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 import "../../styles/AuthStyles.css";
 import { useAuth } from "../../context/auth";
-import LoginB from "../../components/Button/Login";
+import LoginB from "../../components/Button/SimpleBTN";
 import {gapi} from "gapi-script"
 
 const Login = () => {

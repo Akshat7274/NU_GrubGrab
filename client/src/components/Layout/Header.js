@@ -1,4 +1,5 @@
-import React from "react";
+import React , {useState, useEffect} from "react";
+import axios from "axios";
 import { NavLink, Link } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
@@ -7,7 +8,28 @@ import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import { Badge } from "antd";
 
-const Header = () => {
+const Header = (userDetails) => {
+  const [user, setUser] = useState(null);
+
+	const getUser = async () => {
+		try {
+			const url = `/api/v1/auth/login/success`;
+			const { data } = await axios.get(url, { withCredentials: true });
+			setUser(data.user._json);
+      setAuth({
+        ...auth,
+        user: data.user._json
+      });
+      localStorage.setItem("auth", JSON.stringify(data.user));
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	useEffect(() => {
+		getUser();
+	}, []);
+
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
   const categories = useCategory();
@@ -19,6 +41,7 @@ const Header = () => {
     });
     localStorage.removeItem("auth");
     toast.success("Logout Successfully");
+
   };
   return (
     <>
@@ -72,7 +95,6 @@ const Header = () => {
                   ))}
                 </ul>
               </li>
-
               {!auth?.user ? (
                 <>
                   <li className="nav-item">
@@ -96,7 +118,7 @@ const Header = () => {
                       data-bs-toggle="dropdown"
                       style={{ border: "none" }}
                     >
-                      {auth?.user?.name}
+                      {auth?.user?.given_name}
                     </NavLink>
                     <ul className="dropdown-menu">
                       <li>
