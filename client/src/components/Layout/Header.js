@@ -76,7 +76,9 @@ const Header = (userDetails) => {
               🛒 Ecommerce App
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <SearchInput />
+              <div >
+                <SearchInput />
+              </div>
               <li className="nav-item">
                 <NavLink to="/" className="nav-link ">
                   Home

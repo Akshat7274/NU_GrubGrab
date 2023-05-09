@@ -47,15 +47,28 @@ router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
 router.get("/login/success", async(req,res) => {
   if(req.user) {
     try {
-      const token = await JWT.sign({ _id: req.user.id }, process.env.JWT_SECRET, {
-        expiresIn: "7d",
-      });
+      
       const user = await userModel.findOne({email: req.user._json.email});
       var role = 0
       if (user && user.role===1){
         role = 1
       }
-
+      else if(!user){
+        console.log("HEYYY");
+        const user = await new userModel({
+          name:req.user._json.name,
+          email:req.user._json.email,
+          role: role,
+          password: " ",
+          address: {},
+          phone: " ",
+          answer: " ",
+        }).save();
+      }
+      const find = await userModel.findOne({email:req.user._json.email})
+      const token = await JWT.sign({ _id: find._id }, process.env.JWT_SECRET, {
+        expiresIn: "7d",
+      });
       // const isGoogle = true;
       res.status(200).json({
         error: false,

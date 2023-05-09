@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from "axios";
 import HomePage from "./pages/HomePage";
@@ -26,6 +26,9 @@ import CategoryProduct from "./pages/CategoryProduct";
 import CartPage from "./pages/CartPage";
 import AdminOrders from "./pages/Admin/AdminOrders";
 import OtpForm from "./pages/otp/OtpForm";
+import {message} from "antd"
+
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -66,9 +69,9 @@ function App() {
           <Route path="admin/users" element={<Users />} />
           <Route path="admin/orders" element={<AdminOrders />} />
         </Route>
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<ProtectedRoute><Register /></ProtectedRoute>} />
         <Route path="/forgot-password" element={<OtpForm />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<ProtectedRoute><Login /></ProtectedRoute>} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/policy" element={<Policy />} />
@@ -76,6 +79,16 @@ function App() {
       </Routes>
     </>
   );
+}
+
+export function ProtectedRoute(props) {
+  const auth = JSON.parse(localStorage.getItem('auth'))
+  if(auth){
+    message.error("Already Logged In")
+    window.location.href = "/"
+  }else{
+    return props.children;
+  }
 }
 
 export default App;
