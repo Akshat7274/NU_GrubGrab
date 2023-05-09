@@ -40,9 +40,6 @@ const Login = () => {
           user: res.data.user,
           token: res.data.token,
         });
-        // alert(res.data)
-        // alert(res.data.token)
-        // alert(res.data.isGoogle)
         localStorage.setItem("auth", JSON.stringify({token:res.data.token, isGoogle:res.data.isGoogle}));
         navigate(location.state || "/");
       } else {

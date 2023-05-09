@@ -40,7 +40,7 @@ function App() {
 	};
 
 	useEffect(() => {
-		getUser();
+      getUser()
 	}, []);
 
   return (

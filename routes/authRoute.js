@@ -1,4 +1,5 @@
 import express from "express";
+import userModel from "../models/userModel.js";
 import {
   registerController,
   loginController,
@@ -13,7 +14,6 @@ import {
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 import passport from "passport";
 import JWT from "jsonwebtoken";
-import { token } from "morgan";
 
 //router object
 const router = express.Router();
@@ -50,13 +50,24 @@ router.get("/login/success", async(req,res) => {
       const token = await JWT.sign({ _id: req.user.id }, process.env.JWT_SECRET, {
         expiresIn: "7d",
       });
+      const user = await userModel.findOne({email: req.user._json.email});
+      var role = 0
+      if (user && user.role===1){
+        role = 1
+      }
+
       // const isGoogle = true;
       res.status(200).json({
         error: false,
         message: "Succesfully Logged In",
         user: req.user,
         token: token,
-        isGoogle: "true"
+        isGoogle: "true",
+        name: req.user._json.name,
+        email: req.user._json.email,
+        phone: "",
+        _id: req.user.id,
+        role: role,
       })
     } catch (error) {
       console.log(error);
@@ -110,5 +121,21 @@ router.put(
   isAdmin,
   orderStatusController
 );
+
+router.post("/user-token", async (req,res) => {
+  try {
+    const token = req.body.token
+    const decode = JWT.verify(
+      token,
+      process.env.JWT_SECRET
+    );
+    const user = await userModel.findById(decode._id)
+    console.log(user)
+    res.status(200).json(user)
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error)
+  }
+})
 
 export default router;

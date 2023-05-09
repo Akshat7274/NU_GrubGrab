@@ -18,8 +18,14 @@ const Header = (userDetails) => {
       setUser(data.user._json);
       setAuth({
         ...auth,
-        user: data.user._json,
-        token: data.token
+        user: {
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          _id: data._id,
+          role: data.role,
+        },
+        token: data.token,
       });
       localStorage.setItem("auth", JSON.stringify({token: data.token, isGoogle: data.isGoogle}));
 		} catch (err) {
@@ -28,7 +34,7 @@ const Header = (userDetails) => {
 	};
 
 	useEffect(() => {
-		getUser();
+		{getUser();}
 	}, []);
 
   const [auth, setAuth] = useAuth();
@@ -102,7 +108,7 @@ const Header = (userDetails) => {
                   ))}
                 </ul>
               </li>
-              {!auth?.user ? (
+              {!auth?.token ? (
                 <>
                   <li className="nav-item">
                     <NavLink to="/register" className="nav-link">
@@ -125,7 +131,7 @@ const Header = (userDetails) => {
                       data-bs-toggle="dropdown"
                       style={{ border: "none" }}
                     >
-                      {auth?.user?.given_name}
+                      {auth?.user?.name}
                     </NavLink>
                     <ul className="dropdown-menu">
                       <li>
