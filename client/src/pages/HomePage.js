@@ -118,8 +118,9 @@ const HomePage = (userDetails) => {
         />
         {/* banner image */}
         <div className="container-fluid row mt-3 home-page">
+          <h1 className="text-center">All Products</h1>
           <div className="col-md-3 filters ">
-            <h4 className="text-center">Filter By Category</h4>
+            <h4 className="text-center">Filter-Category</h4>
             <div className="d-flex flex-column">
               {categories?.map((c) => (
                 <Checkbox
@@ -131,7 +132,7 @@ const HomePage = (userDetails) => {
               ))}
             </div>
             {/* price filter */}
-            <h4 className="text-center mt-4">Filter By Price</h4>
+            <h4 className="text-center mt-4">Filter-Price</h4>
             <div className="d-flex flex-column">
               <Radio.Group onChange={(e) => setRadio(e.target.value)}>
                 {Prices?.map((p) => (
@@ -151,7 +152,6 @@ const HomePage = (userDetails) => {
             </div>
           </div>
           <div className="col-md-8 ">
-            <h1 className="text-center">All Products</h1>
             <div className="d-flex flex-wrap">
               {products?.map((p) => (
                 <div className="card m-2" key={p._id}>
@@ -175,13 +175,13 @@ const HomePage = (userDetails) => {
                     </p>
                     <div className="card-name-price">
                       <button
-                        className="btn btn-outline-warning item-button"
+                        className="btn btn-outline-dark item-button"
                         onClick={() => navigate(`/product/${p.slug}`)}
                       >
-                        More Details
+                        Description
                       </button>
                       <button
-                        className="btn btn-outline-danger item-button"
+                        className="btn btn-outline-dark item-button"
                         onClick={() => {
                           setCart([...cart, p]);
                           localStorage.setItem(
@@ -191,7 +191,7 @@ const HomePage = (userDetails) => {
                           toast.success("Item Added to cart");
                         }}
                       >
-                        ADD TO CART
+                        Add To Cart
                       </button>
                     </div>
                   </div>
@@ -212,7 +212,7 @@ const HomePage = (userDetails) => {
                   ) : (
                     <>
                       {" "}
-                      Loadmore <AiOutlineReload />
+                      Load More <AiOutlineReload />
                     </>
                   )}
                 </button>
