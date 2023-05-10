@@ -61,13 +61,14 @@
 .footer {
   color: white;
   padding: 25px;
+  text-align: center;
   background: #000000; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
     #434343,
     #000000
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #434343, #000000);
+  background: linear-gradient(to right, rgba(244,205,50,1), rgba(239,113,34,1), rgba(194,74,0,1));
 }
 
 .footer a {
@@ -113,12 +114,16 @@
 /* ========================================= */
 /* =========contact us ========= */
 .contactus {
-  margin: 0;
+  margin-top: 80px;
   padding: 0;
   height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.contactus p{
+  font-size: larger;
+  font-weight: bolder;
 }
 
 /* ==================== */

@@ -102,7 +102,7 @@ const Header = (userDetails) => {
                   {categories?.map((c) => (
                     <li>
                       <Link
-                        className="dropdown-item nav-decor"
+                        className="dropdown-item"
                         to={`/category/${c.slug}`}
                       >
                         {c.name}

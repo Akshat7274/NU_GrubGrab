@@ -5,29 +5,33 @@ const Contact = () => {
   return (
     <Layout title={"Contact us"}>
       <div className="row contactus ">
-        <div className="col-md-6 ">
           <img
-            src="/images/contactus.jpeg"
+            src="/images/contactus.png"
             alt="contactus"
-            style={{ width: "100%" }}
+            style={{ width: "100%"}}
           />
-        </div>
-        <div className="col-md-4">
-          <h1 className="bg-dark p-2 text-white text-center">CONTACT US</h1>
-          <p className="text-justify mt-2">
-            any query and info about prodduct feel free to call anytime we 24X7
-            vaialible
-          </p>
-          <p className="mt-3">
-            <BiMailSend /> : www.help@ecommerceapp.com
-          </p>
-          <p className="mt-3">
-            <BiPhoneCall /> : 012-3456789
-          </p>
-          <p className="mt-3">
-            <BiSupport /> : 1800-0000-0000 (toll free)
-          </p>
-        </div>
+          <div classname="col-sm-6">
+            <p className="text-center mt-2">
+              For any query and info about product displayed feel free to contact our team.
+            </p>
+            <p className="text-center mt-3">
+              <BiMailSend /> : nugrubgrab@gmail.com
+            </p>
+            <p className="text-center mt-3">
+              <BiPhoneCall /> : +91 12345 67890
+            </p>
+          </div>
+          <div classname="col-sm-6">
+            <p className="text-center mt-2">
+              For any food related query and info feel free to contact nescafe.
+            </p>
+            <p className="text-center mt-3">
+              <BiMailSend /> : xmemail@gmail.com
+            </p>
+            <p className="text-center mt-3">
+              <BiPhoneCall /> : +91 12345 67890
+            </p>
+          </div>
       </div>
     </Layout>
   );
