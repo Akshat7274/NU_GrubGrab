@@ -41,16 +41,17 @@
 .search-form input {
   border: #000000 solid;
   margin: 10px !important;
-  border-radius: 0;
+  border-radius: 10;
   width:430px !important
 }
 .search-form button {
   background-color: #fcf8ee;
-  border-radius: 0;
+  border-radius: 10;
   color: white;
   margin-top: 10px !important;
   width: 40px;
   height: 40px;
+  border-width: 2px;
 }
 
 /* =============================
