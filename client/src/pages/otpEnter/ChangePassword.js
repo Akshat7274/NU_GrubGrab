@@ -1,11 +1,14 @@
 import React, {useState} from "react";
-import CP from "./changePassword.module.css"
+import { useNavigate, Link } from "react-router-dom";
+import CP from "./changePassword.module.css";
 import axios from "axios";
+import {message} from "antd";
 
 function ChangePassword(props) {
     const [otp,setOtp] = useState("");
     const [password,setPassword] = useState("");
     const [confirm,setConfirm] = useState("");
+    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,21 +23,21 @@ function ChangePassword(props) {
                 let response = await axios(options)
                 let record = response.data.response;
                 if (record.statusText==="Success"){
-                    alert("Success: " + record.message)
+                    message.success("Success: " + record.message)
                 } else {
-                    alert("Error: " + record.message)
+                    message.error("Error: " + record.message)
                 }
             } catch (error) {
-                alert("Something went Wrong!")
+                message.error("Something went Wrong!")
             }
         } else if (otp === ""){
-            alert("OTP has to be entered for validation")
+            message.error("OTP has to be entered for validation")
         } else if (password === ""){
-            alert("Please provide your new password")
+            message.error("Please provide your new password")
         } else if (confirm === ""){
-            alert("Please confirm your password")
+            message.error("Please confirm your password")
         } else if (password !== confirm){
-            alert("The two passwords do not match")
+            message.error("The two passwords do not match")
         }
     }
 
@@ -57,7 +60,7 @@ function ChangePassword(props) {
                     <label>CONFIRM NEW PASSWORD</label>
                     <input onChange={e=> setConfirm(e.target.value)} placeholder="confirm your password" type="password"/>
                 </div>
-                <button onClick={handleSubmit} className={CP.loginBTN}>Change Password</button>
+                    <Link  to="/login"><button onClick={handleSubmit} className={CP.loginBTN}>Change Password</button></Link>
             </div>
         </div>
     )

@@ -103,7 +103,6 @@ export const loginController = async (req, res) => {
         name: user.name,
         email: user.email,
         phone: user.phone,
-        address: user.address,
         role: user.role,
       },
       token,
@@ -128,12 +127,21 @@ export const emailSend = async(req, res) => {
           randOtp = Math.random()
       }
       let otpcode = Math.floor((randOtp*10000));
-      let otpData = new Otp({
+      let find = await Otp.findOne({email:req.body.email})
+      if(find){
+        find.code = otpcode;
+        find.expireIn= new Date().getTime() + 300*1000
+        find.save()
+      }
+      else {
+        let otpData = new Otp({
           email: req.body.email,
           code:otpcode,
           expireIn: new Date().getTime() + 300*1000
-      })
-      let otpResponse = await otpData.save();
+        })
+        console.log(otpData);
+        otpResponse = await otpData.save();
+      }
       responseType.statusText = 'Success'
       mailer(req.body.email,otpcode)
       responseType.message = 'Please check your email id for OTP';
@@ -226,7 +234,6 @@ export const updateProfileController = async (req, res) => {
         name: name || user.name,
         password: hashedPassword || user.password,
         phone: phone || user.phone,
-        address: address || user.address,
       },
       { new: true }
     );

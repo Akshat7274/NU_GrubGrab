@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import "../../styles/AuthStyles.css";
+import { useAuth } from "../../context/auth";
+import LoginB from "../../components/Button/SimpleBTN";
+import {gapi} from "gapi-script"
+
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -12,8 +16,10 @@ const Register = () => {
   const [address, setAddress] = useState("");
   const [answer, setAnswer] = useState("");
   const navigate = useNavigate();
+  const [auth, setAuth] = useAuth();
 
   // form function
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -36,6 +42,17 @@ const Register = () => {
       toast.error("Something went wrong");
     }
   };
+
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId:process.env.GOOGLE_CLIENT_ID,
+        scope:""
+      })
+    };
+
+    gapi.load('client:auth2',start)
+  });
 
   return (
     <Layout title="Register - Ecommer App">
@@ -87,7 +104,7 @@ const Register = () => {
               required
             />
           </div>
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <input
               type="text"
               value={address}
@@ -97,8 +114,8 @@ const Register = () => {
               placeholder="Enter Your Address"
               required
             />
-          </div>
-          <div className="mb-3">
+          </div> */}
+          {/* <div className="mb-3">
             <input
               type="text"
               value={answer}
@@ -108,10 +125,11 @@ const Register = () => {
               placeholder="What is Your Favorite sports"
               required
             />
-          </div>
+          </div> */}
           <button type="submit" className="btn btn-primary">
             REGISTER
           </button>
+          <LoginB isIn="Up"/>
         </form>
       </div>
     </Layout>

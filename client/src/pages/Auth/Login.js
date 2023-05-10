@@ -94,7 +94,7 @@ const Login = () => {
           <button type="submit" className="btn btn-primary">
             LOGIN
           </button>
-          <LoginB />
+          <LoginB isIn="In"/>
         </form>
       </div>
     </Layout>

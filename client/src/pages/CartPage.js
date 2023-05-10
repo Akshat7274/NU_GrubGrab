@@ -131,7 +131,7 @@ const CartPage = () => {
               <p>Total | Checkout | Payment</p>
               <hr />
               <h4>Total : {totalPrice()} </h4>
-              {auth?.user?.address ? (
+              {/* {auth?.user?.address ? (
                 <>
                   <div className="mb-3">
                     <h4>Current Address</h4>
@@ -166,7 +166,7 @@ const CartPage = () => {
                     </button>
                   )}
                 </div>
-              )}
+              )} */}
               <div className="mt-2">
                 {!clientToken || !auth?.token || !cart?.length ? (
                   ""

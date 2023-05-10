@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import xyz from "./xyz.module.css"
 import axios from "axios";
 import ChangePassword from "../otpEnter/ChangePassword";
+import {message} from "antd";
 
 function OtpForm() {
     const emailRef = useRef();
@@ -20,13 +21,13 @@ function OtpForm() {
             let response = await axios(options)
             let record = response.data.responseType;
             if (record.statusText === "Success"){
-                alert("Success: " + record.message)
+                message.success("Success: " + record.message)
                 showForm(false);
             } else {
-                alert("Error: " + record.message)
+                message.error("Error: " + record.message)
             }
         } catch (error) {
-            alert("Something went Wrong!")
+            message.error("Something went Wrong!")
         }
     }
     return(

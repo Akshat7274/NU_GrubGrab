@@ -19,7 +19,6 @@ const AuthProvider = ({ children }) => {
         name: resp.data.name,
         email: resp.data.email,
         phone: resp.data.phone,
-        address: resp.data.address,
         role: resp.data.role,
       }
       console.log(user)

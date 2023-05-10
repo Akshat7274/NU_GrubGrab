@@ -102,7 +102,7 @@ const Profile = () => {
                     placeholder="Enter Your Phone"
                   />
                 </div>
-                <div className="mb-3">
+                {/* <div className="mb-3">
                   <input
                     type="text"
                     value={address}
@@ -111,7 +111,7 @@ const Profile = () => {
                     id="exampleInputEmail1"
                     placeholder="Enter Your Address"
                   />
-                </div>
+                </div> */}
 
                 <button type="submit" className="btn btn-primary">
                   UPDATE
