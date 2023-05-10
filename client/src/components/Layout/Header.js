@@ -59,7 +59,7 @@ const Header = (userDetails) => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg fixed-top custom nav-color">
+      <nav className="navbar navbar-expand-lg fixed-top custom nav-color nav-pad" >
         <div className="container-fluid ">
           <button
             className="navbar-toggler"
@@ -81,7 +81,7 @@ const Header = (userDetails) => {
             <ul className="navbar-nav  ms-auto mb-2 mb-lg-0">
               <SearchInput />
               <li className="nav-item nav-decor">
-                <NavLink to="/" className="nav-link " >
+                <NavLink to="/" className="nav-link nav-decor" >
                   Home
                 </NavLink>
               </li>
@@ -93,7 +93,7 @@ const Header = (userDetails) => {
                 >
                   Categories
                 </Link>
-                <ul className="dropdown-menu nav-decor">
+                <ul className="dropdown-menu ">
                   <li>
                     <Link className="dropdown-item" to={"/categories"}>
                       All Categories
@@ -114,12 +114,12 @@ const Header = (userDetails) => {
               {!auth?.token ? (
                 <>
                   <li className="nav-item nav-decor">
-                    <NavLink to="/register" className="nav-link">
+                    <NavLink to="/register" className="nav-link nav-decor">
                       Register
                     </NavLink>
                   </li>
                   <li className="nav-item nav-decor">
-                    <NavLink to="/login" className="nav-link">
+                    <NavLink to="/login" className="nav-link nav-decor">
                       Login
                     </NavLink>
                   </li>
@@ -142,7 +142,7 @@ const Header = (userDetails) => {
                           to={`/dashboard/${
                             auth?.user?.role === 1 ? "admin" : "user"
                           }`}
-                          className="dropdown-item nav-decor"
+                          className="dropdown-item "
                         >
                           Dashboard
                         </NavLink>
@@ -160,7 +160,7 @@ const Header = (userDetails) => {
                   </li>
                 </>
               )}
-              <li className="nav-item cart-decor">
+              <li className="nav-item ">
                 <NavLink to="/cart" className="nav-link ">
                   <Badge count={cart?.length} showZero offset={[45, -5]} className="cart-decor">
                     Cart

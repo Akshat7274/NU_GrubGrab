@@ -19,9 +19,9 @@
 .nav-color{
     background-color: #fcf8ee;
 }
-.navbar-brand{
-    margin: 0px -50px 0px 0px;
-    padding: 0px;
+.nav-pad{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .cart-decor{
@@ -29,9 +29,8 @@
     color: black;
     text-align: center;
     font-size: 18px;
-    font-family: poppins;
-    font-size: large;
-    font-weight: bold;
-    margin: 10px;
-    padding: 0px !important;
+    font-family: "poppins", sans-serif;
+    font-size: larger;
+    margin: 7px;
+    padding: 8px 10px 0px 0px !important;
 }
