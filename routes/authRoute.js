@@ -10,6 +10,7 @@ import {
   orderStatusController,
   emailSend,
   changePassword,
+  blaclistController,
 } from "../controllers/authController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 import passport from "passport";
@@ -107,7 +108,7 @@ router.get("/google", passport.authenticate("google",["profile","email"]))
 
 router.get("/logout", (req,res) => {
   req.logout();
-  res.redirect("http://localhost:3000")
+  // res.redirect("http://localhost:3000")
 })
 
 //google logout
@@ -117,6 +118,8 @@ router.post('/google/logout', function(req, res, next) {
     res.redirect('/login');
   });
 });
+
+router.post('/black', blaclistController);
 
 //update profile
 router.put("/profile", requireSignIn, updateProfileController);

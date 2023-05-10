@@ -6,6 +6,7 @@ import JWT from "jsonwebtoken";
 import User from "../models/userModel.js"
 import bcrypt from "bcrypt";
 import Otp from "../models/otp.js"
+import Webb from "../models/JWT.js"
 
 export const registerController = async (req, res) => {
   try {
@@ -93,7 +94,7 @@ export const loginController = async (req, res) => {
     }
     //token
     const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "7d",
+      expiresIn: "30m",
     });
     res.status(200).send({
       success: true,
@@ -140,7 +141,7 @@ export const emailSend = async(req, res) => {
           expireIn: new Date().getTime() + 300*1000
         })
         console.log(otpData);
-        otpResponse = await otpData.save();
+        let otpResponse = await otpData.save();
       }
       responseType.statusText = 'Success'
       mailer(req.body.email,otpcode)
@@ -197,6 +198,7 @@ export const changePassword = async(req, res) => {
           user.save();
           response.message = 'Password Changed Successfully'
           response.statusText = 'Success';
+          response.redir = "/login"
       }
   }else {
       response.message = 'Invalid OTP'
@@ -287,6 +289,29 @@ export const getAllOrdersController = async (req, res) => {
     });
   }
 };
+
+//JWT Mongo
+export const blaclistController = async(req,res) => {
+  try {
+    const token_new = req.body.token
+    // console.log(token_new);
+    const decode = JWT.verify(
+      token_new,
+      process.env.JWT_SECRET,
+    );
+    const exp_new = decode.exp;
+    const fuckedup = await new Webb({
+      JWT: token_new,
+      expireIn: exp_new,
+    })
+    // console.log(fuckedup);
+    fuckedup.save()
+    res.status(200).send("BlackListed")
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error)
+  }
+}
 
 //order status
 export const orderStatusController = async (req, res) => {

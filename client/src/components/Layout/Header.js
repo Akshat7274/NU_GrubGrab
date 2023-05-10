@@ -1,6 +1,6 @@
 import React , {useState, useEffect} from "react";
 import axios from "axios";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
 import SearchInput from "../Form/SearchInput";
@@ -11,7 +11,7 @@ import "../Layout/nav.css";
 
 const Header = (userDetails) => {
   const [user, setUser] = useState(null);
-
+  const navigate = useNavigate()
 	const getUser = async () => {
 		try {
 			const url = `/api/v1/auth/login/success`;
@@ -47,6 +47,8 @@ const Header = (userDetails) => {
       user: null,
       token: "",
     });
+    const data_new = await axios.post("/api/v1/auth/black", {token:JSON.parse(localStorage.getItem("auth")).token})
+    alert(data_new)
     localStorage.removeItem("auth");
     try {
       const data = await axios.post("/api/v1/auth/google/logout")
@@ -55,6 +57,7 @@ const Header = (userDetails) => {
       console.log(error);
     }
     toast.success("Logout Successfully");
+    navigate("/")
 
   };
   return (

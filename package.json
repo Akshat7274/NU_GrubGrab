@@ -33,6 +33,7 @@
     "nodemon": "^2.0.22",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0",
+    "razorpay": "^2.8.6",
     "react-icons": "^4.7.1",
     "react-scripts": "^5.0.1",
     "slugify": "^1.6.5"

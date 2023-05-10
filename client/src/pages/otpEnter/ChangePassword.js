@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import CP from "./changePassword.module.css";
 import axios from "axios";
 import {message} from "antd";
+import { toast } from "react-hot-toast";
 
 function ChangePassword(props) {
     const [otp,setOtp] = useState("");
@@ -24,6 +25,7 @@ function ChangePassword(props) {
                 let record = response.data.response;
                 if (record.statusText==="Success"){
                     message.success("Success: " + record.message)
+                    window.location.href = `/login`
                 } else {
                     message.error("Error: " + record.message)
                 }
@@ -31,7 +33,7 @@ function ChangePassword(props) {
                 message.error("Something went Wrong!")
             }
         } else if (otp === ""){
-            message.error("OTP has to be entered for validation")
+            toast.success("OTP has to be entered for validation")
         } else if (password === ""){
             message.error("Please provide your new password")
         } else if (confirm === ""){
@@ -60,7 +62,7 @@ function ChangePassword(props) {
                     <label>CONFIRM NEW PASSWORD</label>
                     <input onChange={e=> setConfirm(e.target.value)} placeholder="confirm your password" type="password"/>
                 </div>
-                    <Link  to="/login"><button onClick={handleSubmit} className={CP.loginBTN}>Change Password</button></Link>
+                    <button onClick={handleSubmit} className={CP.loginBTN}>Change Password</button>
             </div>
         </div>
     )

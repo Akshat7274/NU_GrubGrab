@@ -8,7 +8,6 @@ export const requireSignIn = async (req, res, next) => {
       req.headers.authorization,
       process.env.JWT_SECRET
     );
-    // console.log(decode);
     const user = await userModel.findById(decode._id)
     console.log(user);
     req.user = user;
