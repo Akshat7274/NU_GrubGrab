@@ -34,7 +34,7 @@ const SearchInput = () => {
           value={values.keyword}
           onChange={(e) => setValues({ ...values, keyword: e.target.value })}
         />
-      <button class="btn btn-outline-dark my-2 mb" type="submit">🔍</button>
+      <button class="btn btn-dark my-2 mb" type="submit">&#x1F50E;&#xFE0E;</button>
       </form>
     </div>
   );
