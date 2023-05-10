@@ -3,7 +3,8 @@
 }
 
 .banner-img {
-  margin-top: 60px;
+  margin-top: 85px;
+
 }
 
 .home-page h1 {
@@ -56,7 +57,7 @@ filters
 ============== */
 .filters{
   margin: 60px 40px 20px 20px;
-  padding: 40px 20px 40px 20px;
+  padding: 40px 40px 40px 20px;
   border-style: solid;
   border-color: black;
 

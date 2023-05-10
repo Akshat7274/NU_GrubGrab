@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.nav-decor{
+    width: 20%;
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    font-family: poppins;
+    font-size: large;
+    font-weight: bold;
+    margin: 10px;
+    padding: 0px !important;
+}
+.image{
+    width:15%; 
+    margin: 0px !important;
+}
+
+.nav-color{
+    background-color: #fcf8ee;
+}
+.navbar-brand{
+    margin: 0px -50px 0px 0px;
+    padding: 0px;
+}
+
+.cart-decor{
+    width: 20%;
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    font-family: poppins;
+    font-size: large;
+    font-weight: bold;
+    margin: 10px;
+    padding: 0px !important;
+}

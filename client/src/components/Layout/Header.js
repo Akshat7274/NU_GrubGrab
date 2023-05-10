@@ -7,6 +7,7 @@ import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import { Badge } from "antd";
+import "../Layout/nav.css";
 
 const Header = (userDetails) => {
   const [user, setUser] = useState(null);
@@ -58,8 +59,8 @@ const Header = (userDetails) => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-        <div className="container-fluid">
+      <nav className="navbar navbar-expand-lg fixed-top custom nav-color">
+        <div className="container-fluid ">
           <button
             className="navbar-toggler"
             type="button"
@@ -72,27 +73,27 @@ const Header = (userDetails) => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <Link to="/" className="navbar-brand">
-              🛒 Ecommerce App
-            </Link>
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <div >
-                <SearchInput />
-              </div>
-              <li className="nav-item">
-                <NavLink to="/" className="nav-link ">
+          <img
+                src="/images/logogg.png"
+                className="image"
+                alt="logo"
+              />
+            <ul className="navbar-nav  ms-auto mb-2 mb-lg-0">
+              <SearchInput />
+              <li className="nav-item nav-decor">
+                <NavLink to="/" className="nav-link " >
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown nav-decor ">
                 <Link
-                  className="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle nav-decor"
                   to={"/categories"}
                   data-bs-toggle="dropdown"
                 >
                   Categories
                 </Link>
-                <ul className="dropdown-menu">
+                <ul className="dropdown-menu nav-decor">
                   <li>
                     <Link className="dropdown-item" to={"/categories"}>
                       All Categories
@@ -101,7 +102,7 @@ const Header = (userDetails) => {
                   {categories?.map((c) => (
                     <li>
                       <Link
-                        className="dropdown-item"
+                        className="dropdown-item nav-decor"
                         to={`/category/${c.slug}`}
                       >
                         {c.name}
@@ -112,12 +113,12 @@ const Header = (userDetails) => {
               </li>
               {!auth?.token ? (
                 <>
-                  <li className="nav-item">
+                  <li className="nav-item nav-decor">
                     <NavLink to="/register" className="nav-link">
                       Register
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item nav-decor">
                     <NavLink to="/login" className="nav-link">
                       Login
                     </NavLink>
@@ -125,9 +126,9 @@ const Header = (userDetails) => {
                 </>
               ) : (
                 <>
-                  <li className="nav-item dropdown">
+                  <li className="nav-item dropdown nav-decor">
                     <NavLink
-                      className="nav-link dropdown-toggle"
+                      className="nav-link dropdown-toggle nav-decor"
                       href="#"
                       role="button"
                       data-bs-toggle="dropdown"
@@ -135,18 +136,18 @@ const Header = (userDetails) => {
                     >
                       {auth?.user?.name}
                     </NavLink>
-                    <ul className="dropdown-menu">
+                    <ul className="dropdown-menu nav-decor">
                       <li>
                         <NavLink
                           to={`/dashboard/${
                             auth?.user?.role === 1 ? "admin" : "user"
                           }`}
-                          className="dropdown-item"
+                          className="dropdown-item nav-decor"
                         >
                           Dashboard
                         </NavLink>
                       </li>
-                      <li>
+                      <li className=" nav-decor">
                         <NavLink
                           onClick={handleLogout}
                           to="/login"
@@ -159,9 +160,9 @@ const Header = (userDetails) => {
                   </li>
                 </>
               )}
-              <li className="nav-item">
-                <NavLink to="/cart" className="nav-link">
-                  <Badge count={cart?.length} showZero offset={[10, -5]}>
+              <li className="nav-item cart-decor">
+                <NavLink to="/cart" className="nav-link ">
+                  <Badge count={cart?.length} showZero offset={[45, -5]} className="cart-decor">
                     Cart
                   </Badge>
                 </NavLink>

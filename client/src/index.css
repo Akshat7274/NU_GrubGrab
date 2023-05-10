@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
 
 * {
-  margin: 0;
+  
   padding: 0;
   box-sizing: border-box;
 }
@@ -39,13 +39,18 @@
   margin-top: 4px;
 }
 .search-form input {
-  border: none;
+  border: #000000 solid;
+  margin: 10px !important;
   border-radius: 0;
+  width:430px !important
 }
 .search-form button {
-  background-color: #000000;
+  background-color: #fcf8ee;
   border-radius: 0;
   color: white;
+  margin-top: 10px !important;
+  width: 40px;
+  height: 40px;
 }
 
 /* =============================
