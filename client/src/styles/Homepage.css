@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
+
 .main{
   background-color: #fcf8ee;
 }
@@ -8,8 +10,8 @@
 }
 
 .home-page h1 {
-  color: gray;
-  font-family: "Playfair Display", serif;
+  color: rgb(0, 0, 0);
+  font-family:"Poppins", sans-serif;
 }
 
 .home-page {
@@ -60,6 +62,7 @@ filters
   padding: 40px 40px 40px 20px;
   border-style: solid;
   border-color: black;
+  height: fit-content;
 
 }
 .filters h4 {
@@ -81,11 +84,13 @@ filters
 }
 
 .filters button {
-  background-color: black;
+  background-color: #fcf8ee;
   width: 100%;
-  border: none;
-  border-radius: 0;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 10;
   margin-top: 20px;
+  
 }
 
 .loadmore {

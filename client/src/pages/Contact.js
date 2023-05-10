@@ -10,8 +10,8 @@ const Contact = () => {
             alt="contactus"
             style={{ width: "100%"}}
           />
-          <div>
-            <div classname="col-md-4">
+          <div classname="row " style={{display:"flex", justifyContent:"space-around", alignItems:"center"}}>
+            <div classname="col-md-6" style={{border:"4px solid", padding:"10px",borderRadius:"10px",margin:"auto 2px", maxWidth:"30rem"}}>
               <p className="text-center mt-2">
                 For any query and info about product displayed feel free to contact our team.
               </p>
@@ -22,7 +22,7 @@ const Contact = () => {
                 <BiPhoneCall /> : +91 12345 67890
               </p>
             </div>
-            <div classname="col-md-4">
+            <div classname="col-md-6" style={{border:"4px solid", padding:"10px",borderRadius:"10px",margin:"auto 2px", maxWidth:"30rem"}}>
               <p className="text-center mt-2">
                 For any food related query and info feel free to contact nescafe.
               </p>

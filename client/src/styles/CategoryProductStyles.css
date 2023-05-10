@@ -1,7 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
+
 .category {
   flex-wrap: wrap;
   margin-top: 80px !important;
+  color: rgb(0, 0, 0);
+  font-family:"Poppins", sans-serif;
 }
+
 .category .card {
   background-color: rgba(128, 128, 128, 0.097);
   width: 18rem;
@@ -20,6 +25,7 @@
   border-radius: 0;
   width: 100%;
   border-top-left-radius: 5px;
+  border-width: 2px;
   border-bottom-right-radius: 5px;
   font-size: 14px;
   font-weight: bold;

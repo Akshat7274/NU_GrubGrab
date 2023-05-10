@@ -57,7 +57,7 @@ const Register = () => {
   return (
     <Layout title="Register - NUGrubGrab">
       <div className="form-container" style={{ minHeight: "90vh" }}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-container-v2">
           <h4 className="title">REGISTER FORM</h4>
           <div className="mb-3">
             <input
@@ -126,10 +126,10 @@ const Register = () => {
               required
             />
           </div> */}
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className=" register-button">
             REGISTER
           </button>
-          <LoginB isIn="Up"/>
+          <LoginB  isIn="Up" />
         </form>
       </div>
     </Layout>
