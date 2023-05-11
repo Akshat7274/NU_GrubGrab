@@ -154,7 +154,7 @@ const HomePage = (userDetails) => {
           <div className="col-md-8 "style={{marginTop:"3rem"}}>
             <div className="d-flex flex-wrap">
               {products?.map((p) => (
-                <div className="card m-4 " key={p._id}>
+                <div className="card mt-2 m-4" key={p._id}>
                   <img
                     src={`/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
