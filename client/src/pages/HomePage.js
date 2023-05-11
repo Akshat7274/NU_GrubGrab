@@ -118,9 +118,9 @@ const HomePage = (userDetails) => {
         />
         {/* banner image */}
         <div className="container-fluid row mt-3 home-page">
-          <h1 className="text-center">All Products</h1>
-          <div className="col-md-3 filters ">
-            <h4 className="text-center">Filter-Category</h4>
+          <h1 className="text-center" style={{fontFamily:"", color:"black", fontWeight:"bolder", marginTop:"3rem"}}>CHOOSE FROM THE MENU 🍽</h1>
+          <div className="col-md-3 filters" >
+            <h4 className="text-center">FILTER-CATEGORY</h4>
             <div className="d-flex flex-column">
               {categories?.map((c) => (
                 <Checkbox
@@ -132,7 +132,7 @@ const HomePage = (userDetails) => {
               ))}
             </div>
             {/* price filter */}
-            <h4 className="text-center mt-4">Filter-Price</h4>
+            <h4 className="text-center mt-4">FILTER-PRICE</h4>
             <div className="d-flex flex-column">
               <Radio.Group onChange={(e) => setRadio(e.target.value)}>
                 {Prices?.map((p) => (
@@ -144,14 +144,14 @@ const HomePage = (userDetails) => {
             </div>
             <div className="d-flex flex-column">
               <button
-                className="btn btn-danger"
+                className="btn btn-outline-dark"
                 onClick={() => window.location.reload()}
               >
                 RESET FILTERS
               </button>
             </div>
           </div>
-          <div className="col-md-8 ">
+          <div className="col-md-8 "style={{marginTop:"3rem"}}>
             <div className="d-flex flex-wrap">
               {products?.map((p) => (
                 <div className="card m-2" key={p._id}>
@@ -159,6 +159,7 @@ const HomePage = (userDetails) => {
                     src={`/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
+                    onClick={() => navigate(`/product/${p.slug}`)}
                   />
                   <div className="card-body">
                     <div className="card-name-price">
@@ -170,7 +171,7 @@ const HomePage = (userDetails) => {
                         })}
                       </h5>
                     </div>
-                    <p className="card-text ">
+                    <p className="card-text " onClick={() => navigate(`/product/${p.slug}`)}>
                       {p.description.substring(0, 60)}...
                     </p>
                     <div className="card-name-price">

@@ -8,7 +8,7 @@ function Login(isIn) {
   return (
     <div className={styles.container}>
       <button className={styles.google_btn} onClick={googleAuth}>
-        <span>Sign {isIn.isIn} with Google</span>
+        <span>SIGN {isIn.isIn} WITH GOOGLE</span>
       </button>
     </div>
   );
