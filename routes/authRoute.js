@@ -60,9 +60,7 @@ router.get("/login/success", async (req, res) => {
           email: req.user._json.email,
           role: role,
           password: " ",
-          address: {},
           phone: " ",
-          answer: " ",
         }).save();
       }
       const find = await userModel.findOne({ email: req.user._json.email });

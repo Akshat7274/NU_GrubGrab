@@ -10,25 +10,22 @@ import Webb from "../models/JWT.js";
 
 export const registerController = async (req, res) => {
   try {
-    const { name, email, password, phone, address, answer } = req.body;
+    const { name, email, password, phone } = req.body;
     //validations
-    if (!name) {
-      return res.send({ error: "Name is Required" });
-    }
     if (!email) {
       return res.send({ message: "Email is Required" });
     }
     if (!password) {
       return res.send({ message: "Password is Required" });
     }
+    if(password.length < 6){
+      return res.send({error: "Password has to more than 6 characters"})
+    }
     if (!phone) {
       return res.send({ message: "Phone no is Required" });
     }
-    if (!address) {
-      return res.send({ message: "Address is Required" });
-    }
-    if (!answer) {
-      return res.send({ message: "Answer is Required" });
+    if(phone.length < 10){
+      return res.send({ error: "Phone no has to be of 10 digits" });
     }
     //check user
     const exisitingUser = await userModel.findOne({ email });
@@ -46,9 +43,7 @@ export const registerController = async (req, res) => {
       name,
       email,
       phone,
-      address,
       password: hashedPassword,
-      answer,
     }).save();
 
     res.status(201).send({
@@ -218,7 +213,7 @@ export const testController = (req, res) => {
 //update prfole
 export const updateProfileController = async (req, res) => {
   try {
-    const { name, email, password, address, phone } = req.body;
+    const { name, email, password, phone } = req.body;
     const user = await userModel.findById(req.user._id);
     //password
     if (password && password.length < 6) {
