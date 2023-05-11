@@ -23,7 +23,7 @@ const LandingPage = () => {
                     <div className="card-body">
                         <h3 className="card-title mb-4 mt-2 mb-4 mt-2">Tera Mera Point</h3>
                         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/coming-soon" className="btn button mb-2 mt-4">Visit Page</a>
+                        <a href="/coming-soon-tmp" className="btn button mb-2 mt-4">Visit Page</a>
                     </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@ const LandingPage = () => {
                     <div className="card-body">
                         <h3 className="card-title mb-4 mt-2">Apno Gaon</h3>
                         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/coming-soon" className="btn button mb-2 mt-4">Visit Page</a>
+                        <a href="/coming-soon-apno" className="btn button mb-2 mt-4">Visit Page</a>
                     </div>
                     </div>
                 </div>
@@ -41,9 +41,9 @@ const LandingPage = () => {
                     <div className="card" style={{width: "18rem"}}>
                     
                     <div className="card-body">
-                        <h3 className="card-title mb-4 mt-2">Silver Spoons</h3>
+                        <h3 className="card-title mb-4 mt-2">Silver Spoon</h3>
                         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/coming-soon" className="btn button mb-2 mt-4">Visit Page</a>
+                        <a href="/coming-soon-silver" className="btn button mb-2 mt-4">Visit Page</a>
                     </div>
                     </div>
                 </div>
