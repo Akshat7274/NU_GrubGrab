@@ -128,7 +128,7 @@ const CartPage = () => {
             </div>
             <div className="col-md-5 cart-summary ">
               <h2>Cart Summary</h2>
-              <p>Total | Checkout | Payment</p>
+              <h2>🛒</h2>
               <hr />
               <h4>Total : {totalPrice()} </h4>
               {/* {auth?.user?.address ? (

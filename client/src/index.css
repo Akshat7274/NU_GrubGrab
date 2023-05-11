@@ -154,11 +154,20 @@
 =================== */
 
 .dashboard {
-  margin-top: 100px !important;
+  margin-top: 90px !important;
 }
-
+.dashboard-menu{
+  margin: 2rem 0rem 2rem 4rem;
+}
 .dashboard-menu h4 {
-  background-color: #434343 !important;
+  background: linear-gradient(to right, rgba(244,205,50,1), rgba(239,113,34,1), rgba(194,74,0,1)) !important;
   color: white;
-  padding: 20px 0px;
+  padding: 30px 0px;
+  margin-right: -30px;
+}
+.contain{
+  padding: 2rem;
+  margin: 8px;
+  box-shadow: 0px 0px 40px inset rgba(194,74,0,1);
+  border-radius: 0.25rem;
 }
