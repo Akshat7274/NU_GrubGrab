@@ -26,8 +26,8 @@ const CategoryProduct = () => {
 
   return (
     <Layout>
-      <div className="container mt-3 category" >
-        <h1 className="text-center" style={{fontFamily:"", color:"black", fontWeight:"bolder", marginTop:"8rem"}}>Category - {category?.name}</h1>
+      <div className="container mt-3 category" style={{marginTop:"2rem"}}>
+        <h1 className="text-center" style={{fontFamily:"", color:"black", fontWeight:"bolder", padding:"2rem"}}>Category - {category?.name}</h1>
         <h4 className="text-center">{products?.length} Result Found </h4>
         <div className="row">
           <div className="col-md-9 offset-1">
