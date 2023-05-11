@@ -1,20 +1,24 @@
 
 .google_btn {
-    width: 230px;
-    height: 40px;
-    border-radius: 5px;
-    border: none !important;
-    background-color: rgb(255, 36, 36) !important;
-    font-size: 16px;
-    font-weight: 500;
-    margin: 15px 0 20px 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: .5rem;
+    font-size: medium;
+    font-weight: bolder;
+    margin-top: 0px;
+    margin-bottom: 7px;
+    background-color: white;
+    color:black;
+    transition: all 0.4s;
+    margin-top: 20px;
 }
-
+.google_btn:hover{
+    transition: all 0.4s;
+    background-color: rgb(255, 0, 0);
+    border: 1px solid white;
+    color: white;
+}
 .google_btn > img{
     width: 30px;
     height: 30px;

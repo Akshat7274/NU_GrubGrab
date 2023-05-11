@@ -11,7 +11,7 @@ const Layout = ({ children, title, description, keywords, author, userDetails })
   //   setUser(userDetails.user);
   // }
   return (
-    <div>
+    <div style={{backgroundColor:"#fcf8ee"}}>
       <Helmet>
         <meta charSet="utf-8" />
         <meta name="description" content={description} />

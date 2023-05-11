@@ -126,10 +126,10 @@ const Register = () => {
               required
             />
           </div> */}
-          <button type="submit" className=" register-button">
+          <button type="submit" className="register-button">
             REGISTER
           </button>
-          <LoginB  isIn="Up" />
+          <LoginB  isIn="UP" />
         </form>
       </div>
     </Layout>

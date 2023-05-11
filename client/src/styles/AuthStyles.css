@@ -45,32 +45,13 @@
   border: 1px solid white;
   color: black;
 }
-.backBTN{
-    border: none;
-    width: 100%;
-    padding: 15px;
-    border-radius: .5rem;
-    font-size: medium;
-    font-weight: bolder;
-    margin-top: 0px;
-    margin-bottom: 7px;
-    background-color: white;
-    color:black;
-    transition: all 0.4s;
-    margin-top: 20px;
+
+.forgot {
+  color: black;
+  text-align: right;
 }
 
-.backBTN:hover{
-    transition: all 0.4s;
-    background-color: orange;
-    border: 1px solid white;
-    color: white;
-}
-.forgot-btn {
-  background-color: #434343a4 !important;
-  border: 0 !important;
-}
+.forgot:hover {
 
-.forgot-btn:hover {
-  color: white !important;
+  color: rgb(0, 102, 255);
 }
