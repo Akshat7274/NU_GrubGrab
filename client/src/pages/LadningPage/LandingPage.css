@@ -1,0 +1,20 @@
+.megadiv {
+    margin-top: 110px;
+    margin-bottom: -50px;
+}
+
+.button {
+    background: linear-gradient(to right, rgba(255, 204, 0, 0.733), rgba(239,113,34,1), rgba(194,74,0,1));
+    color:white;
+    border: none;
+    font-weight: 600;
+}
+
+.subdiv {
+    margin: 25px;
+    
+}
+
+.card {
+    border: 2px orange solid;
+}

@@ -27,6 +27,8 @@ import CartPage from "./pages/CartPage";
 import AdminOrders from "./pages/Admin/AdminOrders";
 import OtpForm from "./pages/otp/OtpForm";
 import {message} from "antd"
+import LandingPage from "./pages/LadningPage/LandingPage";
+import Comingsoon from "./pages/LadningPage/ComingSoon";
 
 
 function App() {
@@ -49,7 +51,9 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomePage user={user} />} />
+        <Route path="/" element={<LandingPage></LandingPage>} />
+        <Route path="/coming-soon" element={<Comingsoon />} />
+        <Route path="/nescafe" element={<HomePage user={user} />} />
         <Route path="/product/:slug" element={<ProductDetails />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/cart" element={<CartPage />} />
