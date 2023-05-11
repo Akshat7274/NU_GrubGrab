@@ -51,9 +51,9 @@ const Login = () => {
     }
   };
   return (
-    <Layout title="Register - Ecommer App">
+    <Layout title="Login - NU GrubGrab">
       <div className="form-container " style={{ minHeight: "90vh" }}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-container-v2">
           <h4 className="title">LOGIN FORM</h4>
 
           <div className="mb-3">
@@ -80,18 +80,18 @@ const Login = () => {
             />
           </div>
           <div className="mb-3">
-            <button
+            <p
               type="button"
-              className="btn forgot-btn"
+              className="forgot"
               onClick={() => {
                 navigate("/forgot-password");
               }}
             >
-              Forgot Password
-            </button>
+              Forgot Password?
+            </p>
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="register-button">
             LOGIN
           </button>
           <LoginB isIn="In"/>
