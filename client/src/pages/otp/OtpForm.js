@@ -4,6 +4,7 @@ import xyz from "./xyz.module.css"
 import axios from "axios";
 import ChangePassword from "../otpEnter/ChangePassword";
 import {message} from "antd";
+import Layout from "../../components/Layout/Layout";
 
 function OtpForm() {
     const emailRef = useRef();
@@ -31,26 +32,28 @@ function OtpForm() {
         }
     }
     return(
-        <div className={xyz.loginContainer}>
-            <div className="row login">
-                <div className="col-md-2">
+        <Layout title={"Forgot Password"}>
+            <div className={xyz.loginContainer} style={{marginTop:"70px", marginBottom:"-60px"}}>
+                <div className="row login">
+                    <div className="col-md-2">
+                    </div>
+                    {otpForm ? (<div className={xyz.loginContainerv2}>
+                        <h3 style={{textAlign:"center"}}>FORGOT PASSWROD</h3><br />
+                        <form autoComplete="off" id="otpForm" >
+                        <div className={xyz.inputContainer}>
+                            <label className="form-label">EMAIL</label>
+                            <input type="email" className="form-control" placeholder="Enter the email" name="email" ref={emailRef} autoComplete="off" />
+                        </div>
+                        <div >
+                            <button type="submit" className={xyz.loginBTN} onClick={sendOtp}>Send OTP</button>&nbsp;
+                            <Link to="/account/login"><button type="button" className={xyz.backBTN} >Back</button></Link>
+                        </div>
+                        </form>
+                    </div>) : 
+                        (<ChangePassword>{emailRef.current.value}</ChangePassword>)}
                 </div>
-                {otpForm ? (<div className={xyz.loginContainerv2}>
-                    <h3>Forgot Password</h3><br />
-                    <form autoComplete="off" id="otpForm" >
-                    <div className={xyz.inputContainer}>
-                        <label className="form-label">EMAIL</label>
-                        <input type="email" className="form-control" name="email" ref={emailRef} autoComplete="off" />
-                    </div>
-                    <div >
-                        <button type="submit" className={xyz.loginBTN} onClick={sendOtp}>Send OTP</button>&nbsp;
-                        <Link to="/account/login"><button type="button" className={xyz.backBTN} >Back</button></Link>
-                    </div>
-                    </form>
-                </div>) : 
-                    (<ChangePassword>{emailRef.current.value}</ChangePassword>)}
             </div>
-        </div>
+        </Layout>
     )
 }
 

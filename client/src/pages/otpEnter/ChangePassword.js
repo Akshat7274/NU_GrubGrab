@@ -44,20 +44,18 @@ function ChangePassword(props) {
     }
 
     return (
-        <div className={CP.loginContainer}>
+    
+        <div className={CP.loginContainer} >
             <div className={CP.loginContainerv2}>
-                <h1>Reset Password</h1>
-
+                <h1>RESET PASSWORD</h1>
                 <div className={CP.inputContainer}>
                     <label>OTP</label>
                     <input onChange={e=> setOtp(e.target.value)} placeholder="Enter the OTP" type="text"/>
                 </div>
-
                 <div className={CP.inputContainer}>
                     <label>NEW PASSWORD</label>
                     <input onChange={e=> setPassword(e.target.value)} placeholder="enter your new password" type="password"/>
                 </div>
-
                 <div className={CP.inputContainer}>
                     <label>CONFIRM NEW PASSWORD</label>
                     <input onChange={e=> setConfirm(e.target.value)} placeholder="confirm your password" type="password"/>
@@ -65,6 +63,7 @@ function ChangePassword(props) {
                     <button onClick={handleSubmit} className={CP.loginBTN}>Change Password</button>
             </div>
         </div>
+    
     )
 }
 

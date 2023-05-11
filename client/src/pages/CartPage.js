@@ -84,14 +84,14 @@ const CartPage = () => {
           <div className="col-md-12">
             <h1 className="text-center bg-light p-2 mb-1">
               {!auth?.token
-                ? "Hello Guest"
-                : `Hello  ${auth?.user?.name}`}
+                ? "Hello Guest!!"
+                : `Hello  ${auth?.user?.name} !!`}
               <p className="text-center">
                 {cart?.length
-                  ? `You Have ${cart.length} items in your cart ${
+                  ? `You have ${cart.length} items in your cart ${
                       auth?.token ? "" : "please login to checkout !"
                     }`
-                  : " Your Cart Is Empty"}
+                  : " Your Cart Is Empty!"}
               </p>
             </h1>
           </div>
@@ -117,7 +117,7 @@ const CartPage = () => {
                   </div>
                   <div className="col-md-4 cart-remove-btn">
                     <button
-                      className="btn btn-danger"
+                      className="btn btn-outline-dark" style={{border:"2px solid"}}
                       onClick={() => removeCartItem(p._id)}
                     >
                       Remove
@@ -128,7 +128,7 @@ const CartPage = () => {
             </div>
             <div className="col-md-5 cart-summary ">
               <h2>Cart Summary</h2>
-              <p>Total | Checkout | Payment</p>
+              <h2>🛒</h2>
               <hr />
               <h4>Total : {totalPrice()} </h4>
               {/* {auth?.user?.address ? (
