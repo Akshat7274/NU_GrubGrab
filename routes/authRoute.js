@@ -115,7 +115,7 @@ router.get("/logout", (req,res) => {
 router.post('/google/logout', function(req, res, next) {
   req.logout(function(err) {
     if (err) { return next(err); }
-    res.redirect('/login');
+    // res.redirect('/login');
   });
 });
 
