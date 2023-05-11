@@ -10,11 +10,10 @@ const { Option } = Select;
 
 const AdminOrders = () => {
   const [status, setStatus] = useState([
-    "Not Process",
+    "Not Processed",
     "Processing",
-    "Shipped",
-    "deliverd",
-    "cancel",
+    "Prepared",
+    "Cancelled",
   ]);
   const [changeStatus, setCHangeStatus] = useState("");
   const [orders, setOrders] = useState([]);
@@ -44,12 +43,12 @@ const AdminOrders = () => {
   };
   return (
     <Layout title={"All Orders Data"}>
-      <div className="row dashboard">
-        <div className="col-md-3">
+      <div className="row dashboard" style={{marginTop:"30rem"}}>
+        <div className="col-md-4">
           <AdminMenu />
         </div>
-        <div className="col-md-9">
-          <h1 className="text-center">All Orders</h1>
+        <div className="col-md-6" style={{marginLeft:"10rem",marginTop:"2rem",padding:"3rem", alignItems:"center", border:"0.2rem solid", borderRadius:"2rem", borderColor:"rgba(194,74,0,1)"}}>
+        <h1 className="text-center" style={{paddingBottom:"2rem"}} >ALL ORDERS</h1>
           {orders?.map((o, i) => {
             return (
               <div className="border shadow">

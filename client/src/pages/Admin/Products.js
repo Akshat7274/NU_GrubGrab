@@ -25,17 +25,18 @@ const Products = () => {
   return (
     <Layout>
       <div className="row dashboard">
-       <h1 className="text-center" style={{ margin:"40px"}}>ALL PRODUCT LIST</h1>
-        <div className="col-md-3">
+       
+        <div className="col-md-4">
           <AdminMenu />
         </div>
-        <div className="col-md-9 " style={{paddingLeft:"5rem"}}>
-          <div className="d-flex flex-wrap" >
+        <div className="col-md-9"  style={{margin:"auto",padding:"60px", alignItems:"center", border:"0.2rem solid", borderRadius:"2rem", borderColor:"rgba(194,74,0,1)"}}>
+          <h1 style={{textAlign:"center", padding:"2rem"}}>ALL PRODUCT LIST</h1>
+          <div className="d-flex flex-wrap" style={{justifyContent:"center"}}>
             {products?.map((p) => (
               <Link
                 key={p._id}
                 to={`/dashboard/admin/product/${p.slug}`}
-                className="product-link" style={{margin:"1.5rem"}}
+                className="product-link" style={{margin:"0.5rem"}}
               >
                 <div className="card m-2" style={{ width: "18rem",  }}>
                   <img
