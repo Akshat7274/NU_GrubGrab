@@ -36,7 +36,8 @@
 }
 
 .category .card img:hover {
-  transform: scale(0.9);
+  transform: scale(0.93);
+  transition: transform 330ms ease-in-out;
 }
 
 .category .card-img-top {

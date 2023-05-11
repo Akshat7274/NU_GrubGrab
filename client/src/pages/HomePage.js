@@ -154,11 +154,12 @@ const HomePage = (userDetails) => {
           <div className="col-md-8 "style={{marginTop:"3rem"}}>
             <div className="d-flex flex-wrap">
               {products?.map((p) => (
-                <div className="card mt-2 m-4" key={p._id}>
+                <div className="card m-2" key={p._id}>
                   <img
                     src={`/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
+                    onClick={() => navigate(`/product/${p.slug}`)}
                   />
                   <div className="card-body">
                     <div className="card-name-price">
@@ -170,7 +171,7 @@ const HomePage = (userDetails) => {
                         })}
                       </h5>
                     </div>
-                    <p className="card-text ">
+                    <p className="card-text " onClick={() => navigate(`/product/${p.slug}`)}>
                       {p.description.substring(0, 60)}...
                     </p>
                     <div className="card-name-price">
