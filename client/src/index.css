@@ -3,6 +3,7 @@
 * {
   
   padding: 0;
+  
   box-sizing: border-box;
 }
 
@@ -59,8 +60,12 @@
 ==========footer============= */
 
 .footer {
+  clear: both;
+  position: relative;
+  margin-top: 55px; 
   color: white;
   padding: 25px;
+  margin-bottom: 0px;
   text-align: center;
   background: #000000; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -114,8 +119,9 @@
 /* ========================================= */
 /* =========contact us ========= */
 .contactus {
-  margin-top: 80px;
+  margin-top: 30px;
   padding: 0;
+  
   height: 70vh;
   display: flex;
   align-items: center;
@@ -125,7 +131,9 @@
   font-size: larger;
   font-weight: bolder;
 }
-
+.megadiv{
+  display: flex !important;
+}
 /* ==================== */
 .product-link {
   text-decoration: none !important;
