@@ -14,7 +14,7 @@ const Products = () => {
       setProducts(data.products);
     } catch (error) {
       console.log(error);
-      toast.error("Someething Went Wrong");
+      toast.error("Something Went Wrong");
     }
   };
 
@@ -25,19 +25,19 @@ const Products = () => {
   return (
     <Layout>
       <div className="row dashboard">
+       <h1 className="text-center" style={{ margin:"40px"}}>ALL PRODUCT LIST</h1>
         <div className="col-md-3">
           <AdminMenu />
         </div>
-        <div className="col-md-9 ">
-          <h1 className="text-center" style={{}}>All Products List</h1>
-          <div className="d-flex flex-wrap">
+        <div className="col-md-9 " style={{paddingLeft:"5rem"}}>
+          <div className="d-flex flex-wrap" >
             {products?.map((p) => (
               <Link
                 key={p._id}
                 to={`/dashboard/admin/product/${p.slug}`}
-                className="product-link"
+                className="product-link" style={{margin:"1.5rem"}}
               >
-                <div className="card m-2" style={{ width: "18rem" }}>
+                <div className="card m-2" style={{ width: "18rem",  }}>
                   <img
                     src={`/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
