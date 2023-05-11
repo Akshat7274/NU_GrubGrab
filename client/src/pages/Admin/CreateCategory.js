@@ -39,7 +39,7 @@ const CreateCategory = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something wwent wrong in getting catgeory");
+      toast.error("Something went wrong in getting catgeory");
     }
   };
 
@@ -92,17 +92,17 @@ const CreateCategory = () => {
           <div className="col-md-3">
             <AdminMenu />
           </div>
-          <div className="col-md-9">
-            <h1>Manage Category</h1>
-            <div className="p-3 w-50">
+          <div className="col-md-6" style={{marginLeft:"10rem",padding:"60px", alignItems:"center", border:"0.2rem solid", borderRadius:"2rem", borderColor:"rgba(194,74,0,1)"}}>
+            <h1 style={{textAlign:"center"}}>MANAGE CATEGORY</h1>
+            <div className="">
               <CategoryForm
                 handleSubmit={handleSubmit}
                 value={name}
                 setValue={setName}
               />
             </div>
-            <div className="w-75">
-              <table className="table">
+            <div className="" style={{padding:"2rem"}}>
+              <table className="table" >
                 <thead>
                   <tr>
                     <th scope="col">Name</th>
@@ -116,7 +116,7 @@ const CreateCategory = () => {
                         <td key={c._id}>{c.name}</td>
                         <td>
                           <button
-                            className="btn btn-primary ms-2"
+                            className="btn btn-outline-success ms-2"
                             onClick={() => {
                               setVisible(true);
                               setUpdatedName(c.name);

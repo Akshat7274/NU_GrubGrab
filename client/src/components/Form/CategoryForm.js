@@ -14,7 +14,7 @@ const CategoryForm = ({ handleSubmit, value, setValue }) => {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-success" style={{width:"100%"}}>
           Submit
         </button>
       </form>

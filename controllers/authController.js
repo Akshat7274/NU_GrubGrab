@@ -3,10 +3,10 @@ import orderModel from "../models/orderModel.js";
 import nodemailer from "nodemailer";
 import { comparePassword, hashPassword } from "./../helpers/authHelper.js";
 import JWT from "jsonwebtoken";
-import User from "../models/userModel.js"
+import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
-import Otp from "../models/otp.js"
-import Webb from "../models/JWT.js"
+import Otp from "../models/otp.js";
+import Webb from "../models/JWT.js";
 
 export const registerController = async (req, res) => {
   try {
@@ -119,96 +119,91 @@ export const loginController = async (req, res) => {
   }
 };
 
-export const emailSend = async(req, res) => {
-  const data = await User.findOne({email:req.body.email});
-  const responseType = {}
-  if(data){
-      var randOtp = Math.random()
-      while (randOtp<0.1){
-          randOtp = Math.random()
-      }
-      let otpcode = Math.floor((randOtp*10000));
-      let find = await Otp.findOne({email:req.body.email})
-      if(find){
-        find.code = otpcode;
-        find.expireIn= new Date().getTime() + 300*1000
-        find.save()
-      }
-      else {
-        let otpData = new Otp({
-          email: req.body.email,
-          code:otpcode,
-          expireIn: new Date().getTime() + 300*1000
-        })
-        console.log(otpData);
-        let otpResponse = await otpData.save();
-      }
-      responseType.statusText = 'Success'
-      mailer(req.body.email,otpcode)
-      responseType.message = 'Please check your email id for OTP';
-  }else{
-      responseType.statusText = 'Error'
-      responseType.message = "Email id doesn't exist";
+export const emailSend = async (req, res) => {
+  const data = await User.findOne({ email: req.body.email });
+  const responseType = {};
+  if (data) {
+    var randOtp = Math.random();
+    while (randOtp < 0.1) {
+      randOtp = Math.random();
+    }
+    let otpcode = Math.floor(randOtp * 10000);
+    let find = await Otp.findOne({ email: req.body.email });
+    if (find) {
+      find.code = otpcode;
+      find.expireIn = new Date().getTime() + 300 * 1000;
+      find.save();
+    } else {
+      let otpData = new Otp({
+        email: req.body.email,
+        code: otpcode,
+        expireIn: new Date().getTime() + 300 * 1000,
+      });
+      console.log(otpData);
+      let otpResponse = await otpData.save();
+    }
+    responseType.statusText = "Success";
+    mailer(req.body.email, otpcode);
+    responseType.message = "Please check your email id for OTP";
+  } else {
+    responseType.statusText = "Error";
+    responseType.message = "Email id doesn't exist";
   }
-  res.status(200).json({responseType});
-}
+  res.status(200).json({ responseType });
+};
 
-const mailer = (email,otp) =>{
+const mailer = (email, otp) => {
   // var nodemailer = require('nodemailer');
   var transporter = nodemailer.createTransport({
-      service:'gmail',
-      auth: {
-          user: 'nugrubgrab@gmail.com',
-          pass: 'sogabipyglqkfsda'
-      },
-      tls : { rejectUnauthorized: false }
+    service: "gmail",
+    auth: {
+      user: "nugrubgrab@gmail.com",
+      pass: "sogabipyglqkfsda",
+    },
+    tls: { rejectUnauthorized: false },
   });
 
   var mailOptions = {
-      from: 'nugrubgrab@gmail.com',
-      to: email,
-      subject: 'OTP from NU GrubGrab',
-      text: 'Thank you\nHere is your OTP: ' + otp
+    from: "nugrubgrab@gmail.com",
+    to: email,
+    subject: "OTP from NU GrubGrab",
+    text: "Thank you\nHere is your OTP: " + otp,
   };
 
-  transporter.sendMail(mailOptions, function(error,info){
-      if(error){
-          console.log(error);
-      }
-      else {
-          console.log('Email sent: ' + info.response);
-      }
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
   });
-}
+};
 
-export const changePassword = async(req, res) => {
-  let fnd = await Otp.find({email:req.body.email,code:req.body.otpcode});
-  let data = fnd[0]
+export const changePassword = async (req, res) => {
+  let fnd = await Otp.find({ email: req.body.email, code: req.body.otpcode });
+  let data = fnd[0];
   const response = {};
-  if(data){
-      let currentTime = new Date().getTime();
-      let diff = data.expireIn - currentTime;
-      if(diff < 0){
-          response.message = 'Token expired'
-          response.statusText = 'error'
-      } else {
-          let user = await User.findOne({email:req.body.email})
-          const hashedPassword = await bcrypt.hash(req.body.password, 12)
-          user.password = hashedPassword;
-          user.save();
-          response.message = 'Password Changed Successfully'
-          response.statusText = 'Success';
-          response.redir = "/login"
-      }
-  }else {
-      response.message = 'Invalid OTP'
-      response.statusText = 'error'
+  if (data) {
+    let currentTime = new Date().getTime();
+    let diff = data.expireIn - currentTime;
+    if (diff < 0) {
+      response.message = "Token expired";
+      response.statusText = "error";
+    } else {
+      let user = await User.findOne({ email: req.body.email });
+      const hashedPassword = await bcrypt.hash(req.body.password, 12);
+      user.password = hashedPassword;
+      user.save();
+      response.message = "Password Changed Successfully";
+      response.statusText = "Success";
+      response.redir = "/login";
+    }
+  } else {
+    response.message = "Invalid OTP";
+    response.statusText = "error";
   }
-  res
-      .status(200)
-      .json({response})
-}
-
+  res.status(200).json({ response });
+};
 
 //test controller
 export const testController = (req, res) => {
@@ -291,27 +286,24 @@ export const getAllOrdersController = async (req, res) => {
 };
 
 //JWT Mongo
-export const blaclistController = async(req,res) => {
+export const blaclistController = async (req, res) => {
   try {
-    const token_new = req.body.token
+    const token_new = req.body.token;
     // console.log(token_new);
-    const decode = JWT.verify(
-      token_new,
-      process.env.JWT_SECRET,
-    );
+    const decode = JWT.verify(token_new, process.env.JWT_SECRET);
     const exp_new = decode.exp;
-    const fuckedup = await new Webb({
+    const invalidate = await new Webb({
       JWT: token_new,
       expireIn: exp_new,
-    })
-    // console.log(fuckedup);
-    fuckedup.save()
-    res.status(200).send("BlackListed")
+    });
+    // console.log(invalidate);
+    invalidate.save();
+    res.status(200).send("BlackListed");
   } catch (error) {
     console.log(error);
-    res.status(500).json(error)
+    res.status(500).json(error);
   }
-}
+};
 
 //order status
 export const orderStatusController = async (req, res) => {

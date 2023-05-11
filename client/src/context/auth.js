@@ -14,6 +14,9 @@ const AuthProvider = ({ children }) => {
   const fetchUserDetails = async (token) => {
     try {
       const resp = await axios.post("/api/v1/auth/user-token",{token:token})
+      if(resp.status === 400){
+        localStorage.removeItem("auth")
+      }
       const user = {
         _id: resp.data._id,
         name: resp.data.name,

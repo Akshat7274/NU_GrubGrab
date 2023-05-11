@@ -41,21 +41,21 @@ const Header = (userDetails) => {
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
   const categories = useCategory();
+
+  const blacklist = async () => {
+    const jwt = JSON.parse(localStorage.getItem("auth")).token
+    const data_new = await axios.post("/api/v1/auth/black", {token:jwt})
+  }
+
   const handleLogout = async () => {
     setAuth({
       ...auth,
       user: null,
       token: "",
     });
-    const data_new = await axios.post("/api/v1/auth/black", {token:JSON.parse(localStorage.getItem("auth")).token})
-    alert(data_new)
-    localStorage.removeItem("auth");
-    try {
-      const data = await axios.post("/api/v1/auth/google/logout")
-      toast.success("Google Logout handled")
-    } catch (error) {
-      console.log(error);
-    }
+    blacklist()
+    localStorage.removeItem("auth")
+    const data = await axios.post("/api/v1/auth/google/logout")
     toast.success("Logout Successfully");
     navigate("/")
 

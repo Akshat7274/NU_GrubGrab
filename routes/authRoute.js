@@ -15,6 +15,7 @@ import {
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 import passport from "passport";
 import JWT from "jsonwebtoken";
+import Webb from "../models/JWT.js";
 
 //router object
 const router = express.Router();
@@ -45,20 +46,18 @@ router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
 
 //google login
 
-router.get("/login/success", async(req,res) => {
-  if(req.user) {
+router.get("/login/success", async (req, res) => {
+  if (req.user) {
     try {
-      
-      const user = await userModel.findOne({email: req.user._json.email});
-      var role = 0
-      if (user && user.role===1){
-        role = 1
-      }
-      else if(!user){
+      const user = await userModel.findOne({ email: req.user._json.email });
+      var role = 0;
+      if (user && user.role === 1) {
+        role = 1;
+      } else if (!user) {
         console.log("HEYYY");
         const user = await new userModel({
-          name:req.user._json.name,
-          email:req.user._json.email,
+          name: req.user._json.name,
+          email: req.user._json.email,
           role: role,
           password: " ",
           address: {},
@@ -66,7 +65,7 @@ router.get("/login/success", async(req,res) => {
           answer: " ",
         }).save();
       }
-      const find = await userModel.findOne({email:req.user._json.email})
+      const find = await userModel.findOne({ email: req.user._json.email });
       const token = await JWT.sign({ _id: find._id }, process.env.JWT_SECRET, {
         expiresIn: "7d",
       });
@@ -82,44 +81,48 @@ router.get("/login/success", async(req,res) => {
         phone: "",
         _id: req.user.id,
         role: role,
-      })
+      });
     } catch (error) {
       console.log(error);
     }
+  } else {
+    res.status(403).json({ error: true, message: "Not Authorized" });
   }
-  else{
-    res.status(403).json({error:true,message:"Not Authorized"})
-  }
-})
+});
 
-router.get("/login/failed", (req,res) => {
+router.get("/login/failed", (req, res) => {
   res.status(401).json({
-    error:true,
-    message:"Log in failure"
-  })
-})
-
-router.get("/google/callback", passport.authenticate("google",{
-  successRedirect: "http://localhost:3000",
-  failureRedirect: "/login/failed",
-}))
-
-router.get("/google", passport.authenticate("google",["profile","email"]))
-
-router.get("/logout", (req,res) => {
-  req.logout();
-  // res.redirect("http://localhost:3000")
-})
-
-//google logout
-router.post('/google/logout', function(req, res, next) {
-  req.logout(function(err) {
-    if (err) { return next(err); }
-    res.redirect('/login');
+    error: true,
+    message: "Log in failure",
   });
 });
 
-router.post('/black', blaclistController);
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "http://localhost:3000",
+    failureRedirect: "/login/failed",
+  })
+);
+
+router.get("/google", passport.authenticate("google", ["profile", "email"]));
+
+router.get("/logout", (req, res) => {
+  req.logout();
+  // res.redirect("http://localhost:3000")
+});
+
+//google logout
+router.post("/google/logout", function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    // res.redirect('/login');
+  });
+});
+
+router.post("/black", blaclistController);
 
 //update profile
 router.put("/profile", requireSignIn, updateProfileController);
@@ -138,20 +141,22 @@ router.put(
   orderStatusController
 );
 
-router.post("/user-token", async (req,res) => {
+router.post("/user-token", async (req, res) => {
   try {
-    const token = req.body.token
-    const decode = JWT.verify(
-      token,
-      process.env.JWT_SECRET
-    );
-    const user = await userModel.findById(decode._id)
-    console.log(user)
-    res.status(200).json(user)
-  } catch (error) {
+    const token = req.body.token;
+    const invalid_check = await Webb.findOne({ JWT: token });
+    if (!invalid_check) {
+      const decode = JWT.verify(token, process.env.JWT_SECRET);
+      const user = await userModel.findById(decode._id);
+      console.log(user);
+      res.status(200).json(user);
+    }else{
+      res.status(400).send("Invalid Token")
+    }
+  }catch (error) {
     console.log(error);
-    res.status(500).json(error)
+    res.status(500).json(error);
   }
-})
+});
 
 export default router;
