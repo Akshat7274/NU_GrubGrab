@@ -94,7 +94,7 @@ const Login = () => {
           <button type="submit" className="register-button">
             LOGIN
           </button>
-          <LoginB isIn="In"/>
+          <LoginB isIn="IN"/>
         </form>
       </div>
     </Layout>

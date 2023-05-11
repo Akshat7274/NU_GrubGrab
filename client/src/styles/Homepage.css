@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400&display=swap");
 
 .main{
   background-color: #fcf8ee;
@@ -11,7 +11,7 @@
 
 .home-page h1 {
   color: rgb(0, 0, 0);
-  font-family:"Montserrat", sans-serif;
+  font-family:"Lato", sans-serif;
 }
 
 .home-page {
