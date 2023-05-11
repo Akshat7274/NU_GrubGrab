@@ -13,10 +13,10 @@ const AdminDashboard = () => {
           </div>
           <div className="col-md-8 div-container">
             <div className=" div-container-v2" >
-              <h3> Admin Name : {auth?.user?.name}</h3>
-              <h3> Admin Email : {auth?.user?.email}</h3>
-              <h3> Admin Contact : {auth?.user?.phone}</h3>
-              <h3> Admin Info : XYZ</h3>
+              <h3 style={{lineHeight:"3rem"}}> Admin Name : {auth?.user?.name}</h3>
+              <h3 style={{lineHeight:"3rem"}}> Admin Email : {auth?.user?.email}</h3>
+              <h3 style={{lineHeight:"3rem"}}> Admin Contact : {auth?.user?.phone}</h3>
+              <h3 style={{lineHeight:"3rem"}}> Admin Info : XYZ</h3>
             </div>
           </div>
         </div>
