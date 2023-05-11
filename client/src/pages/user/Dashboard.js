@@ -11,10 +11,10 @@ const Dashboard = () => {
           <div className="col-md-3">
             <UserMenu />
           </div>
-          <div className="col-md-9">
-            <div className="card w-75 p-3">
-              <h3>{auth?.user?.name}</h3>
-              <h3>{auth?.user?.email}</h3>
+          <div className="col-md-8 div-container">
+            <div className="div-container-v2">
+              <h3 style={{lineHeight:"3rem"}}> Admin Name : {auth?.user?.name}</h3>
+              <h3 style={{lineHeight:"3rem"}}> Admin Email : {auth?.user?.email}</h3>
             </div>
           </div>
         </div>
