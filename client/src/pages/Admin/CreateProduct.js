@@ -64,8 +64,8 @@ const CreateProduct = () => {
 
   return (
     <Layout title={"Dashboard - Create Product"}>
-      <div className="container-fluid m-3 p-3 dashboard">
-        <div className="row">
+      
+        <div className="row dashboard">
           <div className="col-md-4">
             <AdminMenu />
           </div>
@@ -149,7 +149,7 @@ const CreateProduct = () => {
                   onChange={(e) => setQuantity(e.target.value)}
                 />
               </div>
-              <div className="mb-3">
+              {/* <div className="mb-3">
                 <Select
                   bordered={false}
                   placeholder="Select Shipping "
@@ -163,7 +163,7 @@ const CreateProduct = () => {
                   <Option value="0">No</Option>
                   <Option value="1">Yes</Option>
                 </Select>
-              </div>
+              </div> */}
               <div className="mb-3">
                 <button className="btn btn-outline-dark" onClick={handleCreate}>
                   CREATE PRODUCT
@@ -172,7 +172,6 @@ const CreateProduct = () => {
             </div>
           </div>
         </div>
-      </div>
     </Layout>
   );
 };

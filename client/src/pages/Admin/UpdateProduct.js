@@ -103,14 +103,13 @@ const UpdateProduct = () => {
   };
   return (
     <Layout title={"Dashboard - Create Product"}>
-      <div className="container-fluid m-3 p-3">
-        <div className="row">
-          <div className="col-md-3">
+        <div className="row dashboard">
+          <div className="col-md-4">
             <AdminMenu />
           </div>
-          <div className="col-md-9">
-            <h1>Update Product</h1>
-            <div className="m-1 w-75">
+          <div className="col-md-6" style={{marginLeft:"10rem",padding:"60px", alignItems:"center", border:"0.2rem solid", borderRadius:"2rem", borderColor:"rgba(194,74,0,1)"}}>
+            <h1>UPDATE PRODUCTt</h1>
+            <div className="">
               <Select
                 bordered={false}
                 placeholder="Select a category"
@@ -129,8 +128,8 @@ const UpdateProduct = () => {
                 ))}
               </Select>
               <div className="mb-3">
-                <label className="btn btn-outline-secondary col-md-12">
-                  {photo ? photo.name : "Upload Photo"}
+                <label className="btn btn-dark col-md-12">
+                  {photo ? photo.name : "Upload Photo ↓"}
                   <input
                     type="file"
                     name="photo"
@@ -198,7 +197,7 @@ const UpdateProduct = () => {
                   onChange={(e) => setQuantity(e.target.value)}
                 />
               </div>
-              <div className="mb-3">
+              {/* <div className="mb-3">
                 <Select
                   bordered={false}
                   placeholder="Select Shipping "
@@ -213,9 +212,9 @@ const UpdateProduct = () => {
                   <Option value="0">No</Option>
                   <Option value="1">Yes</Option>
                 </Select>
-              </div>
+              </div> */}
               <div className="mb-3">
-                <button className="btn btn-primary" onClick={handleUpdate}>
+                <button className="btn btn-outline-dark" onClick={handleUpdate}>
                   UPDATE PRODUCT
                 </button>
               </div>
@@ -227,7 +226,6 @@ const UpdateProduct = () => {
             </div>
           </div>
         </div>
-      </div>
     </Layout>
   );
 };
