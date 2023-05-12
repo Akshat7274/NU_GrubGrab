@@ -54,7 +54,6 @@ router.get("/login/success", async (req, res) => {
       if (user && user.role === 1) {
         role = 1;
       } else if (!user) {
-        console.log("HEYYY");
         const user = await new userModel({
           name: req.user._json.name,
           email: req.user._json.email,
@@ -146,7 +145,6 @@ router.post("/user-token", async (req, res) => {
     if (!invalid_check) {
       const decode = JWT.verify(token, process.env.JWT_SECRET);
       const user = await userModel.findById(decode._id);
-      console.log(user);
       res.status(200).json(user);
     }else{
       res.status(400).send("Invalid Token")

@@ -9,7 +9,6 @@ export const requireSignIn = async (req, res, next) => {
       process.env.JWT_SECRET
     );
     const user = await userModel.findById(decode._id)
-    console.log(user);
     req.user = user;
     next();
   } catch (error) {
@@ -20,9 +19,7 @@ export const requireSignIn = async (req, res, next) => {
 //admin acceess
 export const isAdmin = async (req, res, next) => {
   try {
-    console.log(req.user)
     const user = await userModel.findOne({email:req.user.email});
-    console.log(user)
     if (user.role !== 1) {
       return res.status(401).send({
         success: false,

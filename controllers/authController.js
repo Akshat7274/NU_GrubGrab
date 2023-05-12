@@ -284,14 +284,12 @@ export const getAllOrdersController = async (req, res) => {
 export const blaclistController = async (req, res) => {
   try {
     const token_new = req.body.token;
-    // console.log(token_new);
     const decode = JWT.verify(token_new, process.env.JWT_SECRET);
     const exp_new = decode.exp;
     const invalidate = await new Webb({
       JWT: token_new,
       expireIn: exp_new,
     });
-    // console.log(invalidate);
     invalidate.save();
     res.status(200).send("BlackListed");
   } catch (error) {
