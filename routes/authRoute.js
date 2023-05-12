@@ -1,5 +1,6 @@
 import express from "express";
 import userModel from "../models/userModel.js";
+import moment from "moment/moment.js";
 import {
   registerController,
   loginController,
@@ -16,6 +17,7 @@ import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 import passport from "passport";
 import JWT from "jsonwebtoken";
 import Webb from "../models/JWT.js";
+import { modelNames } from "mongoose";
 
 //router object
 const router = express.Router();
@@ -141,14 +143,26 @@ router.put(
   orderStatusController
 );
 
+const refresh = async () => {
+  try {
+    const expired = await Webb.find({ expireIn : { $lt: Number(Date.now() / 1000)}})
+    console.log(Number(Date.now() / 1000))
+    console.log(expired)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 router.post("/user-token", async (req, res) => {
   try {
     const token = req.body.token;
+    // const expired = await Webb.find({ expiresIn : { $lt : moment()}})
+    // console.log(expired)
+    // await refresh()
     const invalid_check = await Webb.findOne({ JWT: token });
     if (!invalid_check) {
       const decode = JWT.verify(token, process.env.JWT_SECRET);
       const user = await userModel.findById(decode._id);
-      console.log(user);
       res.status(200).json(user);
     }else{
       res.status(400).send("Invalid Token")

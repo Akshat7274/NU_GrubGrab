@@ -94,7 +94,7 @@ export const loginController = async (req, res) => {
     }
     //token
     const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "30m",
+      expiresIn: "10m",
     });
     res.status(200).send({
       success: true,
@@ -292,6 +292,7 @@ export const blaclistController = async (req, res) => {
     // console.log(token_new);
     const decode = JWT.verify(token_new, process.env.JWT_SECRET);
     const exp_new = decode.exp;
+    console.log(typeof exp_new)
     const invalidate = await new Webb({
       JWT: token_new,
       expireIn: exp_new,
