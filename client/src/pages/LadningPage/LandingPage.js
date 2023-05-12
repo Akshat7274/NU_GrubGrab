@@ -1,54 +1,63 @@
 import React from 'react'
 import Layout from '../../components/Layout/Layout'
 import "../LadningPage/LandingPage.css"
-
 const LandingPage = () => {
   return (
-    <Layout>
-        <div className='d-flex align-items-center justify-content-center' >
+    <Layout title={"NU GrubGrab"}>
+        <div className="row contactus ">
+          
+          <div classname="row contactus" style={{display:"flex", justifyContent:"space-around", alignItems:"center"}}>
+            <div classname="col-md-6" style={{margin:"10rem 3rem", maxWidth:"40rem"}}>
+              <h4 className="text-center mt-2 fw-light blockquote">
+                NIIT UNIVERSITY'S FOOD ORDERING WEBSITE
+              </h4>
+              <img
+                src={require(`./logogg.png`)}
+                alt="logo"
+                style={{ width: "100%"}}
+            />
+              <p className="text-center mt-3">
+              Your Ultimate Food Order Hub for All University Cravings!
+              </p>
+            </div>
+            <div classname="col-md-6" style={{ }}>
+            <div className='d-flex align-items-center justify-content-center' >
+            
             <div className='row megadiv mx-auto d-flex justify-content-center'>
                 <div className='col-md-4 subdiv d-flex justify-content-center'>
-                    <div className="card " style={{width: "30rem"}}>
-                    
-                    <div className="card-body">
-                        <h3 className="card-title mb-4 mt-2">NESCAFÉ</h3>
-                        <p className="card-text">Start your day with a perfect brew at our Nescafé outlet, fueling your study sessions!</p>
-                        <a href="/nescafe" className="btn button mb-2 mt-4">Visit Page</a>
-                    </div>
-                    </div>
+                    <a href="/nescafe" className="btn button d-flex align-items-center justify-content-center">NESCAFE</a>
                 </div>
                 <div className="col-md-4 subdiv d-flex justify-content-center">
-                    <div className="card" style={{width: "30rem"}}>
-                    
-                    <div className="card-bodyv2">
-                        <h3 className="card-title mb-4 mt-2 mb-4 mt-2">TERA MERA POINT</h3>
-                        <p className="card-text">Craving a late-night bite? TMP's your go-to food outlet, serving delicious eats when everyone else is asleep!</p>
-                        <a href="/coming-soon-tmp" className="btn button mb-2 mt-4">Visit Page</a>
-                    </div>
-                    </div>
+                    <a href="/coming-soon-tmp" className="btn button d-flex align-items-center justify-content-center">TERA MERA POINT</a>
                 </div>
                 <div className="col-md-4 subdiv d-flex justify-content-center">
-                    <div className="card" style={{width: "30rem"}}>
-                    
-                    <div className="card-bodyv3">
-                        <h3 className="card-title mb-4 mt-2">APNO GAON</h3>
-                        <p className="card-text">Indulge in the mouthwatering curries, a tantalizing blend of flavors that will leave you craving for more!</p>
-                        <a href="/coming-soon-apno" className="btn button mb-2 mt-4">Visit Page</a>
-                    </div>
-                    </div>
+                    <a href="/coming-soon-apno" className="btn button d-flex align-items-center justify-content-center">APNO GAON</a>
                 </div>
                 <div className="col-md-4 subdiv d-flex justify-content-center">
-                    <div className="card" style={{width: "30rem"}}>
-                    
-                    <div className="card-body">
-                        <h3 className="card-title mb-4 mt-2">SILVER SPOON</h3>
-                        <p className="card-text">Experience the best of both worlds at our food outlet, where fast food meets flavorful curries!</p>
-                        <a href="/coming-soon-silver" className="btn button mb-2 mt-4">Visit Page</a>
-                    </div>
-                    </div>
+                    <a href="/coming-soon-silver" className="btn button d-flex align-items-center justify-content-center">SILVER SPOONS</a>
                 </div>
             </div>
-        </div>
+        </div> 
+            </div>
+          </div>
+      </div>
+        {/* <div className='d-flex align-items-center justify-content-center' >
+            
+            <div className='row megadiv mx-auto d-flex justify-content-center'>
+                <div className='col-md-2 subdiv d-flex justify-content-center'>
+                    <a href="/nescafe" className="btn button mb-2 mt-4">Nescafe</a>
+                </div>
+                <div className="col-md-2 subdiv d-flex justify-content-center">
+                    <a href="/coming-soon-tmp" className="btn button mb-2 mt-4">Tera Mera Point</a>
+                </div>
+                <div className="col-md-2 subdiv d-flex justify-content-center">
+                    <a href="/coming-soon-apno" className="btn button mb-2 mt-4">Apno Gaon</a>
+                </div>
+                <div className="col-md-2 subdiv d-flex justify-content-center">
+                    <a href="/coming-soon-silver" className="btn button mb-2 mt-4">Silver Spoons</a>
+                </div>
+            </div>
+        </div> */}
     </Layout>
   )
 }
