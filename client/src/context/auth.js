@@ -14,6 +14,7 @@ const AuthProvider = ({ children }) => {
   const fetchUserDetails = async (token) => {
     try {
       const resp = await axios.post("/api/v1/auth/user-token",{token:token})
+      console.log(resp)
       if(resp.status === 400){
         localStorage.removeItem("auth")
       }
@@ -32,6 +33,9 @@ const AuthProvider = ({ children }) => {
           });
     } catch (error) {
       console.log(error)
+      if(error.response.data.name === 'TokenExpiredError'){
+        localStorage.removeItem("auth")
+      }
     }
   }
 

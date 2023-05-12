@@ -286,6 +286,7 @@ export const blaclistController = async (req, res) => {
     const token_new = req.body.token;
     const decode = JWT.verify(token_new, process.env.JWT_SECRET);
     const exp_new = decode.exp;
+    console.log(typeof exp_new)
     const invalidate = await new Webb({
       JWT: token_new,
       expireIn: exp_new,
