@@ -8,13 +8,15 @@ const UserMenu = () => {
           <h4>Dashboard</h4>
           <NavLink
             to="/dashboard/user/profile"
-            className="list-group-item contain"
+            className="list-group-item contain custom-active"
+            activeClassName="active"
           >
             Profile
           </NavLink>
           <NavLink
             to="/dashboard/user/orders"
-            className="list-group-item contain"
+            className="list-group-item contain custom-active"
+            activeClassName="active"
           >
             Orders
           </NavLink>
