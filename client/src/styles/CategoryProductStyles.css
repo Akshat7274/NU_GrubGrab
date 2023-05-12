@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400&display=swap");
+
+.category {
+  flex-wrap: wrap;
+  margin-top: 80px !important;
+  color: rgb(0, 0, 0);
+  font-family:"Lato", sans-serif;
+}
+
+.category .card {
+  background-color: rgba(128, 128, 128, 0.097);
+  width: 18rem;
+}
+.category .card-name-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.category .card-price {
+  color: green;
+  font-weight: bold;
+}
+.category button {
+  border-radius: 0;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-width: 2px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.category .card-text {
+  color: rgb(90, 89, 89);
+}
+
+.category .card img:hover {
+  transform: scale(0.93);
+  transition: transform 330ms ease-in-out;
+}
+
+.category .card-img-top {
+  height: 300px !important;
+}

@@ -1,0 +1,30 @@
+
+.google_btn {
+    border: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: .5rem;
+    font-size: medium;
+    font-weight: bolder;
+    margin-top: 0px;
+    margin-bottom: 7px;
+    background-color: white;
+    color:black;
+    transition: all 0.4s;
+    margin-top: 20px;
+}
+.google_btn:hover{
+    transition: all 0.4s;
+    background-color: rgb(255, 0, 0);
+    border: 1px solid white;
+    color: white;
+}
+.google_btn > img{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.google_btn > span{
+    margin-left: 10px;
+}

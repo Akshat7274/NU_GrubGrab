@@ -1,0 +1,52 @@
+/* .megadiv {
+    margin-top: 110px;
+    margin-bottom: -50px;
+} */
+
+.button {
+    background-color: rgb(249, 137, 68);
+    color:white;
+    border: none;
+    font-size: 2rem;
+    font-weight: bolder;
+    width: 15rem;
+    height: 10rem;
+    border: 2px solid;
+    border-color: rgb(184,54,0);
+}
+
+.button:hover{
+    transform: scale(0.9);
+    transition: transform 330ms ease-in-out;
+    border: 2px solid;
+    color: rgb(1, 101, 19);
+    border-color: rgb(1, 101, 19);
+}
+.subdiv {
+    margin: 20px;
+    
+}
+
+.contactus {
+    margin-top: 20px;
+    padding: 20px;
+    
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .contactus p{
+    font-size: 40px;
+    font-style: italic;
+    font-weight: bolder;
+  }
+  .contactus h4{
+    color: grey;
+    font-size: 25px;
+    
+  }
+
+  /* .megadiv{
+    display: flex !important;
+  } */
