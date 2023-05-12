@@ -4,9 +4,9 @@ import "../LadningPage/LandingPage.css"
 const LandingPage = () => {
   return (
     <Layout title={"NU GrubGrab"}>
-        <div className="row contactus ">
+        <div className="row Home ">
           
-          <div classname="row contactus" style={{display:"flex", justifyContent:"space-around", alignItems:"center"}}>
+          <div classname="row Home" style={{display:"flex", justifyContent:"space-around", alignItems:"center"}}>
             <div classname="col-md-6" style={{margin:"10rem 3rem", maxWidth:"40rem"}}>
               <h4 className="text-center mt-2 fw-light blockquote">
                 NIIT UNIVERSITY'S FOOD ORDERING WEBSITE

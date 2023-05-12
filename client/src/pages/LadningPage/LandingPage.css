@@ -27,7 +27,7 @@
     
 }
 
-.contactus {
+.Home {
     margin-top: 20px;
     padding: 20px;
     
@@ -36,12 +36,12 @@
     align-items: center;
     justify-content: center;
   }
-  .contactus p{
+  .Home p{
     font-size: 40px;
     font-style: italic;
     font-weight: bolder;
   }
-  .contactus h4{
+  .Home h4{
     color: grey;
     font-size: 25px;
     

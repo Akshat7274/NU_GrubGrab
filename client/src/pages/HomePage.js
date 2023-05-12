@@ -118,7 +118,7 @@ const HomePage = (userDetails) => {
         />
         {/* banner image */}
         <div className="container-fluid row mt-3 home-page">
-          <h1 className="text-center" style={{fontFamily:"", color:"black", fontWeight:"bolder", marginTop:"3rem"}}>CHOOSE FROM THE MENU 🍽</h1>
+          <h1 className="text-center" style={{fontFamily:"", color:"black", fontWeight:"bolder", marginTop:"3rem"}}>CHOOSE FROM THE MENU 🍽️</h1>
           <div className="col-md-3 filters" >
             <h4 className="text-center">FILTER-CATEGORY</h4>
             <div className="d-flex flex-column">

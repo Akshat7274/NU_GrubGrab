@@ -80,6 +80,7 @@ const Header = (userDetails) => {
                 src="/images/logogg.png"
                 className="image"
                 alt="logo"
+                onClick={() => navigate("/")}
               />
             <ul className="navbar-nav  ms-auto mb-2 mb-lg-0">
               <SearchInput />
@@ -88,7 +89,7 @@ const Header = (userDetails) => {
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item dropdown nav-decor ">
+                <li className="nav-item dropdown nav-decor ">
                 <Link
                   className="nav-link dropdown-toggle nav-decor"
                   to={"/categories"}
