@@ -81,8 +81,8 @@ const AdminOrders = () => {
                         </Select>
                       </td>
                       <td>{o?.buyer?.name}</td>
-                      <td>{moment(o?.createAt).format('DD-MM-YYYY')}</td>
-                      <td>{moment(o?.createAt).format('HH:mm')}</td>
+                      <td>{moment(o?.createdAt).format('DD-MM-YYYY')}</td>
+                      <td>{moment(o?.createdAt).format('HH:mm')}</td>
                       <td>{o?.payment.success ? "Success" : "Failed"}</td>
                       <td>{o?.products?.length}</td>
                     </tr>

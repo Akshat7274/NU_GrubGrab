@@ -49,8 +49,8 @@ const Orders = () => {
                         <td>{i + 1}</td>
                         <td>{o?.status}</td>
                         <td>{o?.buyer?.name}</td>
-                        <td>{moment(o?.createAt).format('DD-MM-YYYY')}</td>
-                        <td>{moment(o?.createAt).format('HH:mm')}</td>
+                        <td>{moment(o?.createdAt).format('DD-MM-YYYY')}</td>
+                        <td>{moment(o?.createdAt).format('HH:mm')}</td>
                         <td>{o?.payment.success ? "Success" : "Failed"}</td>
                         <td>{o?.products?.length}</td>
                       </tr>
@@ -65,8 +65,8 @@ const Orders = () => {
                             className="card-img-top"
                             alt={p.name}
                             style={{width:"auto", height:"125px", margin:"auto !important"}}
-                            // width="100px"
-                            // height={"100px"}
+                            width="100px"
+                            height={"100px"}
                           />
                         </div>
                         <div className="col-md-8">
