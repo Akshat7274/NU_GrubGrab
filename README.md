@@ -6,4 +6,4 @@
 
 ## Admin Creds
 - email - nugrubgrab@gmail.com
-- password - admin123
+- password - admin@123
