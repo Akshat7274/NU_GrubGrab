@@ -87,9 +87,8 @@ const CreateCategory = () => {
   };
   return (
     <Layout title={"Dashboard - Create Category"}>
-      <div className="container-fluid m-3 p-3 dashboard">
-        <div className="row">
-          <div className="col-md-3">
+        <div className="row dashboard">
+          <div className="col-md-4">
             <AdminMenu />
           </div>
           <div className="col-md-6" style={{marginLeft:"10rem",padding:"60px", alignItems:"center", border:"0.2rem solid", borderRadius:"2rem", borderColor:"rgba(194,74,0,1)"}}>
@@ -153,7 +152,6 @@ const CreateCategory = () => {
             </Modal>
           </div>
         </div>
-      </div>
     </Layout>
   );
 };
