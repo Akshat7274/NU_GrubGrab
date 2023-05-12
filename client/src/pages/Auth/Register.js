@@ -6,52 +6,58 @@ import toast from "react-hot-toast";
 import "../../styles/AuthStyles.css";
 import { useAuth } from "../../context/auth";
 import LoginB from "../../components/Button/SimpleBTN";
-import {gapi} from "gapi-script"
+import { gapi } from "gapi-script";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [answer, setAnswer] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
   const [auth, setAuth] = useAuth();
 
   // form function
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await axios.post("/api/v1/auth/register", {
-        name,
-        email,
-        password,
-        phone,
-        address,
-        answer,
-      });
-      if (res && res.data.success) {
-        toast.success(res.data && res.data.message);
-        navigate("/login");
+    if (phone.length == 10) {
+      if (password == confirmPassword ) {
+        try {
+          const res = await axios.post("/api/v1/auth/register", {
+            name,
+            email,
+            password,
+            phone,
+          });
+          if (res && res.data.success) {
+            toast.success(res.data && res.data.message);
+            navigate("/login");
+          } else {
+            toast.error(res.data.message);
+          }
+        } catch (error) {
+          console.log(error);
+          toast.error("Something went wrong");
+        }
       } else {
-        toast.error(res.data.message);
+        toast.error("The 2 passwords don't match. Try Again");
       }
-    } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong");
+    }
+    else {
+      toast.error("Phone number has to be equal to 10 digits");
     }
   };
 
   useEffect(() => {
     function start() {
       gapi.client.init({
-        clientId:process.env.GOOGLE_CLIENT_ID,
-        scope:""
-      })
-    };
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        scope: "",
+      });
+    }
 
-    gapi.load('client:auth2',start)
+    gapi.load("client:auth2", start);
   });
 
   return (
@@ -89,7 +95,18 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
               id="exampleInputPassword1"
-              placeholder="Enter Your Password"
+              placeholder="Enter Your New Password"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="Enter Your Confirm Password"
               required
             />
           </div>
@@ -104,32 +121,10 @@ const Register = () => {
               required
             />
           </div>
-          {/* <div className="mb-3">
-            <input
-              type="text"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="Enter Your Address"
-              required
-            />
-          </div> */}
-          {/* <div className="mb-3">
-            <input
-              type="text"
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="What is Your Favorite sports"
-              required
-            />
-          </div> */}
           <button type="submit" className="register-button">
             REGISTER
           </button>
-          <LoginB  isIn="UP" />
+          <LoginB isIn="UP" />
         </form>
       </div>
     </Layout>

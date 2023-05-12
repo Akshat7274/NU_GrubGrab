@@ -28,8 +28,9 @@ import AdminOrders from "./pages/Admin/AdminOrders";
 import OtpForm from "./pages/otp/OtpForm";
 import {message} from "antd"
 import LandingPage from "./pages/LadningPage/LandingPage";
-import Comingsoon from "./pages/LadningPage/ComingSoon";
-
+import ComingsoonA from "./pages/LadningPage/ComingSoonA";
+import ComingsoonS from "./pages/LadningPage/ComingSoonS";
+import ComingsoonT from "./pages/LadningPage/ComingSoonT";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -52,7 +53,9 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<LandingPage></LandingPage>} />
-        <Route path="/coming-soon" element={<Comingsoon />} />
+        <Route path="/coming-soon-apno" element={<ComingsoonA />} />
+        <Route path="/coming-soon-tmp" element={<ComingsoonT />} />
+        <Route path="/coming-soon-silver" element={<ComingsoonS />} />
         <Route path="/nescafe" element={<HomePage user={user} />} />
         <Route path="/product/:slug" element={<ProductDetails />} />
         <Route path="/categories" element={<Categories />} />

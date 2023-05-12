@@ -39,17 +39,6 @@ const AuthProvider = ({ children }) => {
     const data = localStorage.getItem("auth");
     if (data) {
       const parseData = JSON.parse(data);
-      // const getUser = async() => {
-      //   const user = await fetchUserDetails(parseData.token)
-      //   console.log(user)
-      //   setAuth({
-      //     ...auth, 
-      //     user: parseData.user,
-      //     token: parseData.token,
-      //   });
-
-      // }
-      // getUser()
       fetchUserDetails(parseData.token)
     }
     //eslint-disable-next-line

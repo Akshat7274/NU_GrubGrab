@@ -3,13 +3,40 @@
     margin-bottom: -50px;
 }
 
+
 .button {
     background: linear-gradient(to right, rgba(255, 204, 0, 0.733), rgba(239,113,34,1), rgba(194,74,0,1));
     color:white;
     border: none;
     font-weight: 600;
 }
+.card-bodyv1{
+    background: linear-gradient(to right, rgba(255, 229, 181, 0.733), rgb(254, 191, 152), rgb(253, 151, 87));
+    color:rgb(116, 6, 6);
+    text-align: left;
+    padding: 1rem
+}
 
+.card-bodyv2{
+    background: linear-gradient(to left, rgba(255, 204, 0, 0.75), rgba(239,113,34,0.85), rgba(194,74,0,0.85));
+    color:white;
+    text-align: left;
+    padding: 1rem;
+}
+
+.card-bodyv3{
+    background: linear-gradient(to right, rgba(255, 204, 0, 0.75), rgba(239,113,34,0.85), rgba(194,74,0,0.85));
+    color:white;
+    text-align: right;
+    padding: 1rem;
+}
+
+.card-bodyv4{
+    background: linear-gradient(to left, rgba(255, 204, 0, 0.733), rgba(239,113,34,1), rgba(194,74,0,1));
+    color:white;
+    text-align: left;
+    padding: 1rem;
+}
 .subdiv {
     margin: 25px;
     
@@ -17,4 +44,5 @@
 
 .card {
     border: 2px orange solid;
+    
 }

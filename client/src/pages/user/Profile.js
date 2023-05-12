@@ -12,15 +12,13 @@ const Profile = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
 
   //get user data
   useEffect(() => {
-    const { email, name, phone, address } = auth?.user;
+    const { email, name, phone } = auth?.user;
     setName(name);
     setPhone(phone);
     setEmail(email);
-    setAddress(address);
   }, [auth?.user]);
 
   // form function
@@ -32,7 +30,6 @@ const Profile = () => {
         email,
         password,
         phone,
-        address,
       });
       if (data?.error) {
         toast.error(data?.error);
@@ -102,17 +99,6 @@ const Profile = () => {
                     placeholder="Enter Your Phone"
                   />
                 </div>
-                {/* <div className="mb-3">
-                  <input
-                    type="text"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    className="form-control"
-                    id="exampleInputEmail1"
-                    placeholder="Enter Your Address"
-                  />
-                </div> */}
-
                 <button type="submit" className="register-button">
                   UPDATE
                 </button>

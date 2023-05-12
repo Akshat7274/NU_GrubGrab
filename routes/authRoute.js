@@ -56,15 +56,12 @@ router.get("/login/success", async (req, res) => {
       if (user && user.role === 1) {
         role = 1;
       } else if (!user) {
-        console.log("HEYYY");
         const user = await new userModel({
           name: req.user._json.name,
           email: req.user._json.email,
           role: role,
           password: " ",
-          address: {},
           phone: " ",
-          answer: " ",
         }).save();
       }
       const find = await userModel.findOne({ email: req.user._json.email });

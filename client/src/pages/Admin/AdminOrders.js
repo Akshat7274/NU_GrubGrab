@@ -43,12 +43,12 @@ const AdminOrders = () => {
   };
   return (
     <Layout title={"All Orders Data"}>
-      <div className="row dashboard">
-        <div className="col-md-3">
+      <div className="row dashboard" >
+        <div className="col-md-4">
           <AdminMenu />
         </div>
-        <div className="col-md-9">
-          <h1 className="text-center">All Orders</h1>
+        <div className="col-md-6" style={{marginLeft:"10rem",marginTop:"2rem",padding:"3rem", alignItems:"center", border:"0.2rem solid", borderRadius:"2rem", borderColor:"rgba(194,74,0,1)"}}>
+        <h1 className="text-center" style={{paddingBottom:"2rem"}} >ALL ORDERS</h1>
           {orders?.map((o, i) => {
             return (
               <div className="border shadow">
@@ -58,7 +58,8 @@ const AdminOrders = () => {
                       <th scope="col">#</th>
                       <th scope="col">Status</th>
                       <th scope="col">Buyer</th>
-                      <th scope="col"> date</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Time</th>
                       <th scope="col">Payment</th>
                       <th scope="col">Quantity</th>
                     </tr>
@@ -80,7 +81,8 @@ const AdminOrders = () => {
                         </Select>
                       </td>
                       <td>{o?.buyer?.name}</td>
-                      <td>{moment(o?.createAt).fromNow()}</td>
+                      <td>{moment(o?.createAt).format('DD-MM-YYYY')}</td>
+                      <td>{moment(o?.createAt).format('HH:mm')}</td>
                       <td>{o?.payment.success ? "Success" : "Failed"}</td>
                       <td>{o?.products?.length}</td>
                     </tr>
@@ -94,8 +96,9 @@ const AdminOrders = () => {
                           src={`/api/v1/product/product-photo/${p._id}`}
                           className="card-img-top"
                           alt={p.name}
-                          width="100px"
-                          height={"100px"}
+                          style={{width:"auto", height:"125px", margin:"auto !important"}}
+                          // width="100px"
+                          // height={"100px"}
                         />
                       </div>
                       <div className="col-md-8">

@@ -5,11 +5,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Toaster } from "react-hot-toast";
 const Layout = ({ children, title, description, keywords, author, userDetails }) => {
-  // const [user, setUser] = useState(null);
-  // if ({ userDetails }) {
-  //   console.log(userDetails);
-  //   setUser(userDetails.user);
-  // }
+  
   return (
     <div style={{backgroundColor:"#fcf8ee", fontFamily:"'Lato', sans-serif"}}>
       <Helmet>
