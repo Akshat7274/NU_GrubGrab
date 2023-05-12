@@ -34,3 +34,9 @@
     margin: 7px;
     padding: 8px 10px 0px 0px !important;
 }
+
+.custom-active.active {
+    background-color: white;
+    border: 2px maroon solid;
+    color: black;
+}

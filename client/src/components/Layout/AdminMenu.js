@@ -8,25 +8,29 @@ const AdminMenu = () => {
           <h4>Admin Panel</h4>
           <NavLink
             to="/dashboard/admin/create-category"
-            className="list-group-item contain"
+            className="list-group-item contain custom-active"
+            activeClassName="active"
           >
             Create Category
           </NavLink>
           <NavLink
             to="/dashboard/admin/create-product"
-            className="list-group-item contain"
+            className="list-group-item contain custom-active"
+            activeClassName="active"
           >
             Create Product
           </NavLink>
           <NavLink
             to="/dashboard/admin/products"
-            className="list-group-item contain"
+            className="list-group-item contain custom-active"
+            activeClassName="active"
           >
             Products
           </NavLink>
           <NavLink
             to="/dashboard/admin/orders"
-            className="list-group-item contain"
+            className="list-group-item contain custom-active"
+            activeClassName="active"
           >
             Orders
           </NavLink>
