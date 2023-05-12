@@ -5,5 +5,5 @@
   - npm start
 
 ## Admin Creds
-- email - vaibhavc608@gmail.com
-- password - admin@123
+- email - nugrubgrab@gmail.com
+- password - admin123
