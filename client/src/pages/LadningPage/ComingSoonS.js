@@ -13,7 +13,7 @@ const ComingsoonS = () => {
           <div classname="row">
             <h2 className="col-md-12 text-center">COMING SOON ..</h2>
             <div className="col-md-12 text-center">
-              <button className="btn btn-success mt-3">Go Back</button>
+            <a href="/"><button className="btn btn-success mt-3">Go Back</button></a>
             </div>
           </div>
       </div>
