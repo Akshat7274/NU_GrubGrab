@@ -18,13 +18,13 @@ export const registerController = async (req, res) => {
     if (!password) {
       return res.send({ message: "Password is Required" });
     }
-    if(password.length < 6){
-      return res.send({error: "Password has to more than 6 characters"})
+    if (password.length < 6) {
+      return res.send({ error: "Password has to more than 6 characters" });
     }
     if (!phone) {
       return res.send({ message: "Phone no is Required" });
     }
-    if(phone.length < 10){
+    if (phone.length < 10) {
       return res.send({ error: "Phone no has to be of 10 digits" });
     }
     //check user
@@ -274,19 +274,19 @@ export const getAllOrdersController = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error WHile Geting Orders",
+      message: "Error While Getting Orders",
       error,
     });
   }
 };
 
 //JWT Mongo
-export const blaclistController = async (req, res) => {
+export const blacklistController = async (req, res) => {
   try {
     const token_new = req.body.token;
     const decode = JWT.verify(token_new, process.env.JWT_SECRET);
     const exp_new = decode.exp;
-    console.log(typeof exp_new)
+    console.log(typeof exp_new);
     const invalidate = await new Webb({
       JWT: token_new,
       expireIn: exp_new,
