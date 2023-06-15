@@ -40,7 +40,9 @@ DEfine wsndinvsf
 - [Acknowledgments](#acknowledgments)
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
+To build a common interface for NU food order built with MERN stack - MongoDB, Express.js, React, and Node.js.
 
+## 💡 Idea / Solution <a name = "idea"></a>
 NU Grubgrab, NIIT University's first multi-outlet food ordering app.
 
 This acts as a common interface for NIIT university's food outlets, namely
@@ -48,12 +50,6 @@ This acts as a common interface for NIIT university's food outlets, namely
 - Apno Gaon,
 - Silver Spoon and
 - Tera Mera Point
-
-## 💡 Idea / Solution <a name = "idea"></a>
-A platform that allows publishing blogs related to an undergraduate’s specialisation, projects, research papers etc. 
-
-Skkribe allows creation of a student blog on your  subdomain free of charge. 
-For the readers, it curates a list of the latest articles from the writers they subscribed to.
 
 ## 👀 Our Mission <a name = "mission"></a>
 Connect world's students and help them share knowledge easily and grow.
