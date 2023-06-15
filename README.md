@@ -11,8 +11,6 @@
 
 
 </div>
----
-
 
 <p align="center">Everything you need to start blogging as a student!
     <br> 
