@@ -40,27 +40,15 @@ Connect world's students and help them share knowledge easily and grow.
 ## ⛏️ Built With <a name = "tech_stack"></a>
 
 For Application
-- Flask for Backend
-- Pytest and Coverage for Testing
-- Tailwind CSS, Bootstrap & VueJS for Frontend
-- SQLAlchemy for ORM
-- SQLite3 for Development Database
-- PostgreSQL for Production Database
-
-
-For Deployment
-- Nginx web server & Reverse Proxy
-- Redis for caching
-- Docker for containerizing the application
-- Ansible for configuring the production database
-
-
+- MongoDB - For backend Database Management
+- ReactJS - For reusable frontend development
+- NodeJS - For JavaScript backend development
+- ExpressJS - For utilizing RESTfull APIs
                   
 ## ✍️ Authors <a name = "authors"></a>
-- [@abhnvx](https://github.com/abhnvx) 
-- [@photonguava](https://github.com/photonguava)
-- [@charitha-madala](https://github.com/charitha-madala)
-- [@hotwings-icarus](https://github.com/hotwings-icarus)
-- [@shanunirwan](https://github.com/shanunirwan) 
+- [@VaibhavMishra1341](https://github.com/VaibhavMishra1341) 
+- [@gaytrisran03](https://github.com/gaytrisran03)
+- [@Akshat7274](https://github.com/Akshat7274)
+- [@Atharv2502](https://github.com/Atharv2502)
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
