@@ -44,7 +44,7 @@ To get started with the application, you need to follow these steps:
 1. Clone the repository to your local machine.
 
    ```
-   git clone [https://github.com/your-username/community-portal.git](https://github.com/Akshat7274/Food-Ordering-App.git)
+   git clone https://github.com/your-username/community-portal.git
    ```
 
 2. Install the dependencies.
