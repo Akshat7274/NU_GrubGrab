@@ -14,7 +14,13 @@ DEfine wsndinvsf
 - [Acknowledgments](#acknowledgments)
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
-Publishing domain-specific, longform articles that revolve around a student’s area of expertise, thus allowing them to connect and network with like-minded individuals. 
+NU Grubgrab, NIIT University's first multi-outlet food ordering app.
+
+This acts as a common interface for NIIT university's food outlets, namely
+- Nescafe,
+- Apno Gaon,
+- Silver Spoon and
+- Tera Mera Point
 
 ## 💡 Idea / Solution <a name = "idea"></a>
 A platform that allows publishing blogs related to an undergraduate’s specialisation, projects, research papers etc. 
