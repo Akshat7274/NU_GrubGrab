@@ -37,7 +37,7 @@ This acts as a common interface for NIIT university's food outlets, namely
 ## 👀 Our Mission <a name = "mission"></a>
 Our mission is to create a seamless and user-friendly food ordering interface for the NU community, leveraging the power of the MERN stack. By integrating MongoDB, Express.js, React, and Node.js, we aim to provide a reliable and efficient platform that simplifies the process of ordering food, enhancing the overall dining experience for students and staff at NU.
 
-## Getting Started <a name = "getting-started"></a>
+## ⚙️ Getting Started <a name = "getting-started"></a>
 Setting up a realistic local environment
 To get started with the application, you need to follow these steps:
 
@@ -63,16 +63,16 @@ To get started with the application, you need to follow these steps:
 
 ## 🚀 Product Roadmap <a name = "roadmap"></a>
 
- * [ ] Login / Signup Functionality
- * [ ] Google Login
- * [ ] Product Catalogue
- * [ ] Categories for Products
- * [ ] Filters
- * [ ] Search Option
- * [ ] Cart
- * [ ] Order Tracking
- * [ ] Payment Gateway
- * [ ] Admin Side Operations
+ * [x] Login / Signup Functionality
+ * [x] Google Login
+ * [x] Product Catalogue
+ * [x] Categories for Products
+ * [x] Filters
+ * [x] Search Option
+ * [x] Cart
+ * [x] Order Tracking
+ * [x] Payment Gateway
+ * [x] Admin Side Operations
        - Create Category
        - Add Products
        - Edit Products
