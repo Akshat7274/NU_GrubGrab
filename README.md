@@ -14,6 +14,7 @@ DEfine wsndinvsf
 - [Acknowledgments](#acknowledgments)
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
+
 NU Grubgrab, NIIT University's first multi-outlet food ordering app.
 
 This acts as a common interface for NIIT university's food outlets, namely
