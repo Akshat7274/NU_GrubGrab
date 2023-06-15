@@ -1,3 +1,4 @@
+# NU GrubGrab
 ![Screenshot_86](https://github.com/Akshat7274/Food-Ordering-App/assets/39896268/42a0372c-3052-4bdb-8574-fed2d80015fb)
 <h3 align="center">NU GrubGrab</h3>
 
@@ -12,12 +13,6 @@
 
 </div>
 
-<p align="center">Everything you need to start blogging as a student!
-    <br> 
-</p>
-
-# NU GrubGrab
-DEfine wsndinvsf
 ## 📝 Table of Contents
 - [Problem Statement](#problem_statement)
 - [Idea / Solution](#idea)
