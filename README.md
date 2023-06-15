@@ -66,10 +66,10 @@ Connect world's students and help them share knowledge easily and grow.
  * [ ] Order Tracking
  * [ ] Payment Gateway
  * [ ] Admine Side Operations
-           - Create Category
-           - Add Products
-           - Edit Products
-           - Track Orders
+       - Create Category
+       - Add Products
+       - Edit Products
+       - Track Orders
                                          
 
 ## ⛏️ Built With <a name = "tech_stack"></a>
