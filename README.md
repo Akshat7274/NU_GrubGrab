@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img src=https://imgur.com/a/aAqAsYK" alt="Project logo"></a>
+ <img src=[https://imgur.com/a/aAqAsYK](https://imgur.com/a/aAqAsYK)" alt="Project logo"></a>
 </p>
 <h3 align="center">NU GrubGrab</h3>
 
