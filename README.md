@@ -1,6 +1,6 @@
 <h1 align="center">NU GrubGrab</h1>
 
-![Screenshot_86](https://github.com/Akshat7274/Food-Ordering-App/assets/39896268/42a0372c-3052-4bdb-8574-fed2d80015fb)
+![Screenshot_86](https://github.com/Akshat7274/NU_GrubGrab/assets/39896268/42a0372c-3052-4bdb-8574-fed2d80015fb)
 
 <div align="center">
 
