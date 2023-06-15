@@ -17,8 +17,8 @@
 - [Problem Statement](#problem_statement)
 - [Idea / Solution](#idea)
 - [Our Mission](#mission)
-- [Product Roadmap](#roadmap)
 - [Getting Started](#getting-started)
+- [Product Roadmap](#roadmap)
 - [Technology Stack](#tech_stack)
 - [Authors](#authors)
 
