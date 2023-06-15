@@ -93,4 +93,4 @@ For Application
 - [@Akshat7274](https://github.com/Akshat7274)
 - [@Atharv2502](https://github.com/Atharv2502)
 
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
+![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)
