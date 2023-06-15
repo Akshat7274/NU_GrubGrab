@@ -1,6 +1,6 @@
 import express from "express";
 import userModel from "../models/userModel.js";
-import moment from "moment/moment.js";
+
 import {
   registerController,
   loginController,
