@@ -1,6 +1,6 @@
 <h1 align="center">NU GrubGrab</h1>
 
-![Screenshot_86](https://github.com/Akshat7274/NU_GrubGrab/assets/39896268/42a0372c-3052-4bdb-8574-fed2d80015fb)
+![Screenshot_86](https://github.com/Akshat7274/NU_GrubGrab/assets/39896268/1c12f349-162a-4bc6-92f5-0771a49cbbc8)
 
 <div align="center">
 
