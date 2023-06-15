@@ -40,7 +40,7 @@ DEfine wsndinvsf
 - [Acknowledgments](#acknowledgments)
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
-To build a common interface for NU food order built with MERN stack - MongoDB, Express.js, React, and Node.js.
+To build a common interface for NU food order using MERN stack - MongoDB, Express.js, React, and Node.js.
 
 ## 💡 Idea / Solution <a name = "idea"></a>
 NU Grubgrab, NIIT University's first multi-outlet food ordering app.
@@ -52,7 +52,7 @@ This acts as a common interface for NIIT university's food outlets, namely
 - Tera Mera Point
 
 ## 👀 Our Mission <a name = "mission"></a>
-Connect world's students and help them share knowledge easily and grow.
+Our mission is to create a seamless and user-friendly food ordering interface for the NU community, leveraging the power of the MERN stack. By integrating MongoDB, Express.js, React, and Node.js, we aim to provide a reliable and efficient platform that simplifies the process of ordering food, enhancing the overall dining experience for students and staff at NU.
 
 ## 🚀 Product Roadmap <a name = "roadmap"></a>
 
