@@ -60,15 +60,21 @@ Connect world's students and help them share knowledge easily and grow.
 
 ## 🚀 Product Roadmap <a name = "roadmap"></a>
 
- * [x] Login / Signup Functionality
- * [x] Add Post
- * [x] Profile Page
- * [ ] Like Post
- * [ ] Social Sharing
- * [ ] User Feed
- * [ ] Views Count
- * [ ] Membership Badges
-
+ * [ ] Login / Signup Functionality
+ * [ ] Google Login
+ * [ ] Product Catalogue
+ * [ ] Categories for Products
+ * [ ] Filters
+ * [ ] Search Option
+ * [ ] Cart
+ * [ ] Order Tracking
+ * [ ] Payment Gateway
+ * [ ] Admine Side Operations
+           - Create Category
+           - Add Products
+           - Edit Products
+           - Track Orders
+                                         
 
 ## ⛏️ Built With <a name = "tech_stack"></a>
 
