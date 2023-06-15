@@ -1,11 +1,16 @@
 ![Screenshot_86](https://github.com/Akshat7274/Food-Ordering-App/assets/39896268/42a0372c-3052-4bdb-8574-fed2d80015fb)
 <h3 align="center">NU GrubGrab</h3>
 
-<div align = "center">
+<div align="center">
+
+
   [![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/)
   [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
   [![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+
+
+</div>
 ---
 
 
