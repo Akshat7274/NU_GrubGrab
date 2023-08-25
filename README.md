@@ -20,7 +20,7 @@
 - [Getting Started](#getting-started)
 - [Product Roadmap](#roadmap)
 - [Technology Stack](#tech_stack)
-- [Authors](#authors)
+- [Contributors](#authors)
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
 To build a common interface for NU food order using MERN stack - MongoDB, Express.js, React, and Node.js.
@@ -87,7 +87,7 @@ For Application
 - NodeJS - For JavaScript backend development
 - ExpressJS - For utilizing RESTfull APIs
                   
-## ✍️ Authors <a name = "authors"></a>
+## 🙌 Contributors <a name = "authors"></a>
 - [@VaibhavMishra1341](https://github.com/VaibhavMishra1341) 
 - [@gaytrisran03](https://github.com/gaytrisran03)
 - [@Akshat7274](https://github.com/Akshat7274)
