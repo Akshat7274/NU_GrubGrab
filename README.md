@@ -72,6 +72,8 @@ To get started with the application, you need to follow these steps:
  * [x] Cart
  * [x] Order Tracking
  * [x] Payment Gateway
+ * [x] Role Based Access Control
+ * [x] URL Security 
  * [x] Admin Side Operations
        - Create Category
        - Add Products
