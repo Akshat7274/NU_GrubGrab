@@ -9,7 +9,7 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import cors from "cors";
 import passport from "passport";
-import passportSetup from "../Food-Ordering-App/passport.js";
+import passportSetup from "./passport.js";
 
 //configure env
 dotenv.config();
