@@ -3,6 +3,7 @@ version: '3'
 services:
   frontend:
     build: ./client-side
+    container_name: frontend-react
     ports:
       -"3000:3000"
     stdin_open: true
@@ -14,6 +15,7 @@ services:
   
   backend:
     build: ./server-side
+    container_name: backend-node
     ports:
       -"8080:8080"
     networks:
