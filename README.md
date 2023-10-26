@@ -14,13 +14,14 @@
 </div>
 
 ## 📝 Table of Contents
-- [Problem Statement](#problem_statement)
-- [Idea / Solution](#idea)
-- [Our Mission](#mission)
-- [Getting Started](#getting-started)
-- [Product Roadmap](#roadmap)
-- [Technology Stack](#tech_stack)
-- [Authors](#authors)
+- [📝 Table of Contents](#-table-of-contents)
+- [🧐 Problem Statement ](#-problem-statement-)
+- [💡 Idea / Solution ](#-idea--solution-)
+- [👀 Our Mission ](#-our-mission-)
+- [⚙️ Getting Started ](#️-getting-started-)
+- [🚀 Product Roadmap ](#-product-roadmap-)
+- [⛏️ Technology Stack ](#️-technology-stack-)
+- [✍️ Authors ](#️-authors-)
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
 To build a common interface for NU food order using MERN stack - MongoDB, Express.js, React, and Node.js.
