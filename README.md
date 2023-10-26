@@ -1,6 +1,6 @@
 <h1 align="center">NU GrubGrab</h1>
 
-![Screenshot_86](https://github.com/Akshat7274/Food-Ordering-App/assets/39896268/42a0372c-3052-4bdb-8574-fed2d80015fb)
+![Screenshot_86](https://github.com/Akshat7274/NU_GrubGrab/assets/39896268/1c12f349-162a-4bc6-92f5-0771a49cbbc8)
 
 <div align="center">
 
@@ -21,7 +21,7 @@
 - [⚙️ Getting Started ](#️-getting-started-)
 - [🚀 Product Roadmap ](#-product-roadmap-)
 - [⛏️ Technology Stack ](#️-technology-stack-)
-- [✍️ Authors ](#️-authors-)
+- [🙌 Contributors ](#-contributors-)
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
 To build a common interface for NU food order using MERN stack - MongoDB, Express.js, React, and Node.js.
@@ -45,7 +45,7 @@ To get started with the application, you need to follow these steps:
 1. Clone the repository to your local machine.
 
    ```
-   git clone https://github.com/Akshat7274/Food-Ordering-App.git
+   git clone https://github.com/Akshat7274/NU_GrubGrab.git
    ```
 
 2. Install the dependencies.
@@ -73,6 +73,8 @@ To get started with the application, you need to follow these steps:
  * [x] Cart
  * [x] Order Tracking
  * [x] Payment Gateway
+ * [x] Role Based Access Control
+ * [x] URL Security 
  * [x] Admin Side Operations
        - Create Category
        - Add Products
@@ -88,10 +90,8 @@ For Application
 - NodeJS - For JavaScript backend development
 - ExpressJS - For utilizing RESTfull APIs
                   
-## ✍️ Authors <a name = "authors"></a>
+## 🙌 Contributors <a name = "authors"></a>
 - [@VaibhavMishra1341](https://github.com/VaibhavMishra1341) 
 - [@gaytrisran03](https://github.com/gaytrisran03)
 - [@Akshat7274](https://github.com/Akshat7274)
 - [@Atharv2502](https://github.com/Atharv2502)
-
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
