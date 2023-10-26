@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  frontend:
+    build: ./client-side
+    ports:
+      -"3000:3000"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+    networks:
+      - grubgrab
+  
+  backend:
+    build: ./server-side
+    ports:
+      -"8080:8080"
+    networks:
+      - grubgrab
+
+networks:
+  grubgrab:
+    driver: bridge
