@@ -11,6 +11,15 @@ pipeline{
         //     }
         // }
 
+        // stage('Install Dependency - Client'){
+        //     steps{
+        //         dir('client-side'){
+        //             bat 'npm install --legacy-peer-deps'
+        //         }
+
+        //     }
+        // }
+
         // stage('Install Dependency - Server'){
         //     steps{
         //         dir('server-side'){
