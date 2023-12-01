@@ -23,8 +23,8 @@ pipeline{
         stage('Build Docker Image'){
             steps{
                 script{
-                    bat 'docker build -t frontend-react /client-side'
-                    bat 'docker build -t backend-node /server-side'
+                    bat 'docker build -t frontend-react client-side'
+                    bat 'docker build -t backend-node server-side'
                 }
             }
         }
