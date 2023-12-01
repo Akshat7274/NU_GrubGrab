@@ -20,18 +20,23 @@ pipeline{
         //     }
         // }
 
-        stage('Build Docker Image'){
+        // stage('Build Docker Image'){
+        //     steps{
+        //         script{
+        //             bat 'docker build -t frontend-react client-side'
+        //             bat 'docker build -t backend-node server-side'
+        //         }
+        //     }
+        // }
+        stage('Cleanup'){
             steps{
-                script{
-                    bat 'docker build -t frontend-react client-side'
-                    bat 'docker build -t backend-node server-side'
-                }
+                bat 'docker compose down'
+                bat 'docker rmi food-ordering-app'
             }
         }
-
         stage('Start Docker Compose'){
             steps{
-                bat 'docker compose up'
+                bat 'docker-compose up -d'
             }
         }
     }
