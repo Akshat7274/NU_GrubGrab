@@ -28,12 +28,12 @@ pipeline{
         //         }
         //     }
         // }
-        stage('Cleanup'){
-            steps{
-                bat 'docker compose down'
-                bat 'docker rmi food-ordering-app'
-            }
-        }
+        // stage('Cleanup'){
+        //     steps{
+        //         bat 'docker compose down'
+        //         bat 'docker rmi food-ordering-app'
+        //     }
+        // }
         stage('Start Docker Compose'){
             steps{
                 bat 'docker-compose up -d'
