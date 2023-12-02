@@ -35,25 +35,41 @@ pipeline{
                 cd client-side
                 npm i --legacy-peer-deps
                 npm test
+                cd ../server-side
+                npm i --legacy-peer-deps
+                npm test
                 '''
             }
         }
 
-        stage('Cleanup'){
-            steps{
-                bat 'docker compose down'
-                bat 'docker rmi food-ordering-app-frontend food-ordering-app-backend'
-            }
-        }
-        stage('Start Docker Compose'){
-            steps{
-                bat 'docker-compose up -d'
-            }
-        }
+        // stage('Cleanup'){
+        //     steps{
+        //         bat 'docker compose down'
+        //         bat 'docker rmi food-ordering-app-frontend food-ordering-app-backend'
+        //     }
+        // }
+        // stage('Start Docker Compose'){
+        //     steps{
+        //         bat 'docker-compose up -d'
+        //     }
+        // }
     }
 
     post{
         success{
+
+            stage('Cleanup'){
+                steps{
+                    bat 'docker compose down'
+                    bat 'docker rmi food-ordering-app-frontend food-ordering-app-backend'
+                }
+            }
+            
+            stage('Start Docker Compose'){
+                steps{
+                    bat 'docker-compose up -d'
+                }
+            }
             echo 'NU GRUBGRAB succesfully deployed!'
         }
 
