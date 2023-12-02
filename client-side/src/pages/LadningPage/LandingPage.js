@@ -28,13 +28,13 @@ const LandingPage = () => {
                     <a href="/nescafe" className="btn button d-flex align-items-center justify-content-center">NESCAFE</a>
                 </div>
                 <div className="col-md-4 subdiv d-flex justify-content-center">
-                    <a href="/coming-soon-tmp" className="btn button d-flex align-items-center justify-content-center">TERA MERA POINT</a>
+                    <a href="/tmp" className="btn button d-flex align-items-center justify-content-center">TERA MERA POINT</a>
                 </div>
                 <div className="col-md-4 subdiv d-flex justify-content-center">
-                    <a href="/coming-soon-apno" className="btn button d-flex align-items-center justify-content-center">APNO GAON</a>
+                    <a href="/apno-gaon" className="btn button d-flex align-items-center justify-content-center">APNO GAON</a>
                 </div>
                 <div className="col-md-4 subdiv d-flex justify-content-center">
-                    <a href="/coming-soon-silver" className="btn button d-flex align-items-center justify-content-center">SILVER SPOONS</a>
+                    <a href="/silver-spoon" className="btn button d-flex align-items-center justify-content-center">SILVER SPOONS</a>
                 </div>
             </div>
         </div> 

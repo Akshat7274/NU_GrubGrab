@@ -106,7 +106,8 @@ function App() {
         <Route path="/coming-soon-tmp" element={<ComingsoonT />} />
         <Route path="/coming-soon-silver" element={<ComingsoonS />} />
 
-        <Route path="/tmp" element={<TmpHomePage user={user} />} >
+        <Route path="/tmp">
+          <Route path="" element={<TmpHomePage user={user} />} />
           <Route path="product/:slug" element={<TmpProductDetails />} />
           <Route path="categories" element={<TmpCategories />} />
           <Route path="cart" element={<TmpCartPage />} />
@@ -123,7 +124,8 @@ function App() {
           <Route path="admin/orders" element={<TmpAdminOrders />} />
         </Route>
 
-        <Route path="/apno-gaon" element={<ApnoHomePage user={user} />} >
+        <Route path="/apno-gaon"  >
+          <Route path="" element={<ApnoHomePage user={user} />} />
           <Route path="product/:slug" element={<ApnoProductDetails />} />
           <Route path="categories" element={<ApnoCategories />} />
           <Route path="cart" element={<ApnoCartPage />} />
@@ -140,7 +142,8 @@ function App() {
           <Route path="admin/orders" element={<ApnoAdminOrders />} />
         </Route>
 
-        <Route path="/silver-spoon" element={<SilverHomePage user={user} />} >
+        <Route path="/silver-spoon" >
+          <Route path="" element={<SilverHomePage user={user} />}  />
           <Route path="product/:slug" element={<SilverProductDetails />} />
           <Route path="categories" element={<SilverCategories />} />
           <Route path="cart" element={<SilverCartPage />} />
@@ -157,7 +160,8 @@ function App() {
           <Route path="admin/orders" element={<SilverAdminOrders />} />
         </Route>
 
-        <Route path="/nescafe" element={<NescafeHomePage user={user} />} >
+        <Route path="/nescafe">
+          <Route path="" element={<NescafeHomePage user={user} />} />
           <Route path="product/:slug" element={<NescafeProductDetails />} />
           <Route path="categories" element={<NescafeCategories />} />
           <Route path="cart" element={<NescafeCartPage />} />

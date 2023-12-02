@@ -23,7 +23,7 @@ const Search = () => {
             {values?.results.map((p) => (
               <div className="card m-2" style={{ width: "18rem", backgroundColor:"#fcf8ee"}}>
                 <img
-                  src={`/api/v1/nescafe/product/product-photo/${p._id}`}
+                  src={`/api/v1/tmp/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                 />
