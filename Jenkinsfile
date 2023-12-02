@@ -37,7 +37,6 @@ pipeline{
 
         stage('Cleanup'){
             steps{
-                bat 'cd ..'
                 bat 'docker compose down'
                 bat 'docker rmi food-ordering-app-frontend food-ordering-app-backend'
             }
