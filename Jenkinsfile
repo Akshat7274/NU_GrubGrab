@@ -31,9 +31,6 @@ pipeline{
 
         stage('Testing'){
             steps{
-                bat 'cd client-side'
-                bat 'npm test'
-                bat 'cd ../server-side'
                 bat 'npm test'
             }
         }
