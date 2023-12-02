@@ -153,7 +153,7 @@ const mailer = (email, otp) => {
     service: "gmail",
     auth: {
       user: "nugrubgrab@gmail.com",
-      pass: "sogabipyglqkfsda",
+      pass: "twsszprgcsuwvzwc",
     },
     tls: { rejectUnauthorized: false },
   });
