@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../../components/Layout/Layout'
-import "../LadningPage/LandingPage.css"
+import "./LandingPage.css"
 const LandingPage = () => {
   return (
     <Layout title={"NU GrubGrab"}>
