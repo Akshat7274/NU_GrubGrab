@@ -31,6 +31,7 @@ pipeline{
 
         stage('Testing'){
             steps{
+                dir('client-side')
                 bat 'npm test'
             }
         }
