@@ -28,8 +28,19 @@ pipeline{
         //         }
         //     }
         // }
+
+        stage('Testing'){
+            steps{
+                bat 'cd client-side'
+                bat 'npm test'
+                bat 'cd ../server-side'
+                bat 'npm test'
+            }
+        }
+
         stage('Cleanup'){
             steps{
+                bat 'cd ..'
                 bat 'docker compose down'
                 bat 'docker rmi food-ordering-app-frontend food-ordering-app-backend'
             }
@@ -40,4 +51,16 @@ pipeline{
             }
         }
     }
+
+    post{
+        success{
+            echo 'NU GRUBGRAB succesfully deployed!'
+        }
+
+        failure{
+            echo 'NU GRUBGRAB deployment failed!'
+        }
+    }
+
+
 }
