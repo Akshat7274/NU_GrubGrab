@@ -33,6 +33,7 @@ pipeline{
             steps{
                 bat '''
                 cd client-side
+                npm i --legacy-peer-deps
                 npm test
                 '''
             }
