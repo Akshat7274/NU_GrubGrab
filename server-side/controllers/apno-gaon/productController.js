@@ -1,6 +1,6 @@
-import productModel from "../models/nescafe/productModel.js";
-import categoryModel from "../models/nescafe/categoryModel.js";
-import orderModel from "../models/nescafe/orderModel.js";
+import productModel from "../../models/apno-gaon/productModel.js";
+import categoryModel from "../../models/apno-gaon/categoryModel.js";
+import orderModel from "../../models/apno-gaon/orderModel.js";
 
 import fs from "fs";
 import slugify from "slugify";

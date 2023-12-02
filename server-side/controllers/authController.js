@@ -1,5 +1,5 @@
 import userModel from "../models/userModel.js";
-import orderModel from "../models/nescafe/orderModel.js";
+import nescafeOrderModel from "../models/nescafe/orderModel.js";
 import nodemailer from "nodemailer";
 import { comparePassword, hashPassword } from "./../helpers/authHelper.js";
 import JWT from "jsonwebtoken";
@@ -247,7 +247,7 @@ export const updateProfileController = async (req, res) => {
 //orders
 export const getOrdersController = async (req, res) => {
   try {
-    const orders = await orderModel
+    const orders = await nescafeOrderModel
       .find({ buyer: req.user._id })
       .populate("products", "-photo")
       .populate("buyer", "name");
@@ -264,7 +264,7 @@ export const getOrdersController = async (req, res) => {
 //orders
 export const getAllOrdersController = async (req, res) => {
   try {
-    const orders = await orderModel
+    const orders = await nescafeOrderModel
       .find({})
       .populate("products", "-photo")
       .populate("buyer", "name")
@@ -304,7 +304,7 @@ export const orderStatusController = async (req, res) => {
   try {
     const { orderId } = req.params;
     const { status } = req.body;
-    const orders = await orderModel.findByIdAndUpdate(
+    const orders = await nescafeOrderModel.findByIdAndUpdate(
       orderId,
       { status },
       { new: true }

@@ -12,4 +12,4 @@ const categorySchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model("nescafe-category", categorySchema);
+export default mongoose.model("ss-category", categorySchema);

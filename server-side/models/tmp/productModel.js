@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema(
     },
     category: {
       type: mongoose.ObjectId,
-      ref: "nescafe-category",
+      ref: "tmp-category",
       required: true,
     },
     quantity: {
@@ -38,4 +38,4 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("nescafe-products", productSchema);
+export default mongoose.model("tmp-products", productSchema);

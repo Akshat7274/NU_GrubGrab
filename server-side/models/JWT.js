@@ -16,5 +16,4 @@ const JWTschema = mongoose.Schema(
   }
 );
 
-// const database = mongoose.connection.useDb('auth')
 export default mongoose.model("JWT", JWTschema);

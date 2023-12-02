@@ -1,4 +1,4 @@
-import categoryModel from "../models/nescafe/categoryModel.js";
+import categoryModel from "../../models/nescafe/categoryModel.js";
 import slugify from "slugify";
 export const createCategoryController = async (req, res) => {
   try {

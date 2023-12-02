@@ -6,7 +6,7 @@ import {
   deleteCategoryCOntroller,
   singleCategoryController,
   updateCategoryController,
-} from "../../controllers/nescafe/categoryController.js";
+} from "../../controllers/apno-gaon/categoryController.js";
 
 const router = express.Router();
 

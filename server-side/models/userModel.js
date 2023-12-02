@@ -28,5 +28,4 @@ const userSchema = new mongoose.Schema(
   { timestamps: true,}
 );
 
-// const database = mongoose.connection.useDb('auth')
 export default mongoose.model("users", userSchema);

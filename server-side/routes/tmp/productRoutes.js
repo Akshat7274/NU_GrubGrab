@@ -14,7 +14,7 @@ import {
   realtedProductController,
   searchProductController,
   updateProductController,
-} from "../../controllers/nescafe/productController.js";
+} from "../../controllers/tmp/productController.js";
 import { isAdmin, requireSignIn } from "../../middlewares/authMiddleware.js";
 import formidable from "express-formidable";
 

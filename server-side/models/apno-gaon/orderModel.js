@@ -5,7 +5,7 @@ const orderSchema = new mongoose.Schema(
     products: [
       {
         type: mongoose.ObjectId,
-        ref: "nescafe-products",
+        ref: "ag-products",
       },
     ],
     payment: {},
@@ -22,4 +22,4 @@ const orderSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("nescafe-orders", orderSchema);
+export default mongoose.model("ag-orders", orderSchema);
