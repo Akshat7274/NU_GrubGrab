@@ -38,4 +38,5 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Products", productSchema);
+// const database = mongoose.connection.useDb('nescafe')
+export default mongoose.model("products", productSchema);

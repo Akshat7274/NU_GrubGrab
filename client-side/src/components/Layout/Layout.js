@@ -30,7 +30,7 @@ Layout.defaultProps = {
   title: "NU GrubGrab Category",
   description: "mern stack project",
   keywords: "mern,react,node,mongodb",
-  author: "Techinfoyt",
+  author: "",
 };
 
 export default Layout;

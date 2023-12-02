@@ -11,7 +11,7 @@ const SearchInput = () => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `/api/v1/product/search/${values.keyword}`
+        `/api/v1/nescafe/product/search/${values.keyword}`
       );
       setValues({ ...values, results: data });
       navigate("/search");

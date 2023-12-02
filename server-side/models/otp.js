@@ -6,7 +6,9 @@ const otpSchema = mongoose.Schema({
     expireIn: {type: Number}
     
 },{
-    timestamps:true
+    timestamps:true,
 })
 
+
+// const database = mongoose.connection.useDb('auth')
 export default mongoose.model("otp", otpSchema)

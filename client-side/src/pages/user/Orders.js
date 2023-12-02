@@ -61,7 +61,7 @@ const Orders = () => {
                       <div className="row mb-2 p-3 card flex-row" key={p._id}>
                         <div className="col-md-4">
                           <img
-                            src={`/api/v1/product/product-photo/${p._id}`}
+                            src={`/api/v1/nescafe/product/product-photo/${p._id}`}
                             className="card-img-top"
                             alt={p.name}
                             style={{width:"auto", height:"125px", margin:"auto !important"}}

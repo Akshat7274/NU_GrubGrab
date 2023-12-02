@@ -12,4 +12,5 @@ const categorySchema = new mongoose.Schema({
   },
 });
 
+// const database1 = mongoose.connection.useDb('test')
 export default mongoose.model("Category", categorySchema);

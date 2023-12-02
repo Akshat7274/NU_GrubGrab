@@ -5,8 +5,8 @@ import morgan from "morgan";
 import session from "express-session"
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoute.js";
-import categoryRoutes from "./routes/categoryRoutes.js";
-import productRoutes from "./routes/productRoutes.js";
+import nescafeCategoryRoutes from "./routes/nescafe/categoryRoutes.js";
+import nescafeProductRoutes from "./routes/nescafe/productRoutes.js";
 import cors from "cors";
 import passport from "passport";
 import passportSetup from "./passport.js";
@@ -35,8 +35,8 @@ app.use(passport.session())
 
 //routes
 app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/category", categoryRoutes);
-app.use("/api/v1/product", productRoutes);
+app.use("/api/v1/nescafe/category", nescafeCategoryRoutes);
+app.use("/api/v1/nescafe/product", nescafeProductRoutes);
 
 //rest api
 app.get("/", (req, res) => {

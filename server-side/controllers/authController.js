@@ -1,5 +1,5 @@
 import userModel from "../models/userModel.js";
-import orderModel from "../models/orderModel.js";
+import orderModel from "../models/nescafe/orderModel.js";
 import nodemailer from "nodemailer";
 import { comparePassword, hashPassword } from "./../helpers/authHelper.js";
 import JWT from "jsonwebtoken";

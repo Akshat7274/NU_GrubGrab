@@ -22,4 +22,5 @@ const orderSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// const database = mongoose.connection.useDb('nescafe')
 export default mongoose.model("Order", orderSchema);
