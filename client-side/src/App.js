@@ -13,65 +13,65 @@ import PrivateRoute from "./components/Routes/Private";
 
 import AdminRoute from "./components/Routes/AdminRoute";
 
-import nescafeHomePage from "./nescafePages/HomePage";
-import tmpHomePage from "./tmpPages/HomePage";
-import silverHomePage from "./silverPages/HomePage";
-import apnoHomePage from "./apnoPages/HomePage";
+import NescafeHomePage from "./nescafePages/HomePage";
+import TmpHomePage from "./tmpPages/HomePage";
+import SilverHomePage from "./silverPages/HomePage";
+import ApnoHomePage from "./apnoPages/HomePage";
 
 import Orders from "./pages/user/Orders";
 import Profile from "./pages/user/Profile";
 
-import tmpUsers from "./tmpPages/Admin/Users";
-import tmpAdminDashboard from "./tmpPages/Admin/AdminDashboard";
-import tmpCreateCategory from "./tmpPages/Admin/CreateCategory";
-import tmpCreateProduct from "./tmpPages/Admin/CreateProduct";
-import tmpProducts from "./tmpPages/Admin/Products";
-import tmpUpdateProduct from "./tmpPages/Admin/UpdateProduct";
-import tmpSearch from "./tmpPages/Search";
-import tmpProductDetails from "./tmpPages/ProductDetails";
-import tmpCategories from "./tmpPages/Categories";
-import tmpCategoryProduct from "./tmpPages/CategoryProduct";
-import tmpCartPage from "./tmpPages/CartPage";
-import tmpAdminOrders from "./tmpPages/Admin/AdminOrders";
+import TmpUsers from "./tmpPages/Admin/Users";
+import TmpAdminDashboard from "./tmpPages/Admin/AdminDashboard";
+import TmpCreateCategory from "./tmpPages/Admin/CreateCategory";
+import TmpCreateProduct from "./tmpPages/Admin/CreateProduct";
+import TmpProducts from "./tmpPages/Admin/Products";
+import TmpUpdateProduct from "./tmpPages/Admin/UpdateProduct";
+import TmpSearch from "./tmpPages/Search";
+import TmpProductDetails from "./tmpPages/ProductDetails";
+import TmpCategories from "./tmpPages/Categories";
+import TmpCategoryProduct from "./tmpPages/CategoryProduct";
+import TmpCartPage from "./tmpPages/CartPage";
+import TmpAdminOrders from "./tmpPages/Admin/AdminOrders";
 
-import silverUsers from "./silverPages/Admin/Users";
-import silverAdminDashboard from "./silverPages/Admin/AdminDashboard";
-import silverCreateCategory from "./silverPages/Admin/CreateCategory";
-import silverCreateProduct from "./silverPages/Admin/CreateProduct";
-import silverProducts from "./silverPages/Admin/Products";
-import silverUpdateProduct from "./silverPages/Admin/UpdateProduct";
-import silverSearch from "./silverPages/Search";
-import silverProductDetails from "./silverPages/ProductDetails";
-import silverCategories from "./silverPages/Categories";
-import silverCategoryProduct from "./silverPages/CategoryProduct";
-import silverCartPage from "./silverPages/CartPage";
-import silverAdminOrders from "./silverPages/Admin/AdminOrders";
+import SilverUsers from "./silverPages/Admin/Users";
+import SilverAdminDashboard from "./silverPages/Admin/AdminDashboard";
+import SilverCreateCategory from "./silverPages/Admin/CreateCategory";
+import SilverCreateProduct from "./silverPages/Admin/CreateProduct";
+import SilverProducts from "./silverPages/Admin/Products";
+import SilverUpdateProduct from "./silverPages/Admin/UpdateProduct";
+import SilverSearch from "./silverPages/Search";
+import SilverProductDetails from "./silverPages/ProductDetails";
+import SilverCategories from "./silverPages/Categories";
+import SilverCategoryProduct from "./silverPages/CategoryProduct";
+import SilverCartPage from "./silverPages/CartPage";
+import SilverAdminOrders from "./silverPages/Admin/AdminOrders";
 
-import apnoUsers from "./apnoPages/Admin/Users";
-import apnoAdminDashboard from "./apnoPages/Admin/AdminDashboard";
-import apnoCreateCategory from "./apnoPages/Admin/CreateCategory";
-import apnoCreateProduct from "./apnoPages/Admin/CreateProduct";
-import apnoProducts from "./apnoPages/Admin/Products";
-import apnoUpdateProduct from "./apnoPages/Admin/UpdateProduct";
-import apnoSearch from "./apnoPages/Search";
-import apnoProductDetails from "./apnoPages/ProductDetails";
-import apnoCategories from "./apnoPages/Categories";
-import apnoCategoryProduct from "./apnoPages/CategoryProduct";
-import apnoCartPage from "./apnoPages/CartPage";
-import apnoAdminOrders from "./apnoPages/Admin/AdminOrders";
+import ApnoUsers from "./apnoPages/Admin/Users";
+import ApnoAdminDashboard from "./apnoPages/Admin/AdminDashboard";
+import ApnoCreateCategory from "./apnoPages/Admin/CreateCategory";
+import ApnoCreateProduct from "./apnoPages/Admin/CreateProduct";
+import ApnoProducts from "./apnoPages/Admin/Products";
+import ApnoUpdateProduct from "./apnoPages/Admin/UpdateProduct";
+import ApnoSearch from "./apnoPages/Search";
+import ApnoProductDetails from "./apnoPages/ProductDetails";
+import ApnoCategories from "./apnoPages/Categories";
+import ApnoCategoryProduct from "./apnoPages/CategoryProduct";
+import ApnoCartPage from "./apnoPages/CartPage";
+import ApnoAdminOrders from "./apnoPages/Admin/AdminOrders";
 
-import nescafeUsers from "./nescafePages/Admin/Users";
-import nescafeAdminDashboard from "./nescafePages/Admin/AdminDashboard";
-import nescafeCreateCategory from "./nescafePages/Admin/CreateCategory";
-import nescafeCreateProduct from "./nescafePages/Admin/CreateProduct";
-import nescafeProducts from "./nescafePages/Admin/Products";
-import nescafeUpdateProduct from "./nescafePages/Admin/UpdateProduct";
-import nescafeSearch from "./nescafePages/Search";
-import nescafeProductDetails from "./nescafePages/ProductDetails";
-import nescafeCategories from "./nescafePages/Categories";
-import nescafeCategoryProduct from "./nescafePages/CategoryProduct";
-import nescafeCartPage from "./nescafePages/CartPage";
-import nescafeAdminOrders from "./nescafePages/Admin/AdminOrders";
+import NescafeUsers from "./nescafePages/Admin/Users";
+import NescafeAdminDashboard from "./nescafePages/Admin/AdminDashboard";
+import NescafeCreateCategory from "./nescafePages/Admin/CreateCategory";
+import NescafeCreateProduct from "./nescafePages/Admin/CreateProduct";
+import NescafeProducts from "./nescafePages/Admin/Products";
+import NescafeUpdateProduct from "./nescafePages/Admin/UpdateProduct";
+import NescafeSearch from "./nescafePages/Search";
+import NescafeProductDetails from "./nescafePages/ProductDetails";
+import NescafeCategories from "./nescafePages/Categories";
+import NescafeCategoryProduct from "./nescafePages/CategoryProduct";
+import NescafeCartPage from "./nescafePages/CartPage";
+import NescafeAdminOrders from "./nescafePages/Admin/AdminOrders";
 
 
 import OtpForm from "./pages/otp/OtpForm";
@@ -106,72 +106,72 @@ function App() {
         <Route path="/coming-soon-tmp" element={<ComingsoonT />} />
         <Route path="/coming-soon-silver" element={<ComingsoonS />} />
 
-        <Route path="/tmp" element={<tmpHomePage user={user} />} >
-          <Route path="product/:slug" element={<tmpProductDetails />} />
-          <Route path="categories" element={<tmpCategories />} />
-          <Route path="cart" element={<tmpCartPage />} />
-          <Route path="category/:slug" element={<tmpCategoryProduct />} />
-          <Route path="search" element={<tmpSearch />} />
+        <Route path="/tmp" element={<TmpHomePage user={user} />} >
+          <Route path="product/:slug" element={<TmpProductDetails />} />
+          <Route path="categories" element={<TmpCategories />} />
+          <Route path="cart" element={<TmpCartPage />} />
+          <Route path="category/:slug" element={<TmpCategoryProduct />} />
+          <Route path="search" element={<TmpSearch />} />
         </Route>
         <Route path="/dashboard/tmp" element={<AdminRoute />}>
-          <Route path="admin" element={<tmpAdminDashboard />} />
-          <Route path="admin/create-category" element={<tmpCreateCategory />} />
-          <Route path="admin/create-product" element={<tmpCreateProduct />} />
-          <Route path="admin/product/:slug" element={<tmpUpdateProduct />} />
-          <Route path="admin/products" element={<tmpProducts />} />
-          <Route path="admin/users" element={<tmpUsers />} />
-          <Route path="admin/orders" element={<tmpAdminOrders />} />
+          <Route path="admin" element={<TmpAdminDashboard />} />
+          <Route path="admin/create-category" element={<TmpCreateCategory />} />
+          <Route path="admin/create-product" element={<TmpCreateProduct />} />
+          <Route path="admin/product/:slug" element={<TmpUpdateProduct />} />
+          <Route path="admin/products" element={<TmpProducts />} />
+          <Route path="admin/users" element={<TmpUsers />} />
+          <Route path="admin/orders" element={<TmpAdminOrders />} />
         </Route>
 
-        <Route path="/apno-gaon" element={<apnoHomePage user={user} />} >
-          <Route path="product/:slug" element={<apnoProductDetails />} />
-          <Route path="categories" element={<apnoCategories />} />
-          <Route path="cart" element={<apnoCartPage />} />
-          <Route path="category/:slug" element={<apnoCategoryProduct />} />
-          <Route path="search" element={<apnoSearch />} />
+        <Route path="/apno-gaon" element={<ApnoHomePage user={user} />} >
+          <Route path="product/:slug" element={<ApnoProductDetails />} />
+          <Route path="categories" element={<ApnoCategories />} />
+          <Route path="cart" element={<ApnoCartPage />} />
+          <Route path="category/:slug" element={<ApnoCategoryProduct />} />
+          <Route path="search" element={<ApnoSearch />} />
         </Route>
         <Route path="/dashboard/apno-gaon" element={<AdminRoute />}>
-          <Route path="admin" element={<apnoAdminDashboard />} />
-          <Route path="admin/create-category" element={<apnoCreateCategory />} />
-          <Route path="admin/create-product" element={<apnoCreateProduct />} />
-          <Route path="admin/product/:slug" element={<apnoUpdateProduct />} />
-          <Route path="admin/products" element={<apnoProducts />} />
-          <Route path="admin/users" element={<apnoUsers />} />
-          <Route path="admin/orders" element={<apnoAdminOrders />} />
+          <Route path="admin" element={<ApnoAdminDashboard />} />
+          <Route path="admin/create-category" element={<ApnoCreateCategory />} />
+          <Route path="admin/create-product" element={<ApnoCreateProduct />} />
+          <Route path="admin/product/:slug" element={<ApnoUpdateProduct />} />
+          <Route path="admin/products" element={<ApnoProducts />} />
+          <Route path="admin/users" element={<ApnoUsers />} />
+          <Route path="admin/orders" element={<ApnoAdminOrders />} />
         </Route>
 
-        <Route path="/silver-spoon" element={<silverHomePage user={user} />} >
-          <Route path="product/:slug" element={<silverProductDetails />} />
-          <Route path="categories" element={<silverCategories />} />
-          <Route path="cart" element={<silverCartPage />} />
-          <Route path="category/:slug" element={<silverCategoryProduct />} />
-          <Route path="search" element={<silverSearch />} />
+        <Route path="/silver-spoon" element={<SilverHomePage user={user} />} >
+          <Route path="product/:slug" element={<SilverProductDetails />} />
+          <Route path="categories" element={<SilverCategories />} />
+          <Route path="cart" element={<SilverCartPage />} />
+          <Route path="category/:slug" element={<SilverCategoryProduct />} />
+          <Route path="search" element={<SilverSearch />} />
         </Route>
         <Route path="/dashboard/silver-spoon" element={<AdminRoute />}>
-          <Route path="admin" element={<silverAdminDashboard />} />
-          <Route path="admin/create-category" element={<silverCreateCategory />} />
-          <Route path="admin/create-product" element={<silverCreateProduct />} />
-          <Route path="admin/product/:slug" element={<silverUpdateProduct />} />
-          <Route path="admin/products" element={<silverProducts />} />
-          <Route path="admin/users" element={<silverUsers />} />
-          <Route path="admin/orders" element={<silverAdminOrders />} />
+          <Route path="admin" element={<SilverAdminDashboard />} />
+          <Route path="admin/create-category" element={<SilverCreateCategory />} />
+          <Route path="admin/create-product" element={<SilverCreateProduct />} />
+          <Route path="admin/product/:slug" element={<SilverUpdateProduct />} />
+          <Route path="admin/products" element={<SilverProducts />} />
+          <Route path="admin/users" element={<SilverUsers />} />
+          <Route path="admin/orders" element={<SilverAdminOrders />} />
         </Route>
 
-        <Route path="/nescafe" element={<nescafeHomePage user={user} />} >
-          <Route path="product/:slug" element={<nescafeProductDetails />} />
-          <Route path="categories" element={<nescafeCategories />} />
-          <Route path="cart" element={<nescafeCartPage />} />
-          <Route path="category/:slug" element={<nescafeCategoryProduct />} />
-          <Route path="search" element={<nescafeSearch />} />
+        <Route path="/nescafe" element={<NescafeHomePage user={user} />} >
+          <Route path="product/:slug" element={<NescafeProductDetails />} />
+          <Route path="categories" element={<NescafeCategories />} />
+          <Route path="cart" element={<NescafeCartPage />} />
+          <Route path="category/:slug" element={<NescafeCategoryProduct />} />
+          <Route path="search" element={<NescafeSearch />} />
         </Route>
         <Route path="/dashboard/nescafe" element={<AdminRoute />}>
-          <Route path="admin" element={<nescafeAdminDashboard />} />
-          <Route path="admin/create-category" element={<nescafeCreateCategory />} />
-          <Route path="admin/create-product" element={<nescafeCreateProduct />} />
-          <Route path="admin/product/:slug" element={<nescafeUpdateProduct />} />
-          <Route path="admin/products" element={<nescafeProducts />} />
-          <Route path="admin/users" element={<nescafeUsers />} />
-          <Route path="admin/orders" element={<nescafeAdminOrders />} />
+          <Route path="admin" element={<NescafeAdminDashboard />} />
+          <Route path="admin/create-category" element={<NescafeCreateCategory />} />
+          <Route path="admin/create-product" element={<NescafeCreateProduct />} />
+          <Route path="admin/product/:slug" element={<NescafeUpdateProduct />} />
+          <Route path="admin/products" element={<NescafeProducts />} />
+          <Route path="admin/users" element={<NescafeUsers />} />
+          <Route path="admin/orders" element={<NescafeAdminOrders />} />
         </Route>
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
