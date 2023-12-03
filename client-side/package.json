@@ -13,6 +13,7 @@
     "braintree-web-drop-in-react": "^1.2.1",
     "Ecommerce-app-2023": "file:..",
     "gapi-script": "^1.2.0",
+    "localtunnel": "^2.0.2",
     "moment": "^2.29.4",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0",
