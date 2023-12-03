@@ -3,9 +3,7 @@ import axios from "axios";
 
 export default function useCategory(foodPointName) {
   const [categories, setCategories] = useState([]);
-  console.log(foodPointName)
-
-  //get cat
+  // console.log(foodPointName)
   const getCategories = async () => {
     try {
       const { data } = await axios.get("/api/v1/"+foodPointName+"/category/get-category");

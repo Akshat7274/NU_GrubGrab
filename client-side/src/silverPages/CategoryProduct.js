@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import "../styles/CategoryProductStyles.css";
 import axios from "axios";
 const CategoryProduct = () => {
   const params = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+  const currentURL = location.pathname;
+
+  const segments = currentURL.split("/");
+
+  let foodPointName = "";
+  for (let i = 0; i < segments.length; i++) {
+    if (segments[i] !== "") {
+      foodPointName = segments[i];
+      break;
+    }
+  }
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
 
@@ -55,7 +67,7 @@ const CategoryProduct = () => {
                     <div className="card-name-price">
                       <button
                         className="btn btn-outline-dark ms-1"
-                        onClick={() => navigate(`/product/${p.slug}`)}
+                        onClick={() => navigate(`/${foodPointName}/product/${p.slug}`)}
                       >
                         More Details
                       </button>

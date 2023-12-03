@@ -24,6 +24,7 @@ const Header = (userDetails) => {
       break;
     }
   }
+
   const getUser = async () => {
     try {
       const url = `/api/v1/auth/login/success`;
@@ -104,14 +105,14 @@ const Header = (userDetails) => {
               <li className="nav-item dropdown nav-decor ">
                 <Link
                   className="nav-link dropdown-toggle nav-decor"
-                  to={"/categories"}
+                  to={"/"+foodPointName+"/categories"}
                   data-bs-toggle="dropdown"
                 >
                   Categories
                 </Link>
                 <ul className="dropdown-menu ">
                   <li>
-                    <Link className="dropdown-item" to={"/categories"}>
+                    <Link className="dropdown-item" to={"/"+foodPointName+"/categories"}>
                       All Categories
                     </Link>
                   </li>
@@ -119,7 +120,7 @@ const Header = (userDetails) => {
                     <li>
                       <Link
                         className="dropdown-item"
-                        to={`/category/${c.slug}`}
+                        to={`/${foodPointName}/category/${c.slug}`}
                       >
                         {c.name}
                       </Link>

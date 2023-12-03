@@ -23,7 +23,7 @@ const Categories = () => {
           {categories.map((c) => (
             <div className="col-md-4 mt-5 mb-3 gx-3 gy-3" key={c._id}>
               <div className="card">
-                <Link to={`/category/${c.slug}`} className="btn cat-btn">
+                <Link to={`/${foodPointName}/category/${c.slug}`} className="btn cat-btn">
                   {c.name}
                 </Link>
               </div>
