@@ -80,7 +80,7 @@ const ProductDetails = () => {
           <button class="btn btn-success w-50 m-auto" onClick={() => {
                     setCart([...cart, product]);
                     localStorage.setItem(
-                      "cart",
+                      "silver-spoon-cart",
                       JSON.stringify([...cart, product])
                     );
                     toast.success("Item Added to cart");
@@ -126,7 +126,7 @@ const ProductDetails = () => {
                   onClick={() => {
                     setCart([...cart, p]);
                     localStorage.setItem(
-                      "cart",
+                      "silver-spoon-cart",
                       JSON.stringify([...cart, p])
                     );
                     toast.success("Item Added to cart");

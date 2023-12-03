@@ -51,7 +51,7 @@ const CartPage = () => {
       let index = myCart.findIndex((item) => item._id === pid);
       myCart.splice(index, 1);
       setCart(myCart);
-      localStorage.setItem("cart", JSON.stringify(myCart));
+      localStorage.setItem("nescafe-cart", JSON.stringify(myCart));
     } catch (error) {
       console.log(error);
     }
@@ -68,6 +68,8 @@ const CartPage = () => {
   };
   useEffect(() => {
     getToken();
+    let existingCartItem = localStorage.getItem(foodPointName + "-cart");
+    if (existingCartItem) setCart(JSON.parse(existingCartItem));
   }, [auth?.token]);
 
   //handle payments
@@ -80,7 +82,7 @@ const CartPage = () => {
         cart,
       });
       setLoading(false);
-      localStorage.removeItem("cart");
+      localStorage.removeItem("nescafe-cart");
       setCart([]);
       navigate("/dashboard/user/orders");
       toast.success("Payment Completed Successfully ");

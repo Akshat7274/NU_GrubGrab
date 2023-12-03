@@ -37,7 +37,7 @@ const Search = () => {
                   <button class="btn btn-outline-dark ms-1" onClick={() => {
                     setCart([...cart, p]);
                     localStorage.setItem(
-                      "cart",
+                      "silver-spoon-cart",
                       JSON.stringify([...cart, p])
                     );
                     toast.success("Item Added to cart");

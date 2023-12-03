@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "./../components/Layout/Layout";
 import { useCart } from "../context/cart";
 import { useAuth } from "../context/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import { AiFillWarning } from "react-icons/ai";
 import axios from "axios";
@@ -16,6 +16,18 @@ const CartPage = () => {
   const [instance, setInstance] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const currentURL = location.pathname;
+
+  const segments = currentURL.split("/");
+
+  let foodPointName = "";
+  for (let i = 0; i < segments.length; i++) {
+    if (segments[i] !== "") {
+      foodPointName = segments[i];
+      break;
+    }
+  }
 
   //total price
   const totalPrice = () => {
@@ -39,7 +51,7 @@ const CartPage = () => {
       let index = myCart.findIndex((item) => item._id === pid);
       myCart.splice(index, 1);
       setCart(myCart);
-      localStorage.setItem("cart", JSON.stringify(myCart));
+      localStorage.setItem("apno-gaon-cart", JSON.stringify(myCart));
     } catch (error) {
       console.log(error);
     }
@@ -56,6 +68,8 @@ const CartPage = () => {
   };
   useEffect(() => {
     getToken();
+    let existingCartItem = localStorage.getItem(foodPointName + "-cart");
+    if (existingCartItem) setCart(JSON.parse(existingCartItem));
   }, [auth?.token]);
 
   //handle payments
@@ -68,7 +82,7 @@ const CartPage = () => {
         cart,
       });
       setLoading(false);
-      localStorage.removeItem("cart");
+      localStorage.removeItem("apno-gaon-cart");
       setCart([]);
       navigate("/dashboard/user/orders");
       toast.success("Payment Completed Successfully ");

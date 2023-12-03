@@ -68,7 +68,7 @@ const ProductDetails = () => {
           <button class="btn btn-warning w-50 m-auto" onClick={() => {
                     setCart([...cart, product]);
                     localStorage.setItem(
-                      "cart",
+                      "apno-gaon-cart",
                       JSON.stringify([...cart, product])
                     );
                     toast.success("Item Added to cart");
@@ -114,7 +114,7 @@ const ProductDetails = () => {
                   onClick={() => {
                     setCart([...cart, p]);
                     localStorage.setItem(
-                      "cart",
+                      "apno-gaon-cart",
                       JSON.stringify([...cart, p])
                     );
                     toast.success("Item Added to cart");

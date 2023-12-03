@@ -47,6 +47,8 @@ const HomePage = (userDetails) => {
   useEffect(() => {
     getAllCategory();
     getTotal();
+    let existingCartItem = localStorage.getItem(foodPointName + "-cart");
+    if (existingCartItem) setCart(JSON.parse(existingCartItem));
   }, []);
   //get products
   const getAllProducts = async () => {
@@ -198,7 +200,7 @@ const HomePage = (userDetails) => {
                         onClick={() => {
                           setCart([...cart, p]);
                           localStorage.setItem(
-                            "cart",
+                            "silver-spoon-cart",
                             JSON.stringify([...cart, p])
                           );
                           toast.success("Item Added to cart");
