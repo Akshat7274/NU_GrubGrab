@@ -54,12 +54,12 @@ pipeline{
             }
         }
 
-        stage('Selenium Testing'){
-            steps{
-                bat 'cd server-side'
-                bat 'node selenium.js'
-            }
-        }
+        // stage('Selenium Testing'){
+        //     steps{
+        //         bat 'cd server-side'
+        //         bat 'node selenium.js'
+        //     }
+        // }
     }
 
     post{
@@ -68,6 +68,7 @@ pipeline{
             mail bcc: '', body: '''Build has been started for the Jenkins job NU GrubGrab
 
             This mail is sent from Jenkins automated server for NU GrubGrab''', cc: '', from: '', replyTo: '', subject: 'Jenkins Pipeline Status for NU GrubGrab', to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com'
+            echo 'Deployment Begining'
         }
 
         success{
@@ -92,7 +93,7 @@ pipeline{
         }
 
         failure{
-            mail bcc: '', body: '''Build has been started for the Jenkins job NU GrubGrab
+            mail bcc: '', body: '''Build has failed for the Jenkins job NU GrubGrab
 
             This mail is sent from Jenkins automated server for NU GrubGrab''', cc: '', from: '', replyTo: '', subject: 'Jenkins Pipeline Status for NU GrubGrab', to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com'
             echo 'NU GRUBGRAB deployment failed!'
