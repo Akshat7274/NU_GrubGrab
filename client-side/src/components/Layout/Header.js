@@ -155,7 +155,38 @@ const Header = (userDetails) => {
                       {auth?.user?.name}
                     </NavLink>
                     <ul className="dropdown-menu nav-decor">
-                      <li>
+                        {auth?.user?.role==2 && foodPointName=="" ? (
+                          <><li>
+                          <NavLink
+                            to={`/dashboard/nescafe/admin`}
+                            className="dropdown-item "
+                          >
+                            Nescafe Dashboard
+                          </NavLink>
+                        </li><li>
+                            <NavLink
+                              to={`/dashboard/tmp/admin`}
+                              className="dropdown-item "
+                            >
+                              TMP Dashboard
+                            </NavLink>
+                          </li><li>
+                            <NavLink
+                              to={`/dashboard/silver-spoon/admin`}
+                              className="dropdown-item "
+                            >
+                              Silver Spoon Dashboard
+                            </NavLink>
+                          </li><li>
+                            <NavLink
+                              to={`/dashboard/apno-gaon/admin`}
+                              className="dropdown-item "
+                            >
+                              Apno Gaon Dashboard
+                            </NavLink>
+                          </li></>
+                        ):(
+                          <li>
                         <NavLink
                           to={`/dashboard/${
                             auth?.user?.role === 2 ? foodPointName+"/admin" : "user"
@@ -164,7 +195,8 @@ const Header = (userDetails) => {
                         >
                           Dashboard
                         </NavLink>
-                      </li>
+                        </li>
+                        )}
                       <li className=" nav-decor">
                         <NavLink
                           onClick={handleLogout}
