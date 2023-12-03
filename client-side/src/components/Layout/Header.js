@@ -1,24 +1,33 @@
-import React , {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
 import SearchInput from "../Form/SearchInput";
-import useCategoryN from "../../hooks/useCategoryN";
-import useCategoryA from "../../hooks/useCategoryA";
-import useCategoryS from "../../hooks/useCategoryS";
-import useCategoryT from "../../hooks/useCategoryT";
+import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import { Badge } from "antd";
 import "../Layout/nav.css";
 
 const Header = (userDetails) => {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate()
-	const getUser = async () => {
-		try {
-			const url = `/api/v1/auth/login/success`;
-			const { data } = await axios.get(url, { withCredentials: true });
+  const navigate = useNavigate();
+  const location = useLocation();
+  const currentURL = location.pathname;
+
+  const segments = currentURL.split("/");
+
+  let foodPointName = "";
+  for (let i = 0; i < segments.length; i++) {
+    if (segments[i] !== "") {
+      foodPointName = segments[i];
+      break;
+    }
+  }
+  const getUser = async () => {
+    try {
+      const url = `/api/v1/auth/login/success`;
+      const { data } = await axios.get(url, { withCredentials: true });
       setUser(data.user._json);
       setAuth({
         ...auth,
@@ -31,24 +40,30 @@ const Header = (userDetails) => {
         },
         token: data.token,
       });
-      localStorage.setItem("auth", JSON.stringify({token: data.token, isGoogle: data.isGoogle}));
-		} catch (err) {
-			console.log(err);
-		}
-	};
+      localStorage.setItem(
+        "auth",
+        JSON.stringify({ token: data.token, isGoogle: data.isGoogle })
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-	useEffect(() => {
-		{getUser();}
-	}, []);
+  useEffect(() => {
+    // console.log(foodPointName)
+    {
+      getUser();
+    }
+  }, []);
 
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
-  const categories = useCategory();
+  const categories = useCategory(foodPointName);
 
   const blacklist = async () => {
-    const jwt = JSON.parse(localStorage.getItem("auth")).token
-    const data_new = await axios.post("/api/v1/auth/black", {token:jwt})
-  }
+    const jwt = JSON.parse(localStorage.getItem("auth")).token;
+    const data_new = await axios.post("/api/v1/auth/black", { token: jwt });
+  };
 
   const handleLogout = async () => {
     setAuth({
@@ -56,16 +71,15 @@ const Header = (userDetails) => {
       user: null,
       token: "",
     });
-    blacklist()
-    localStorage.removeItem("auth")
-    const data = await axios.post("/api/v1/auth/google/logout")
+    blacklist();
+    localStorage.removeItem("auth");
+    const data = await axios.post("/api/v1/auth/google/logout");
     toast.success("Logout Successfully");
-    navigate("/")
-
+    navigate("/");
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg fixed-top custom nav-color nav-pad" >
+      <nav className="navbar navbar-expand-lg fixed-top custom nav-color nav-pad">
         <div className="container-fluid ">
           <button
             className="navbar-toggler"
@@ -79,15 +93,11 @@ const Header = (userDetails) => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <img
-                src="/images/logogg.png"
-                className="image"
-                alt="logo"
-              />
+            <img src="/images/logogg.png" className="image" alt="logo" />
             <ul className="navbar-nav  ms-auto mb-2 mb-lg-0">
               <SearchInput />
               <li className="nav-item nav-decor">
-                <NavLink to="/" className="nav-link nav-decor" >
+                <NavLink to="/" className="nav-link nav-decor">
                   Home
                 </NavLink>
               </li>
@@ -168,7 +178,12 @@ const Header = (userDetails) => {
               )}
               <li className="nav-item ">
                 <NavLink to="/cart" className="nav-link ">
-                  <Badge count={cart?.length} showZero offset={[45, -5]} className="cart-decor">
+                  <Badge
+                    count={cart?.length}
+                    showZero
+                    offset={[45, -5]}
+                    className="cart-decor"
+                  >
                     Cart
                   </Badge>
                 </NavLink>

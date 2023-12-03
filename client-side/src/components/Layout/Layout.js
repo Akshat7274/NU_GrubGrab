@@ -1,11 +1,10 @@
 import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
-import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { Toaster } from "react-hot-toast";
 const Layout = ({ children, title, description, keywords, author, userDetails }) => {
-  
   return (
     <div style={{backgroundColor:"#fcf8ee", fontFamily:"'Lato', sans-serif"}}>
       <Helmet>
