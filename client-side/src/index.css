@@ -62,18 +62,12 @@
 .footer {
   clear: both;
   position: relative;
-  margin-top: 55px; 
-  color: white;
-  padding: 25px;
+  margin-top: 95px; 
   margin-bottom: 0px;
+  color: white;
+  padding: 20px;
   text-align: center;
-  background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: #000000;
+  background: #161925;
 }
 
 .footer a {
