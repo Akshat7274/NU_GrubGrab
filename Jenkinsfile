@@ -1,18 +1,34 @@
 pipeline{
     agent any
 
-    // preBuild{
-    //         mail 
-    //         to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com',
-    //         bcc: '',  
-    //         cc: '', 
-    //         from: '', 
-    //         replyTo: '', 
-    //         subject: 'Jenkins Build for NU GrubGrab has Started', 
-    //         body: '''This mail is sent from Jenkins automated server for NU GrubGrab'''
-    // }
-
     stages{
+        // stage('Install Dependency - Client'){
+        //     steps{
+        //         dir('client-side'){
+        //             bat 'npm install --legacy-peer-deps'
+        //         }
+
+        //     }
+        // }
+
+        // stage('Install Dependency - Server'){
+        //     steps{
+        //         dir('server-side'){
+        //             bat 'npm install --legacy-peer-deps'
+        //         }
+
+        //     }
+        // }
+
+        // stage('Build Docker Image'){
+        //     steps{
+        //         script{
+        //             bat 'docker build -t frontend-react client-side'
+        //             bat 'docker build -t backend-node server-side'
+        //         }
+        //     }
+        // }
+
         stage('Testing'){
             steps{
                 bat '''
@@ -38,48 +54,47 @@ pipeline{
             }
         }
 
-        // stage('Selenium Testing'){
-        //     steps{
-        //         bat 'cd server-side'
-        //         bat 'node selenium.js'
-        //     }
-        // }
+        stage('Selenium Testing'){
+            steps{
+                bat 'cd server-side'
+                bat 'node selenium.js'
+            }
+        }
     }
 
     post{
 
         always{
-            mail 
-            to:'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com',
-            bcc:'',  
-            cc:'', 
-            from:'', 
-            replyTo:'', 
-            subject: 'Jenkins Build for NU GrubGrab has Begun', 
-            body: '''This mail is sent from Jenkins automated server for NU GrubGrab'''
+            mail bcc: '', body: '''Build has been started for the Jenkins job NU GrubGrab
+
+            This mail is sent from Jenkins automated server for NU GrubGrab''', cc: '', from: '', replyTo: '', subject: 'Jenkins Pipeline Status for NU GrubGrab', to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com'
         }
 
         success{
-            // mail 
-            // to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com',
-            // bcc: '',  
-            // cc: '', 
-            // from: '', 
-            // replyTo: '', 
-            // subject: 'Jenkins Build for NU GrubGrab is Succesfully Completed!', 
-            // body: '''This mail is sent from Jenkins automated server for NU GrubGrab'''
-            echo 'NU GRUBGRAB succesfully deployed!'
+            
+            // stage('Cleanup'){
+            //     steps{
+            //         bat 'docker compose down'
+            //         bat 'docker rmi food-ordering-app-frontend food-ordering-app-backend'
+            //     }
+            // }
+            // stage('Start Docker Compose'){
+            //     steps{
+            //         bat 'docker-compose up -d'
+            //     }
+            // }
+            steps{ 
+                mail bcc: '', body: '''Build has been Succesfull! for the Jenkins job NU GrubGrab
+
+                This mail is sent from Jenkins automated server for NU GrubGrab''', cc: '', from: '', replyTo: '', subject: 'Jenkins Pipeline Status for NU GrubGrab', to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com'
+                echo 'NU GRUBGRAB succesfully deployed!'
+            }
         }
 
         failure{
-            // mail 
-            // to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com',
-            // bcc: '',  
-            // cc: '', 
-            // from: '', 
-            // replyTo: '', 
-            // subject: 'Jenkins Build for NU GrubGrab has Failed', 
-            // body: '''This mail is sent from Jenkins automated server for NU GrubGrab'''
+            mail bcc: '', body: '''Build has been started for the Jenkins job NU GrubGrab
+
+            This mail is sent from Jenkins automated server for NU GrubGrab''', cc: '', from: '', replyTo: '', subject: 'Jenkins Pipeline Status for NU GrubGrab', to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com'
             echo 'NU GRUBGRAB deployment failed!'
         }
     }
