@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "./../components/Layout/Layout";
 import { useCart } from "../context/cart";
 import { useAuth } from "../context/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import { AiFillWarning } from "react-icons/ai";
 import axios from "axios";
@@ -11,6 +11,18 @@ import "../styles/CartStyles.css";
 
 const CartPage = () => {
   const [auth, setAuth] = useAuth();
+  const location = useLocation();
+  const currentURL = location.pathname;
+
+  const segments = currentURL.split("/");
+
+  let foodPointName = "";
+  for (let i = 0; i < segments.length; i++) {
+    if (segments[i] !== "") {
+      foodPointName = segments[i];
+      break;
+    }
+  }
   const [cart, setCart] = useCart();
   const [clientToken, setClientToken] = useState("");
   const [instance, setInstance] = useState("");

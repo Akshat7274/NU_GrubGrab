@@ -178,7 +178,7 @@ const Header = (userDetails) => {
                 </>
               )}
               <li className="nav-item ">
-                <NavLink to="/cart" className="nav-link ">
+                <NavLink to={"/"+foodPointName+"/cart"} className="nav-link ">
                   <Badge
                     count={cart?.length}
                     showZero
