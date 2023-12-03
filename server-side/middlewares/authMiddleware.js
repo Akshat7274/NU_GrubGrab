@@ -19,7 +19,6 @@ export const requireSignIn = async (req, res, next) => {
 //admin acceess
 export const isAdmin = async (req, res, next) => {
   try {
-    console.log(req.body)
     const user = await userModel.findOne({email:req.body.email});
     if (user.role !== 2) {
       if (user.role === 1 && user.admin===req.body.outlet){
