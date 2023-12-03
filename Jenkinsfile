@@ -31,7 +31,6 @@ pipeline {
         stage('Selenium Testing') {
             steps {
                 dir('server-side'){
-                    bat 'npm i --legacy-peer-deps'
                     bat 'node selenium.js'
                 }
             } 
