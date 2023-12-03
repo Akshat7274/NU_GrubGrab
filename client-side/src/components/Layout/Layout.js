@@ -26,7 +26,7 @@ const Layout = ({ children, title, description, keywords, author, userDetails })
 };
 
 Layout.defaultProps = {
-  title: "NU GrubGrab Category",
+  title: "NU GrubGrab",
   description: "mern stack project",
   keywords: "mern,react,node,mongodb",
   author: "",

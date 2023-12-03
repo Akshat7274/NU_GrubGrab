@@ -69,7 +69,7 @@ const CreateProduct = () => {
           <div className="col-md-4">
             <AdminMenu />
           </div>
-          <div className="col-md-6 " style={{marginLeft:"10rem",padding:"60px", alignItems:"center", border:"0.2rem solid", borderRadius:"2rem", borderColor:"rgba(194,74,0,1)"}}>
+          <div className="col-md-6 " style={{marginLeft:"10rem",padding:"60px", alignItems:"center", border:"0.2rem solid #235789", borderRadius:"2rem"}}>
             <h1 >CREATE PRODUCT</h1>
             <div className="" >
               <Select

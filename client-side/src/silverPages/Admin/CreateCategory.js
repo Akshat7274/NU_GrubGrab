@@ -91,7 +91,7 @@ const CreateCategory = () => {
           <div className="col-md-4">
             <AdminMenu />
           </div>
-          <div className="col-md-6" style={{marginLeft:"10rem",padding:"60px", alignItems:"center", border:"0.2rem solid", borderRadius:"2rem", borderColor:"rgba(194,74,0,1)"}}>
+          <div className="col-md-6" style={{marginLeft:"10rem",padding:"60px", alignItems:"center", border:"0.2rem solid #235789", borderRadius:"2rem"}}>
             <h1 style={{textAlign:"center"}}>MANAGE CATEGORY</h1>
             <div className="">
               <CategoryForm
@@ -115,7 +115,7 @@ const CreateCategory = () => {
                         <td key={c._id}>{c.name}</td>
                         <td>
                           <button
-                            className="btn btn-outline-success ms-2"
+                            className="btn btn-outline-dark ms-2"
                             onClick={() => {
                               setVisible(true);
                               setUpdatedName(c.name);

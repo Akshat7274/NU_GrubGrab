@@ -29,7 +29,7 @@ const Products = () => {
         <div className="col-md-4">
           <AdminMenu />
         </div>
-        <div className="col-md-9"  style={{margin:"auto",padding:"60px", alignItems:"center", border:"0.2rem solid", borderRadius:"2rem", borderColor:"rgba(194,74,0,1)"}}>
+        <div className="col-md-9"  style={{margin:"auto",padding:"60px", alignItems:"center", border:"0.2rem solid #235789", borderRadius:"2rem"}}>
           <h1 style={{textAlign:"center", padding:"2rem"}}>ALL PRODUCT LIST</h1>
           <div className="d-flex flex-wrap" style={{justifyContent:"center"}}>
             {products?.map((p) => (
