@@ -9,6 +9,18 @@ import { toast } from "react-hot-toast";
 const ProductDetails = () => {
   const params = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+  const currentURL = location.pathname;
+
+  const segments = currentURL.split("/");
+
+  let foodPointName = "";
+  for (let i = 0; i < segments.length; i++) {
+    if (segments[i] !== "") {
+      foodPointName = segments[i];
+      break;
+    }
+  }
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [cart, setCart] = useCart();
@@ -105,7 +117,7 @@ const ProductDetails = () => {
                 <div className="card-name-price">
                   <button
                     className="btn btn-success"
-                    onClick={() => navigate(`/product/${p.slug}`)}
+                    onClick={() => navigate(`/${foodPointName}/product/${p.slug}`)}
                   >
                     More Details
                   </button>

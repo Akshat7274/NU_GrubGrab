@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
@@ -11,6 +11,18 @@ import "../styles/Homepage.css";
 
 const HomePage = (userDetails) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const currentURL = location.pathname;
+
+  const segments = currentURL.split("/");
+
+  let foodPointName = "";
+  for (let i = 0; i < segments.length; i++) {
+    if (segments[i] !== "") {
+      foodPointName = segments[i];
+      break;
+    }
+  }
   const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -159,7 +171,7 @@ const HomePage = (userDetails) => {
                     src={`/api/v1/silver-spoon/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
-                    onClick={() => navigate(`/product/${p.slug}`)}
+                    onClick={() => navigate(`/${foodPointName}/product/${p.slug}`)}
                   />
                   <div className="card-body">
                     <div className="card-name-price">
@@ -171,13 +183,13 @@ const HomePage = (userDetails) => {
                         })}
                       </h5>
                     </div>
-                    <p className="card-text " onClick={() => navigate(`/product/${p.slug}`)}>
+                    <p className="card-text " onClick={() => navigate(`/${foodPointName}/product/${p.slug}`)}>
                       {p.description.substring(0, 60)}...
                     </p>
                     <div className="card-name-price">
                       <button
                         className="btn btn-outline-dark item-button"
-                        onClick={() => navigate(`/product/${p.slug}`)}
+                        onClick={() => navigate(`/${foodPointName}/product/${p.slug}`)}
                       >
                         Description
                       </button>
