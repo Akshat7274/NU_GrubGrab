@@ -50,11 +50,11 @@ pipeline{
 
         always{
             mail 
-            to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com',
-            bcc: '',  
-            cc: '', 
-            from: '', 
-            replyTo: '', 
+            to:'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com',
+            bcc:'',  
+            cc:'', 
+            from:'', 
+            replyTo:'', 
             subject: 'Jenkins Build for NU GrubGrab has Begun', 
             body: '''This mail is sent from Jenkins automated server for NU GrubGrab'''
         }
