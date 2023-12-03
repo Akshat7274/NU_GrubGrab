@@ -1,24 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400&display=swap");
 
-.main{
-  background-color: #fcf8ee;
+.main {
+  background-color: #fdfffc;
 }
 
 .banner-img {
   margin-top: 85px;
-
 }
 
 .home-page h1 {
   color: rgb(0, 0, 0);
-  font-family:"Lato", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .home-page {
   display: flex;
   flex-wrap: wrap;
-  
-
 }
 .home-page .card {
   background-color: rgba(128, 128, 128, 0.097);
@@ -58,18 +55,16 @@
 /* ==================
 filters
 ============== */
-.filters{
+.filters {
   margin: 60px 40px 20px 20px;
   padding: 40px 40px 40px 20px;
   border-style: solid;
   border-color: black;
   height: fit-content;
-
 }
 .filters h4 {
   /* margin-top: 100px; */
   border-bottom: 1px solid rgba(128, 128, 128, 0.337);
-
 }
 
 .ant-checkbox-wrapper:first-of-type {
@@ -85,13 +80,12 @@ filters
 }
 
 .filters button {
-  background-color: #fcf8ee;
+  background-color: #fdfffc;
   width: 100%;
   border-color: black;
   border-width: 2px;
   border-radius: 10;
   margin-top: 20px;
-  
 }
 
 .loadmore {
@@ -100,6 +94,6 @@ filters
   font-size: 20px !important;
 }
 
-.item-button{
+.item-button {
   margin: 3px;
 }

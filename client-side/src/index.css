@@ -73,7 +73,7 @@
     #434343,
     #000000
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, rgba(244,205,50,1), rgba(239,113,34,1), rgba(194,74,0,1));
+  background: #000000;
 }
 
 .footer a {
@@ -160,7 +160,7 @@
   margin: 2rem 0rem 2rem 4rem;
 }
 .dashboard-menu h4 {
-  background: linear-gradient(to right, rgba(244,205,50,1), rgba(239,113,34,1), rgba(194,74,0,1)) !important;
+  background: #c1292e !important;
   color: white;
   padding: 30px 0px;
   margin-right: -30px;
@@ -168,6 +168,6 @@
 .contain{
   padding: 2rem;
   margin: 8px;
-  box-shadow: 0px 0px 40px inset rgba(194,74,0,1);
+  box-shadow: 0px 0px 40px inset #c1292e;
   border-radius: 0.25rem;
 }

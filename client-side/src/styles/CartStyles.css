@@ -6,8 +6,13 @@
   padding: 50px !important;
   font-family: "Lato", sans-serif;
   font-weight: normal;
-  background: linear-gradient(to right, rgba(244,205,50,1), rgba(239,113,34,1), rgba(194,74,0,1));
-  color: #fcf8ee;
+  background: linear-gradient(
+    to right,
+    rgba(244, 205, 50, 1),
+    rgba(239, 113, 34, 1),
+    rgba(194, 74, 0, 1)
+  );
+  color: #fdfffc;
 }
 .cart-page h1 > p {
   font-size: 20px;
@@ -17,7 +22,7 @@
   padding: 10px !important;
   height: 150px !important;
   margin: 30px !important;
-  border-color: rgba(194,74,0,1) !important;
+  border-color: rgba(194, 74, 0, 1) !important;
   border: 3px solid;
 }
 .cart-page .cart-remove-btn {
@@ -26,7 +31,6 @@
   justify-content: center;
 }
 .cart-page .cart-summary {
-  
   text-align: center;
-  margin-top: 120px !important; 
+  margin-top: 120px !important;
 }

@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 import { Toaster } from "react-hot-toast";
 const Layout = ({ children, title, description, keywords, author, userDetails }) => {
   return (
-    <div style={{backgroundColor:"#fcf8ee", fontFamily:"'Lato', sans-serif"}}>
+    <div style={{backgroundColor:"#fdfffc", fontFamily:"'Lato', sans-serif"}}>
       <Helmet>
         <meta charSet="utf-8" />
         <meta name="description" content={description} />

@@ -21,7 +21,7 @@ const Search = () => {
           </h4>
           <div className="d-flex flex-wrap mt-4" >
             {values?.results.map((p) => (
-              <div className="card m-2" style={{ width: "18rem", backgroundColor:"#fcf8ee"}}>
+              <div className="card m-2" style={{ width: "18rem", backgroundColor:"#fdfffc"}}>
                 <img
                   src={`/api/v1/silver-spoon/product/product-photo/${p._id}`}
                   className="card-img-top"

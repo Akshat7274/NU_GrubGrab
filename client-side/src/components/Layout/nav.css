@@ -1,42 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-.nav-decor{
-    /* width: 20%; */
-    color: black;
-    text-align: center;
-    font-size: 18px;
-    font-family: Lato;
-    font-size: large;
-    font-weight: bold;
-    margin: 10px;
-    padding: 0px !important;
+.nav-decor {
+  /* width: 20%; */
+  color: black;
+  text-align: center;
+  font-size: 18px;
+  font-family: Lato;
+  font-size: large;
+  font-weight: bold;
+  margin: 10px;
+  padding: 0px !important;
 }
-.image{
-    width:15%; 
-    margin: 0px !important;
-}
-
-.nav-color{
-    background-color: #fcf8ee;
-}
-.nav-pad{
-    padding-top: 10px;
-    padding-bottom: 10px;
+.image {
+  width: 15%;
+  margin: 0px !important;
 }
 
-.cart-decor{
-    width: 20%;
-    color: black;
-    text-align: center;
-    font-size: 18px;
-    font-family: "Lato", sans-serif;
-    font-size: larger;
-    margin: 7px;
-    padding: 8px 10px 0px 0px !important;
+.nav-color {
+  background-color: #fdfffc;
+}
+.nav-pad {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.cart-decor {
+  width: 20%;
+  color: black;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+  font-size: larger;
+  margin: 7px;
+  padding: 8px 10px 0px 0px !important;
 }
 
 .custom-active.active {
-    background-color: white;
-    border: 2px maroon solid;
-    color: black;
+  background-color: white;
+  border: 2px maroon solid;
+  color: black;
 }
