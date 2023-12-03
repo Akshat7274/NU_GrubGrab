@@ -16,7 +16,6 @@ const Header = (userDetails) => {
   const currentURL = location.pathname;
 
   const segments = currentURL.split("/");
-  console.log(segments)
 
   let foodPointName = "";
   for (let i = 0; i < segments.length; i++) {
@@ -39,6 +38,7 @@ const Header = (userDetails) => {
           phone: data.phone,
           _id: data._id,
           role: data.role,
+          outlet: data.admin
         },
         token: data.token,
       });
@@ -52,8 +52,7 @@ const Header = (userDetails) => {
   };
 
   useEffect(() => {
-    // console.log(foodPointName)
-    {
+    { 
       getUser();
     }
   }, []);
@@ -61,6 +60,7 @@ const Header = (userDetails) => {
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
   const categories = useCategory(foodPointName);
+  console.log(auth?.user)
 
   const blacklist = async () => {
     const jwt = JSON.parse(localStorage.getItem("auth")).token;
@@ -189,7 +189,7 @@ const Header = (userDetails) => {
                           <li>
                         <NavLink
                           to={`/dashboard/${
-                            auth?.user?.role === 2 ? foodPointName+"/admin" : "user"
+                            auth?.user?.role === 2 ? foodPointName+"/admin" : auth?.user?.role === 1 ? auth?.user?.outlet+"/admin" :"user"
                           }`}
                           className="dropdown-item "
                         >

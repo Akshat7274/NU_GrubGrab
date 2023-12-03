@@ -19,12 +19,18 @@ export const requireSignIn = async (req, res, next) => {
 //admin acceess
 export const isAdmin = async (req, res, next) => {
   try {
-    const user = await userModel.findOne({email:req.user.email});
+    console.log(req.body)
+    const user = await userModel.findOne({email:req.body.email});
     if (user.role !== 2) {
-      return res.status(401).send({
-        success: false,
-        message: "UnAuthorized Access",
-      });
+      if (user.role === 1 && user.admin===req.body.outlet){
+        next()
+      }
+      else {
+        return res.status(401).send({
+          success: false,
+          message: "UnAuthorized Access",
+        });
+      }
     } else {
       next();
     }

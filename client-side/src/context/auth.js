@@ -24,6 +24,7 @@ const AuthProvider = ({ children }) => {
         email: resp.data.email,
         phone: resp.data.phone,
         role: resp.data.role,
+        outlet: resp.data.admin
       }
       console.log(user)
       setAuth({
@@ -31,6 +32,7 @@ const AuthProvider = ({ children }) => {
             user: user,
             token: token,
           });
+      console.log(auth)
     } catch (error) {
       console.log(error)
       if(error.response.data.name === 'TokenExpiredError'){

@@ -42,7 +42,7 @@ router.get("/user-auth", requireSignIn, (req, res) => {
   res.status(200).send({ ok: true });
 });
 //protected Admin route auth
-router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
+router.post("/admin-auth", requireSignIn, isAdmin, (req, res) => {
   res.status(200).send({ ok: true });
 });
 
@@ -53,13 +53,16 @@ router.get("/login/success", async (req, res) => {
     try {
       const user = await userModel.findOne({ email: req.user._json.email });
       var role = 0;
-      if (user && user.role === 1) {
-        role = 1;
+      var admin = "";
+      if (user) {
+        role = user.role;
+        admin = user.admin;
       } else if (!user) {
         const user = await new userModel({
           name: req.user._json.name,
           email: req.user._json.email,
           role: role,
+          admin: admin,
           password: " ",
           phone: " ",
         }).save();
@@ -69,6 +72,7 @@ router.get("/login/success", async (req, res) => {
         expiresIn: "7d",
       });
       // const isGoogle = true;
+      console.log(req.user._json)
       res.status(200).json({
         error: false,
         message: "Succesfully Logged In",
@@ -80,6 +84,7 @@ router.get("/login/success", async (req, res) => {
         phone: "",
         _id: req.user.id,
         role: role,
+        admin: admin
       });
     } catch (error) {
       console.log(error);

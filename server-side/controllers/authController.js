@@ -100,6 +100,7 @@ export const loginController = async (req, res) => {
         email: user.email,
         phone: user.phone,
         role: user.role,
+        outlet: user.admin
       },
       token,
       isGoogle: "false",
