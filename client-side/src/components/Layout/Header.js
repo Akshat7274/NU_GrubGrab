@@ -16,10 +16,11 @@ const Header = (userDetails) => {
   const currentURL = location.pathname;
 
   const segments = currentURL.split("/");
+  console.log(segments)
 
   let foodPointName = "";
   for (let i = 0; i < segments.length; i++) {
-    if (segments[i] !== "") {
+    if (segments[i] == "nescafe" || segments[i] == "tmp" || segments[i]=="silver-spoon" || segments[i] == "apno-gaon") {
       foodPointName = segments[i];
       break;
     }
@@ -157,7 +158,7 @@ const Header = (userDetails) => {
                       <li>
                         <NavLink
                           to={`/dashboard/${
-                            auth?.user?.role === 1 ? "admin" : "user"
+                            auth?.user?.role === 2 ? foodPointName+"/admin" : "user"
                           }`}
                           className="dropdown-item "
                         >

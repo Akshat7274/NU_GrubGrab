@@ -20,7 +20,7 @@ export const requireSignIn = async (req, res, next) => {
 export const isAdmin = async (req, res, next) => {
   try {
     const user = await userModel.findOne({email:req.user.email});
-    if (user.role !== 1) {
+    if (user.role !== 2) {
       return res.status(401).send({
         success: false,
         message: "UnAuthorized Access",
