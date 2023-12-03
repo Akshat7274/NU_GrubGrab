@@ -1,16 +1,16 @@
 pipeline{
     agent any
 
-    preBuild{
-            mail 
-            to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com',
-            bcc: '',  
-            cc: '', 
-            from: '', 
-            replyTo: '', 
-            subject: 'Jenkins Build for NU GrubGrab has Started', 
-            body: '''This mail is sent from Jenkins automated server for NU GrubGrab'''
-    }
+    // preBuild{
+    //         mail 
+    //         to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com',
+    //         bcc: '',  
+    //         cc: '', 
+    //         from: '', 
+    //         replyTo: '', 
+    //         subject: 'Jenkins Build for NU GrubGrab has Started', 
+    //         body: '''This mail is sent from Jenkins automated server for NU GrubGrab'''
+    // }
 
     stages{
         // stage('Install Dependency - Client'){
@@ -75,16 +75,16 @@ pipeline{
 
     post{
 
-        // always{
-        //     mail 
-        //     to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com',
-        //     bcc: '',  
-        //     cc: '', 
-        //     from: '', 
-        //     replyTo: '', 
-        //     subject: 'Jenkins Build for NU GrubGrab has Begun', 
-        //     body: '''This mail is sent from Jenkins automated server for NU GrubGrab'''
-        // }
+        always{
+            mail 
+            to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com',
+            bcc: '',  
+            cc: '', 
+            from: '', 
+            replyTo: '', 
+            subject: 'Jenkins Build for NU GrubGrab has Begun', 
+            body: '''This mail is sent from Jenkins automated server for NU GrubGrab'''
+        }
 
         success{
             mail 
