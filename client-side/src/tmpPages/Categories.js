@@ -3,7 +3,19 @@ import { Link, useLocation } from "react-router-dom";
 import useCategory from "../hooks/useCategory";
 import Layout from "../components/Layout/Layout";
 const Categories = () => {
-  const categories = useCategory();
+  const location = useLocation();
+  const currentURL = location.pathname;
+
+  const segments = currentURL.split("/");
+
+  let foodPointName = "";
+  for (let i = 0; i < segments.length; i++) {
+    if (segments[i] !== "") {
+      foodPointName = segments[i];
+      break;
+    }
+  }
+  const categories = useCategory(foodPointName);
   return (
     <Layout title={"All Categories"}>
       <div className="container" style={{ marginTop: "60px" }}>
