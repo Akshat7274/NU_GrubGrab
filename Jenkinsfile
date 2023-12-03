@@ -28,12 +28,13 @@ pipeline {
             }
         }
 
-        // stage('Selenium Testing') {
-        //     steps {
-        //         bat 'cd server-side'
-        //         bat 'node selenium.js'
-        //     }
-        // }
+        stage('Selenium Testing') {
+            steps {
+                bat 'cd server-side'
+                bat 'npm i --legacy-peer-deps'
+                bat 'node selenium.js'
+            }
+        }
     }
 
     post {
