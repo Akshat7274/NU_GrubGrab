@@ -13,8 +13,8 @@ const Dashboard = () => {
           </div>
           <div className="col-md-8 div-container">
             <div className="div-container-v2">
-              <h3 style={{lineHeight:"3rem"}}> Admin Name : {auth?.user?.name}</h3>
-              <h3 style={{lineHeight:"3rem"}}> Admin Email : {auth?.user?.email}</h3>
+              <h3 style={{lineHeight:"3rem"}}> Name : {auth?.user?.name}</h3>
+              <h3 style={{lineHeight:"3rem"}}> Email : {auth?.user?.email}</h3>
             </div>
           </div>
         </div>

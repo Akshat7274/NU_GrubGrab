@@ -40,7 +40,7 @@
     font-weight: bolder;
     margin-top: 7px;
     margin-bottom: 7px;
-    background-color: orange;
+    background-color: #235789;
     color:white;
     transition: all 0.4s;
     margin-top: 20px;
@@ -70,7 +70,7 @@
 
 .backBTN:hover{
     transition: all 0.4s;
-    background-color: orange;
+    background-color: #c1292e;
     border: 1px solid white;
     color: white;
 }
@@ -80,7 +80,7 @@
     background-color: #f1f1f1;
     padding: 40px;
     border-radius: .5rem;
-    box-shadow: 0px 0px 20px orange;
+    box-shadow: 0px 0px 5px #235789;
 }
 .loginContainerv2 h1{
     font-weight: 600;

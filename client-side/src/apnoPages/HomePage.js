@@ -123,7 +123,7 @@ const HomePage = (userDetails) => {
       <Layout title={"NU Grub Grab"}>
         {/* banner image */}
         <img
-          src="/images/nescafe.png"
+          src="/images/apnogaon.png"
           className="banner-img"
           alt="bannerimage"
           width={"100%"}
@@ -194,7 +194,7 @@ const HomePage = (userDetails) => {
                         Description
                       </button>
                       <button
-                        className="btn btn-outline-dark item-button"
+                        className="btn btn-outline-danger item-button"
                         onClick={() => {
                           setCart([...cart, p]);
                           localStorage.setItem(

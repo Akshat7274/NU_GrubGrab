@@ -4,23 +4,26 @@
 } */
 
 .button {
-    background-color: rgb(249, 137, 68);
-    color:white;
-    border: none;
-    font-size: 2rem;
-    font-weight: bolder;
-    width: 15rem;
-    height: 10rem;
-    border: 2px solid;
-    border-color: rgb(184,54,0);
+  width: 12rem;
+  height: 8rem;
+  font-size: 1.5rem;
+  transform: scale(0.9);
+  
+  transition: transform 330ms ease-in-out;
+  border: 2px solid;
+  color: #235789;
+  border-color: #235789;
 }
 
 .button:hover{
-    transform: scale(0.9);
-    transition: transform 330ms ease-in-out;
+
+    background-color: #c1292e;
+    color:white;
+    border: none;
+    
+    font-weight: bolder;
     border: 2px solid;
-    color: rgb(1, 101, 19);
-    border-color: rgb(1, 101, 19);
+    border-color: #c1292e;
 }
 .subdiv {
     margin: 20px;

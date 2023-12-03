@@ -8,7 +8,7 @@
 }
 
 .category .card {
-  background-color: rgba(128, 128, 128, 0.097);
+  background-color: rgba(24, 26, 142, 0.097);
   width: 18rem;
 }
 .category .card-name-price {
@@ -18,7 +18,7 @@
 }
 
 .category .card-price {
-  color: green;
+  color: #235789;
   font-weight: bold;
 }
 .category button {
@@ -32,7 +32,7 @@
 }
 
 .category .card-text {
-  color: rgb(90, 89, 89);
+  color: rgb(0, 0, 0);
 }
 
 .category .card img:hover {

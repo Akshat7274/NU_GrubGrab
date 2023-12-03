@@ -77,8 +77,8 @@
 }
 
 .footer a:hover {
-  color: #ffefba;
-  border-bottom: 1px solid #ffefba;
+  color: #c1292e;
+  border-bottom: 1px solid #f1d302;
 }
 /* =================================
 ======== page not found css ======= */
@@ -154,7 +154,7 @@
   margin: 2rem 0rem 2rem 4rem;
 }
 .dashboard-menu h4 {
-  background: #c1292e !important;
+  background: #235789 !important;
   color: white;
   padding: 30px 0px;
   margin-right: -30px;
@@ -162,6 +162,6 @@
 .contain{
   padding: 2rem;
   margin: 8px;
-  box-shadow: 0px 0px 40px inset #c1292e;
   border-radius: 0.25rem;
+  border: 2px #235789 solid;
 }

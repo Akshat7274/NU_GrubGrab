@@ -37,6 +37,6 @@
 
 .custom-active.active {
   background-color: white;
-  border: 2px maroon solid;
+  border: 2px #235789 solid;
   color: black;
 }

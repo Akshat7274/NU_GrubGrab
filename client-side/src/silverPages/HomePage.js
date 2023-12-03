@@ -123,7 +123,7 @@ const HomePage = (userDetails) => {
       <Layout title={"NU Grub Grab"}>
         {/* banner image */}
         <img
-          src="/images/nescafe.png"
+          src="/images/silver.png"
           className="banner-img"
           alt="bannerimage"
           width={"100%"}

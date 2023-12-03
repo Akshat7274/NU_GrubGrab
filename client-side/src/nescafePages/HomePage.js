@@ -194,7 +194,7 @@ const HomePage = (userDetails) => {
                         Description
                       </button>
                       <button
-                        className="btn btn-outline-dark item-button"
+                        className="btn btn-outline-danger item-button"
                         onClick={() => {
                           setCart([...cart, p]);
                           localStorage.setItem(

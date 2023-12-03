@@ -65,7 +65,7 @@ const ProductDetails = () => {
             })}
           </h6>
           <h6><strong>Category : </strong> {product?.category?.name}</h6>
-          <button class="btn btn-success w-50 m-auto" onClick={() => {
+          <button class="btn btn-warning w-50 m-auto" onClick={() => {
                     setCart([...cart, product]);
                     localStorage.setItem(
                       "cart",
@@ -77,7 +77,7 @@ const ProductDetails = () => {
       </div>
       <hr />
       <div className="row container similar-products">
-        <h4><strong>Similar Products</strong> 🛍️</h4>
+        <h4><strong>Similar Products</strong> </h4>
         {relatedProducts.length < 1 && (
           <p className="text-center">No Similar Products found</p>
         )}
@@ -104,7 +104,7 @@ const ProductDetails = () => {
                 </p>
                 <div className="card-name-price">
                   <button
-                    className="btn btn-success"
+                    className="btn btn-warning"
                     onClick={() => navigate(`/product/${p.slug}`)}
                   >
                     More Details
