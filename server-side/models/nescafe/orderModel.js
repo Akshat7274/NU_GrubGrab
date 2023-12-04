@@ -32,6 +32,10 @@ const orderSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    outlet: {
+      type: String,
+      default: "nescafe",
+    },
   },
   { timestamps: true }
 );

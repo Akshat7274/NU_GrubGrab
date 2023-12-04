@@ -103,7 +103,7 @@ export const loginController = async (req, res) => {
         email: user.email,
         phone: user.phone,
         role: user.role,
-        outlet: user.admin
+        outlet: user.admin,
       },
       token,
       isGoogle: "false",
@@ -267,19 +267,23 @@ export const getOrdersController = async (req, res) => {
       .find({ buyer: req.user._id })
       .populate("products", "-photo")
       .populate("buyer", "name");
-    nescafeOrders.forEach(obj => {
-      obj.outlet = "nescafe"
-    })
-    tmpOrders.forEach(obj => {
-      obj.outlet = "tmp"
-    })
-    ssOrders.forEach(obj => {
-      obj.outlet = "silver-spoon"
-    })
-    agOrders.forEach(obj => {
-      obj.outlet = "apno-gaon"
-    })
-    const orders = nescafeOrders.concat(tmpOrders).concat(ssOrders).concat(agOrders)
+    // nescafeOrders.forEach((obj) => {
+    //   obj.outlet = "nescafe";
+    // });
+    // tmpOrders.forEach((obj) => {
+    //   obj.outlet = "tmp";
+    // });
+    // ssOrders.forEach((obj) => {
+    //   obj.outlet = "silver-spoon";
+    // });
+    // agOrders.forEach((obj) => {
+    //   obj.outlet = "apno-gaon";
+    // });
+    const orders = nescafeOrders
+      .concat(tmpOrders)
+      .concat(ssOrders)
+      .concat(agOrders);
+    // console.log(nescafeOrders);
     res.json(orders);
   } catch (error) {
     console.log(error);
@@ -349,11 +353,11 @@ export const orderStatusController = async (req, res) => {
   }
 };
 
-export const reviewController = async (req,res) => {
-  try { 
+export const reviewController = async (req, res) => {
+  try {
     const { orderId } = req.params;
-    const order = await nescafeOrderModel.findById(orderId)
-    if (order && order.review===0){
+    const order = await nescafeOrderModel.findById(orderId);
+    if (order && order.review === 0) {
       const { review } = req.body;
       const orders = await nescafeOrderModel.findByIdAndUpdate(
         orderId,
@@ -361,12 +365,11 @@ export const reviewController = async (req,res) => {
         { new: true }
       );
       res.json(orders);
-    }
-    else{
+    } else {
       res.status(200).json({
         error: "false",
-        message: "Review Already Given"
-      })
+        message: "Review Already Given",
+      });
     }
   } catch (error) {
     console.log(error);
@@ -376,4 +379,4 @@ export const reviewController = async (req,res) => {
       error,
     });
   }
-}
+};

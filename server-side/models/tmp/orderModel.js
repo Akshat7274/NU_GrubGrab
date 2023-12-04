@@ -25,7 +25,11 @@ const orderSchema = new mongoose.Schema(
     review: {
       type: Number,
       default: 0
-    }
+    },
+    outlet: {
+      type: String,
+      default: "tmp",
+    },
   },
   { timestamps: true }
 );
