@@ -320,3 +320,32 @@ export const orderStatusController = async (req, res) => {
     });
   }
 };
+
+export const reviewController = async (req,res) => {
+  try { 
+    const { orderId } = req.params;
+    const order = nescafeOrderModel.findById(orderId)
+    if (order && order.review===0){
+      const { review } = req.body;
+      const orders = await nescafeOrderModel.findByIdAndUpdate(
+        orderId,
+        { review },
+        { new: true }
+      );
+      res.json(orders);
+    }
+    else{
+      res.status(200).json({
+        error: "false",
+        message: "Review Already Given"
+      })
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error While Updating Order",
+      error,
+    });
+  }
+}
