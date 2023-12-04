@@ -21,7 +21,7 @@ const AdminOrders = () => {
   const [auth, setAuth] = useAuth();
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("/api/v1/auth/all-orders");
+      const { data } = await axios.post("/api/v1/auth/all-orders/nescafe",{outlet: "nescafe"});
       setOrders(data);
     } catch (error) {
       console.log(error);
@@ -63,7 +63,7 @@ const AdminOrders = () => {
                       <th scope="col">Time</th>
                       <th scope="col">Payment</th>
                       <th scope="col">Quantity</th>
-                      {o.status === "Collected" ? (<th>Review</th>) : (<></>)}
+                      {o.status === "Collected" && o.review != 0 ? (<th>Review</th>) : (<></>)}
                     </tr>
                   </thead>
                   <tbody>
@@ -87,7 +87,7 @@ const AdminOrders = () => {
                       <td>{moment(o?.createdAt).format('HH:mm')}</td>
                       <td>{o?.payment.success ? "Success" : "Failed"}</td>
                       <td>{o?.products?.length}</td>
-                      {o.status === "Collected" ? (<td>{o?.review}</td>) : (<></>)}
+                      {o.status === "Collected" && o.review != 0  ? (<td>{o?.review}</td>) : (<></>)}
                     </tr>
                   </tbody>
                 </table>

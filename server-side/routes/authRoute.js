@@ -7,7 +7,10 @@ import {
   testController,
   updateProfileController,
   getOrdersController,
-  getAllOrdersController,
+  getAgOrdersController,
+  getSsOrdersController,
+  getTmpOrdersController,
+  getNescOrdersController,
   orderStatusController,
   emailSend,
   changePassword,
@@ -136,7 +139,10 @@ router.put("/profile", requireSignIn, updateProfileController);
 router.get("/orders", requireSignIn, getOrdersController);
 
 //all orders
-router.get("/all-orders", requireSignIn, isAdmin, getAllOrdersController);
+router.post("/all-orders/apno-gaon", requireSignIn, isAdmin, getAgOrdersController);
+router.post("/all-orders/silver-spoon", requireSignIn, isAdmin, getSsOrdersController);
+router.post("/all-orders/tmp", requireSignIn, isAdmin, getTmpOrdersController);
+router.post("/all-orders/nescafe", requireSignIn, isAdmin, getNescOrdersController);
 
 // order status update
 router.put(

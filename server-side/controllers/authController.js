@@ -267,23 +267,10 @@ export const getOrdersController = async (req, res) => {
       .find({ buyer: req.user._id })
       .populate("products", "-photo")
       .populate("buyer", "name");
-    // nescafeOrders.forEach((obj) => {
-    //   obj.outlet = "nescafe";
-    // });
-    // tmpOrders.forEach((obj) => {
-    //   obj.outlet = "tmp";
-    // });
-    // ssOrders.forEach((obj) => {
-    //   obj.outlet = "silver-spoon";
-    // });
-    // agOrders.forEach((obj) => {
-    //   obj.outlet = "apno-gaon";
-    // });
     const orders = nescafeOrders
       .concat(tmpOrders)
       .concat(ssOrders)
       .concat(agOrders);
-    // console.log(nescafeOrders);
     res.json(orders);
   } catch (error) {
     console.log(error);
@@ -295,7 +282,61 @@ export const getOrdersController = async (req, res) => {
   }
 };
 //orders
-export const getAllOrdersController = async (req, res) => {
+export const getAgOrdersController = async (req, res) => {
+  try {
+    const orders = await agOrderModel
+      .find({})
+      .populate("products", "-photo")
+      .populate("buyer", "name")
+      .sort({ createdAt: "-1" });
+    res.json(orders);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error While Getting Orders",
+      error,
+    });
+  }
+};
+
+export const getSsOrdersController = async (req, res) => {
+  try {
+    const orders = await ssOrderModel
+      .find({})
+      .populate("products", "-photo")
+      .populate("buyer", "name")
+      .sort({ createdAt: "-1" });
+    res.json(orders);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error While Getting Orders",
+      error,
+    });
+  }
+};
+
+export const getTmpOrdersController = async (req, res) => {
+  try {
+    const orders = await tmpOrderModel
+      .find({})
+      .populate("products", "-photo")
+      .populate("buyer", "name")
+      .sort({ createdAt: "-1" });
+    res.json(orders);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error While Getting Orders",
+      error,
+    });
+  }
+};
+
+export const getNescOrdersController = async (req, res) => {
   try {
     const orders = await nescafeOrderModel
       .find({})
@@ -337,12 +378,41 @@ export const orderStatusController = async (req, res) => {
   try {
     const { orderId } = req.params;
     const { status } = req.body;
-    const orders = await nescafeOrderModel.findByIdAndUpdate(
-      orderId,
-      { status },
-      { new: true }
-    );
-    res.json(orders);
+
+    const nesc = await nescafeOrderModel.findById(orderId);
+    const tmp = await tmpOrderModel.findById(orderId);
+    const ss = await ssOrderModel.findById(orderId);
+    const ag = await agOrderModel.findById(orderId);
+
+    if(nesc){
+      const orders = await nescafeOrderModel.findByIdAndUpdate(
+        orderId,
+        { status },
+        { new: true }
+      );
+      res.json(orders)
+    } else if(tmp){
+      const orders = await tmpOrderModel.findByIdAndUpdate(
+        orderId,
+        { status },
+        { new: true }
+      );
+      res.json(orders)
+    } else if(ss){
+      const orders = await ssOrderModel.findByIdAndUpdate(
+        orderId,
+        { status },
+        { new: true }
+      );
+      res.json(orders)
+    } else if(ag){
+      const orders = await agOrderModel.findByIdAndUpdate(
+        orderId,
+        { status },
+        { new: true }
+      );
+      res.json(orders)
+    }
   } catch (error) {
     console.log(error);
     res.status(500).send({

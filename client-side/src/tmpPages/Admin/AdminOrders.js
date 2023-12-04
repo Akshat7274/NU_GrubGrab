@@ -21,7 +21,7 @@ const AdminOrders = () => {
   const [auth, setAuth] = useAuth();
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("/api/v1/auth/all-orders");
+      const { data } = await axios.post("/api/v1/auth/all-orders/tmp",{outlet: "tmp"});
       setOrders(data);
     } catch (error) {
       console.log(error);
@@ -63,6 +63,7 @@ const AdminOrders = () => {
                       <th scope="col">Time</th>
                       <th scope="col">Payment</th>
                       <th scope="col">Quantity</th>
+                      {o.status === "Collected" && o.review != 0 ? (<th>Review</th>) : (<></>)}
                     </tr>
                   </thead>
                   <tbody>
@@ -86,6 +87,7 @@ const AdminOrders = () => {
                       <td>{moment(o?.createdAt).format('HH:mm')}</td>
                       <td>{o?.payment.success ? "Success" : "Failed"}</td>
                       <td>{o?.products?.length}</td>
+                      {o.status === "Collected" && o.review != 0 ? (<td>{o?.review}</td>) : (<></>)}
                     </tr>
                   </tbody>
                 </table>
@@ -104,12 +106,12 @@ const AdminOrders = () => {
                       </div>
                       <div className="col-md-8">
                         <p>{p.name}</p>
-                        <p>{p.description.substring(0, 30)}</p>
                         <p>Price : {p.price}</p>
                       </div>
                     </div>
                   ))}
                 </div>
+              <p style={{ marginLeft: '10px' }}>Instructions: {o.instruction.substring(0,30)}</p>
               </div>
             );
           })}
