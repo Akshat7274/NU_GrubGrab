@@ -324,7 +324,7 @@ export const orderStatusController = async (req, res) => {
 export const reviewController = async (req,res) => {
   try { 
     const { orderId } = req.params;
-    const order = nescafeOrderModel.findById(orderId)
+    const order = await nescafeOrderModel.findById(orderId)
     if (order && order.review===0){
       const { review } = req.body;
       const orders = await nescafeOrderModel.findByIdAndUpdate(
