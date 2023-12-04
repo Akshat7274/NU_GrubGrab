@@ -16,12 +16,33 @@ const Orders = () => {
       console.log(error);
     }
   };
-  
-  const handleReviewChange = (value, index) => {
-    const updatedOrders = [...orders];
-    updatedOrders[index].review = value;
-    setOrders(updatedOrders);
+
+  const handleChange = async (orderId, value) => {
+    try {
+      const { data } = await axios.put(`/api/v1/auth/order-status/${orderId}`, {
+        status: value,
+      });
+      getOrders();
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  const handleReviewChange = async (orderId, value) => {
+    try {
+      const { data } = await axios.put(`/api/v1/auth/order-review/${orderId}`, {
+        review: value,
+      });
+      const updatedOrder = data;
+      const updatedOrders = [...orders];
+      const index = updatedOrders.findIndex((o) => o._id === orderId);
+      updatedOrders[index].review = updatedOrder.review;
+      setOrders(updatedOrders);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
 
   useEffect(() => {
     if (auth?.token) getOrders();
@@ -77,7 +98,9 @@ const Orders = () => {
                           ) : (
                             <select
                               value={o.review || ""}
-                              onChange={(e) => handleReviewChange(e.target.value, i)}
+                              onChange={(e) =>
+                                handleReviewChange(e.target.value, i)
+                              }
                             >
                               <option value="">Select Review</option>
                               {[1, 2, 3, 4, 5].map((rating) => (
