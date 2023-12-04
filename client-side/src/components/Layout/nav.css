@@ -3,13 +3,13 @@
 .nav-decor {
   /* width: 20%; */
   color: black;
-  text-align: center;
+  text-align: left;
   font-size: 18px;
   font-family: Lato;
   font-size: large;
   font-weight: bold;
   margin: 10px;
-  margin-right: 55px;
+
   padding: 0px !important;
 }
 .image {

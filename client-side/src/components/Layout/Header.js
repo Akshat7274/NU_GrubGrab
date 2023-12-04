@@ -176,41 +176,41 @@ const Header = (userDetails) => {
                     <ul className="dropdown-menu nav-decor">
                       {auth?.user?.role == 2 && foodPointName == "" ? (
                         <>
-                          <li>
+                          <li className=" nav-decor">
                             <NavLink
                               to={`/dashboard/nescafe/admin`}
                               className="dropdown-item "
                             >
-                              Nescafe Dashboard
+                              Nescafe 
                             </NavLink>
                           </li>
-                          <li>
+                          <li className=" nav-decor">
                             <NavLink
                               to={`/dashboard/tmp/admin`}
                               className="dropdown-item "
                             >
-                              TMP Dashboard
+                              TMP 
                             </NavLink>
                           </li>
-                          <li>
+                          <li className=" nav-decor">
                             <NavLink
                               to={`/dashboard/silver-spoon/admin`}
                               className="dropdown-item "
                             >
-                              Silver Spoon Dashboard
+                              Silver Spoon 
                             </NavLink>
                           </li>
-                          <li>
+                          <li className=" nav-decor">
                             <NavLink
                               to={`/dashboard/apno-gaon/admin`}
                               className="dropdown-item "
                             >
-                              Apno Gaon Dashboard
+                              Apno Gaon 
                             </NavLink>
                           </li>
                         </>
                       ) : (
-                        <li>
+                        <li className=" nav-decor">
                           <NavLink
                             to={`/dashboard/${
                               auth?.user?.role === 2
@@ -225,7 +225,7 @@ const Header = (userDetails) => {
                           </NavLink>
                         </li>
                       )}
-                      <li className=" nav-decor">
+                      <li className="nav-decor">
                         <NavLink
                           onClick={handleLogout}
                           to="/login"
