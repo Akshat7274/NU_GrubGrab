@@ -19,7 +19,14 @@ const Header = (userDetails) => {
 
   let foodPointName = "";
   for (let i = 0; i < segments.length; i++) {
-    if (segments[i] == "nescafe" || segments[i] == "tmp" || segments[i]=="silver-spoon" || segments[i] == "apno-gaon") {
+    if (
+      segments[i] == "nescafe" ||
+      segments[i] == "tmp" ||
+      segments[i] == "silver-spoon" ||
+      segments[i] == "apno-gaon" ||
+      segments[i] == "login" ||
+      segments[i] == "register"
+    ) {
       foodPointName = segments[i];
       break;
     }
@@ -38,7 +45,7 @@ const Header = (userDetails) => {
           phone: data.phone,
           _id: data._id,
           role: data.role,
-          outlet: data.admin
+          outlet: data.admin,
         },
         token: data.token,
       });
@@ -52,7 +59,7 @@ const Header = (userDetails) => {
   };
 
   useEffect(() => {
-    { 
+    {
       getUser();
     }
   }, []);
@@ -60,7 +67,7 @@ const Header = (userDetails) => {
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
   const categories = useCategory(foodPointName);
-  console.log(auth?.user)
+  console.log(auth?.user);
 
   const blacklist = async () => {
     const jwt = JSON.parse(localStorage.getItem("auth")).token;
@@ -95,40 +102,52 @@ const Header = (userDetails) => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <img src="/images/logogg.png" className="image" alt="logo" />
+            <a href="/"><img src="/images/logogg.png" className="image" alt="logo"/></a>
             <ul className="navbar-nav  ms-auto mb-2 mb-lg-0">
-              <SearchInput />
-              <li className="nav-item nav-decor">
+              {foodPointName == "nescafe" || foodPointName == "silver-spoon" || foodPointName == "apno-gaon" || foodPointName == "tmp" ? (
+                <SearchInput />):(<></>)}
+              {foodPointName == "nescafe" || foodPointName == "silver-spoon" || foodPointName == "apno-gaon" || foodPointName == "tmp" || foodPointName =="login" || foodPointName == "register" ? (
+                <li className="nav-item nav-decor">
                 <NavLink to="/" className="nav-link nav-decor">
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item dropdown nav-decor ">
-                <Link
-                  className="nav-link dropdown-toggle nav-decor"
-                  to={"/"+foodPointName+"/categories"}
-                  data-bs-toggle="dropdown"
-                >
-                  Categories
-                </Link>
-                <ul className="dropdown-menu ">
-                  <li>
-                    <Link className="dropdown-item" to={"/"+foodPointName+"/categories"}>
-                      All Categories
-                    </Link>
-                  </li>
-                  {categories?.map((c) => (
+              ):(
+                <></>
+              )}
+              {foodPointName == "nescafe" || foodPointName == "silver-spoon" || foodPointName == "apno-gaon" || foodPointName == "tmp" ? (
+                <li className="nav-item dropdown nav-decor ">
+                  <Link
+                    className="nav-link dropdown-toggle nav-decor"
+                    to={"/" + foodPointName + "/categories"}
+                    data-bs-toggle="dropdown"
+                  >
+                    Categories
+                  </Link>
+                  <ul className="dropdown-menu ">
                     <li>
                       <Link
                         className="dropdown-item"
-                        to={`/${foodPointName}/category/${c.slug}`}
+                        to={"/" + foodPointName + "/categories"}
                       >
-                        {c.name}
+                        All Categories
                       </Link>
                     </li>
-                  ))}
-                </ul>
-              </li>
+                    {categories?.map((c) => (
+                      <li>
+                        <Link
+                          className="dropdown-item"
+                          to={`/${foodPointName}/category/${c.slug}`}
+                        >
+                          {c.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                  <></>
+              )}
               {!auth?.token ? (
                 <>
                   <li className="nav-item nav-decor">
@@ -155,48 +174,57 @@ const Header = (userDetails) => {
                       {auth?.user?.name}
                     </NavLink>
                     <ul className="dropdown-menu nav-decor">
-                        {auth?.user?.role==2 && foodPointName=="" ? (
-                          <><li>
-                          <NavLink
-                            to={`/dashboard/nescafe/admin`}
-                            className="dropdown-item "
-                          >
-                            Nescafe Dashboard
-                          </NavLink>
-                        </li><li>
+                      {auth?.user?.role == 2 && foodPointName == "" ? (
+                        <>
+                          <li>
+                            <NavLink
+                              to={`/dashboard/nescafe/admin`}
+                              className="dropdown-item "
+                            >
+                              Nescafe Dashboard
+                            </NavLink>
+                          </li>
+                          <li>
                             <NavLink
                               to={`/dashboard/tmp/admin`}
                               className="dropdown-item "
                             >
                               TMP Dashboard
                             </NavLink>
-                          </li><li>
+                          </li>
+                          <li>
                             <NavLink
                               to={`/dashboard/silver-spoon/admin`}
                               className="dropdown-item "
                             >
                               Silver Spoon Dashboard
                             </NavLink>
-                          </li><li>
+                          </li>
+                          <li>
                             <NavLink
                               to={`/dashboard/apno-gaon/admin`}
                               className="dropdown-item "
                             >
                               Apno Gaon Dashboard
                             </NavLink>
-                          </li></>
-                        ):(
-                          <li>
-                        <NavLink
-                          to={`/dashboard/${
-                            auth?.user?.role === 2 ? foodPointName+"/admin" : auth?.user?.role === 1 ? auth?.user?.outlet+"/admin" :"user"
-                          }`}
-                          className="dropdown-item "
-                        >
-                          Dashboard
-                        </NavLink>
+                          </li>
+                        </>
+                      ) : (
+                        <li>
+                          <NavLink
+                            to={`/dashboard/${
+                              auth?.user?.role === 2
+                                ? foodPointName + "/admin"
+                                : auth?.user?.role === 1
+                                ? auth?.user?.outlet + "/admin"
+                                : "user"
+                            }`}
+                            className="dropdown-item "
+                          >
+                            Dashboard
+                          </NavLink>
                         </li>
-                        )}
+                      )}
                       <li className=" nav-decor">
                         <NavLink
                           onClick={handleLogout}
@@ -210,8 +238,12 @@ const Header = (userDetails) => {
                   </li>
                 </>
               )}
-              <li className="nav-item ">
-                <NavLink to={"/"+foodPointName+"/cart"} className="nav-link ">
+              {foodPointName == "nescafe" || foodPointName == "silver-spoon" || foodPointName == "apno-gaon" || foodPointName == "tmp" ? (
+                <li className="nav-item ">
+                <NavLink
+                  to={"/" + foodPointName + "/cart"}
+                  className="nav-link "
+                >
                   <Badge
                     count={cart?.length}
                     showZero
@@ -222,6 +254,9 @@ const Header = (userDetails) => {
                   </Badge>
                 </NavLink>
               </li>
+              ):(
+                <></>
+              )}
             </ul>
           </div>
         </div>
