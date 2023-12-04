@@ -28,16 +28,12 @@ const Orders = () => {
     }
   };
 
-  const handleReviewChange = async (orderId, value) => {
+  const handleReviewChange = async (value, orderId) => {
     try {
-      const { data } = await axios.put(`/api/v1/auth/order-review/${orderId}`, {
+      const { data } = await axios.put(`/api/v1/auth/review/${orderId}`, {
         review: value,
       });
-      const updatedOrder = data;
-      const updatedOrders = [...orders];
-      const index = updatedOrders.findIndex((o) => o._id === orderId);
-      updatedOrders[index].review = updatedOrder.review;
-      setOrders(updatedOrders);
+      getOrders()
     } catch (error) {
       console.log(error);
     }
@@ -99,7 +95,7 @@ const Orders = () => {
                             <select
                               value={o.review || ""}
                               onChange={(e) =>
-                                handleReviewChange(e.target.value, i)
+                                handleReviewChange(e.target.value, o._id)
                               }
                             >
                               <option value="">Select Review</option>
