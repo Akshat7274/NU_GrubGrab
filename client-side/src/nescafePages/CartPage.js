@@ -115,30 +115,40 @@ const CartPage = () => {
             <div className="col-md-7  p-0 m-0">
               {cart?.map((p) => (
                 <div className="row card flex-row" key={p._id}>
-                  <div className="col-md-4">
-                    <img
-                      src={`/api/v1/nescafe/product/product-photo/${p._id}`}
-                      className="card-img-top"
-                      alt={p.name}
-                      style={{width:"auto", height:"125px", margin:"auto !important"}}
-                      // width = "100%"
-                      // height={"137px"}
-                    />
-                  </div>
-                  <div className="col-md-4">
-                    <p>{p.name}</p>
-                    <p>{p.description.substring(0, 30)}</p>
-                    <p>Price : {p.price}</p>
-                  </div>
-                  <div className="col-md-4 cart-remove-btn">
-                    <button
-                      className="btn btn-outline-dark" style={{border:"2px solid"}}
-                      onClick={() => removeCartItem(p._id)}
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </div>
+  <div className="col-md-4">
+    <img
+      src={`/api/v1/nescafe/product/product-photo/${p._id}`}
+      className="card-img-top"
+      alt={p.name}
+      style={{ width: "auto", height: "125px", margin: "auto !important" }}
+    />
+  </div>
+  <div className="col-md-4">
+    <p>{p.name}</p>
+    <p>{p.description.substring(0, 30)}</p>
+    <p>Price : {p.price}</p>
+  </div>
+  <div className="col-md-4 cart-remove-btn">
+    <button
+      className="btn btn-outline-dark"
+      style={{ border: "2px solid" }}
+      onClick={() => removeCartItem(p._id)}
+    >
+      Remove
+    </button>
+  </div>
+
+  {/* Additional Instructions Textbox */}
+  <div className="col-md-12 mt-3">
+    <h6>Add additional instructions if any</h6>
+    <textarea
+      className="form-control"
+      rows="4"
+      placeholder="Enter additional instructions here..."
+    ></textarea>
+  </div>
+</div>
+
               ))}
             </div>
             <div className="col-md-5 cart-summary ">
