@@ -1,5 +1,8 @@
 import userModel from "../models/userModel.js";
 import nescafeOrderModel from "../models/nescafe/orderModel.js";
+import tmpOrderModel from "../models/tmp/orderModel.js";
+import ssOrderModel from "../models/silver-spoon/orderModel.js";
+import agOrderModel from "../models/apno-gaon/orderModel.js";
 import nodemailer from "nodemailer";
 import { comparePassword, hashPassword } from "./../helpers/authHelper.js";
 import JWT from "jsonwebtoken";
@@ -248,10 +251,23 @@ export const updateProfileController = async (req, res) => {
 //orders
 export const getOrdersController = async (req, res) => {
   try {
-    const orders = await nescafeOrderModel
+    const nescafeOrders = await nescafeOrderModel
       .find({ buyer: req.user._id })
       .populate("products", "-photo")
       .populate("buyer", "name");
+    const tmpOrders = await tmpOrderModel
+      .find({ buyer: req.user._id })
+      .populate("products", "-photo")
+      .populate("buyer", "name");
+    const ssOrders = await ssOrderModel
+      .find({ buyer: req.user._id })
+      .populate("products", "-photo")
+      .populate("buyer", "name");
+    const agOrders = await agOrderModel
+      .find({ buyer: req.user._id })
+      .populate("products", "-photo")
+      .populate("buyer", "name");
+    const orders = nescafeOrders.concat(tmpOrders).concat(ssOrders).concat(agOrders)
     res.json(orders);
   } catch (error) {
     console.log(error);
