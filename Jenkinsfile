@@ -46,7 +46,7 @@ pipeline {
                     body: '''Build has been Successful for the Jenkins job NU GrubGrab!
                     
                     This mail is sent from Jenkins automated server for NU GrubGrab''',
-                    to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com'
+                    to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com, atharv.deogaonkar01@gmail.com'
                 )
                 echo 'NU GRUBGRAB successfully deployed!'
             }
@@ -59,7 +59,7 @@ pipeline {
                     body: '''Build has failed for the Jenkins job NU GrubGrab!
                     
                     This mail is sent from Jenkins automated server for NU GrubGrab''',
-                    to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com'
+                    to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com, atharv.deogaonkar01@gmail.com'
                 )
                 echo 'NU GRUBGRAB deployment failed!'
             }
