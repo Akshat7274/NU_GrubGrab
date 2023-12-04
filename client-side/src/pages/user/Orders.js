@@ -135,6 +135,8 @@ const Orders = () => {
                       </div>
                     ))}
                   </div>
+                  
+              <p style={{ marginLeft: '10px' }}>Instructions: {o.instruction.substring(0,30)}</p>
                 </div>
               );
             })}
