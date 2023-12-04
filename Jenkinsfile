@@ -28,6 +28,12 @@ pipeline {
             }
         }
 
+        stage('Sleep 1 Minute'){
+            steps{
+                sleep time: 1, unit: 'MINUTES'
+            }
+        }
+
         stage('Selenium Testing') {
             steps {
                 dir('server-side'){
