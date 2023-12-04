@@ -267,6 +267,18 @@ export const getOrdersController = async (req, res) => {
       .find({ buyer: req.user._id })
       .populate("products", "-photo")
       .populate("buyer", "name");
+    nescafeOrders.forEach(obj => {
+      obj.outlet = "nescafe"
+    })
+    tmpOrders.forEach(obj => {
+      obj.outlet = "tmp"
+    })
+    ssOrders.forEach(obj => {
+      obj.outlet = "silver-spoon"
+    })
+    agOrders.forEach(obj => {
+      obj.outlet = "apno-gaon"
+    })
     const orders = nescafeOrders.concat(tmpOrders).concat(ssOrders).concat(agOrders)
     res.json(orders);
   } catch (error) {

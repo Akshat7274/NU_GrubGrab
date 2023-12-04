@@ -25,7 +25,8 @@ const Header = (userDetails) => {
       segments[i] == "silver-spoon" ||
       segments[i] == "apno-gaon" ||
       segments[i] == "login" ||
-      segments[i] == "register"
+      segments[i] == "register" ||
+      segments[i] == "dashboard"
     ) {
       foodPointName = segments[i];
       break;
@@ -106,7 +107,7 @@ const Header = (userDetails) => {
             <ul className="navbar-nav  ms-auto mb-2 mb-lg-0">
               {foodPointName == "nescafe" || foodPointName == "silver-spoon" || foodPointName == "apno-gaon" || foodPointName == "tmp" ? (
                 <SearchInput />):(<></>)}
-              {foodPointName == "nescafe" || foodPointName == "silver-spoon" || foodPointName == "apno-gaon" || foodPointName == "tmp" || foodPointName =="login" || foodPointName == "register" ? (
+              {foodPointName == "nescafe" || foodPointName == "silver-spoon" || foodPointName == "apno-gaon" || foodPointName == "tmp" || foodPointName =="login" || foodPointName == "register" || foodPointName == "dashboard" ? (
                 <li className="nav-item nav-decor">
                 <NavLink to="/" className="nav-link nav-decor">
                   Home
