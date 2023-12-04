@@ -102,7 +102,7 @@ const Header = (userDetails) => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a href="/"><img src="/images/logogg.png" className="image" alt="logo"/></a>
+            <img src="/images/logogg.png" className="image" alt="logo"/>
             <ul className="navbar-nav  ms-auto mb-2 mb-lg-0">
               {foodPointName == "nescafe" || foodPointName == "silver-spoon" || foodPointName == "apno-gaon" || foodPointName == "tmp" ? (
                 <SearchInput />):(<></>)}
