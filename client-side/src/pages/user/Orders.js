@@ -38,19 +38,18 @@ const Orders = () => {
       // const index = updatedOrders.findIndex((o) => o._id === orderId);
       // updatedOrders[index].review = updatedOrder.review;
       // setOrders(updatedOrders);
-      getOrders()
+      getOrders();
     } catch (error) {
       console.log(error);
     }
   };
-  
 
   useEffect(() => {
     if (auth?.token) getOrders();
   }, [auth?.token]);
   return (
     <Layout title={"Your Orders"}>
-      <div className="container-flui p-3 m-3 dashboard">
+      <div className="container-fluid p-3 m-3 dashboard">
         <div className="row">
           <div className="col-md-4">
             <UserMenu />
@@ -68,7 +67,7 @@ const Orders = () => {
             <h1 className="text-center" style={{ paddingBottom: "2rem" }}>
               ALL ORDERS
             </h1>
-            {orders?.map((o, i) => {
+            {orders?.reverse().map((o, i) => {
               return (
                 <div className="border shadow">
                   <table className="table">
@@ -81,7 +80,7 @@ const Orders = () => {
                         <th scope="col">Time</th>
                         <th scope="col">Payment</th>
                         <th scope="col">Quantity</th>
-                        <th scope="col">Review</th>
+                        {o.status === "Collected" ? (<th>Review</th>) : (<></>)}
                       </tr>
                     </thead>
                     <tbody>
@@ -93,25 +92,29 @@ const Orders = () => {
                         <td>{moment(o?.createdAt).format("HH:mm")}</td>
                         <td>{o?.payment.success ? "Success" : "Failed"}</td>
                         <td>{o?.products?.length}</td>
-                        <td>
-                          {o.review ? (
-                            <span>{o.review}</span>
-                          ) : (
-                            <select
-                              value={o.review || ""}
-                              onChange={(e) =>
-                                handleReviewChange(e.target.value, o._id)
-                              }
-                            >
-                              <option value="">Select Review</option>
-                              {[1, 2, 3, 4, 5].map((rating) => (
-                                <option key={rating} value={rating}>
-                                  {rating}
-                                </option>
-                              ))}
-                            </select>
-                          )}
-                        </td>
+                        {o.status === "Collected" ? (
+                          <td>
+                            {o.review ? (
+                              <span>{o.review}</span>
+                            ) : (
+                              <select
+                                value={o.review || ""}
+                                onChange={(e) =>
+                                  handleReviewChange(e.target.value, o._id)
+                                }
+                              >
+                                <option value="">Select Review</option>
+                                {[1, 2, 3, 4, 5].map((rating) => (
+                                  <option key={rating} value={rating}>
+                                    {rating}
+                                  </option>
+                                ))}
+                              </select>
+                            )}
+                          </td>
+                        ) : (
+                          <></>
+                        )}
                       </tr>
                     </tbody>
                   </table>
@@ -140,8 +143,10 @@ const Orders = () => {
                       </div>
                     ))}
                   </div>
-                  
-              <p style={{ marginLeft: '10px' }}>Instructions: {o.instruction.substring(0,30)}</p>
+
+                  <p style={{ marginLeft: "10px" }}>
+                    Instructions: {o.instruction.substring(0, 30)}
+                  </p>
                 </div>
               );
             })}
