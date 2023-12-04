@@ -356,16 +356,41 @@ export const orderStatusController = async (req, res) => {
 export const reviewController = async (req, res) => {
   try {
     const { orderId } = req.params;
-    const order = await nescafeOrderModel.findById(orderId);
-    if (order && order.review === 0) {
-      const { review } = req.body;
+    const nesc = await nescafeOrderModel.findById(orderId);
+    const tmp = await tmpOrderModel.findById(orderId);
+    const ss = await ssOrderModel.findById(orderId);
+    const ag = await agOrderModel.findById(orderId);
+    const { review } = req.body;
+    if (nesc && nesc.review === 0) {
       const orders = await nescafeOrderModel.findByIdAndUpdate(
         orderId,
         { review },
         { new: true }
       );
       res.json(orders);
-    } else {
+    } else if (tmp && tmp.review===0){
+      const orders = await tmpOrderModel.findByIdAndUpdate(
+        orderId,
+        { review },
+        { new: true }
+      );
+      res.json(orders);
+    } else if (ss && ss.review===0){
+      const orders = await ssOrderModel.findByIdAndUpdate(
+        orderId,
+        { review },
+        { new: true }
+      );
+      res.json(orders);
+    } else if (ag && ag.review===0){
+      const orders = await agOrderModel.findByIdAndUpdate(
+        orderId,
+        { review },
+        { new: true }
+      );
+      res.json(orders);
+    }
+    else {
       res.status(200).json({
         error: "false",
         message: "Review Already Given",
