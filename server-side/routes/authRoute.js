@@ -12,6 +12,7 @@ import {
   emailSend,
   changePassword,
   blaclistController,
+  reviewController
 } from "../controllers/authController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 import passport from "passport";
@@ -143,6 +144,12 @@ router.put(
   requireSignIn,
   isAdmin,
   orderStatusController
+);
+
+router.put(
+  "/review/:orderID",
+  requireSignIn,
+  reviewController
 );
 
 const refresh = async () => {
