@@ -17,6 +17,33 @@ const Orders = () => {
     }
   };
 
+  const handleChange = async (orderId, value) => {
+    try {
+      const { data } = await axios.put(`/api/v1/auth/order-status/${orderId}`, {
+        status: value,
+      });
+      getOrders();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleReviewChange = async (orderId, value) => {
+    try {
+      const { data } = await axios.put(`/api/v1/auth/order-review/${orderId}`, {
+        review: value,
+      });
+      const updatedOrder = data;
+      const updatedOrders = [...orders];
+      const index = updatedOrders.findIndex((o) => o._id === orderId);
+      updatedOrders[index].review = updatedOrder.review;
+      setOrders(updatedOrders);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+
   useEffect(() => {
     if (auth?.token) getOrders();
   }, [auth?.token]);
@@ -27,8 +54,19 @@ const Orders = () => {
           <div className="col-md-4">
             <UserMenu />
           </div>
-          <div className="col-md-6" style={{marginLeft:"10rem",padding:"60px", alignItems:"center", border:"0.2rem solid #235789", borderRadius:"2rem"}}>
-            <h1 className="text-center" style={{paddingBottom:"2rem"}} >ALL ORDERS</h1>
+          <div
+            className="col-md-6"
+            style={{
+              marginLeft: "10rem",
+              padding: "60px",
+              alignItems: "center",
+              border: "0.2rem solid #235789",
+              borderRadius: "2rem",
+            }}
+          >
+            <h1 className="text-center" style={{ paddingBottom: "2rem" }}>
+              ALL ORDERS
+            </h1>
             {orders?.map((o, i) => {
               return (
                 <div className="border shadow">
@@ -42,6 +80,7 @@ const Orders = () => {
                         <th scope="col">Time</th>
                         <th scope="col">Payment</th>
                         <th scope="col">Quantity</th>
+                        <th scope="col">Review</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -49,10 +88,29 @@ const Orders = () => {
                         <td>{i + 1}</td>
                         <td>{o?.status}</td>
                         <td>{o?.buyer?.name}</td>
-                        <td>{moment(o?.createdAt).format('DD-MM-YYYY')}</td>
-                        <td>{moment(o?.createdAt).format('HH:mm')}</td>
+                        <td>{moment(o?.createdAt).format("DD-MM-YYYY")}</td>
+                        <td>{moment(o?.createdAt).format("HH:mm")}</td>
                         <td>{o?.payment.success ? "Success" : "Failed"}</td>
                         <td>{o?.products?.length}</td>
+                        <td>
+                          {o.review ? (
+                            <span>{o.review}</span>
+                          ) : (
+                            <select
+                              value={o.review || ""}
+                              onChange={(e) =>
+                                handleReviewChange(e.target.value, i)
+                              }
+                            >
+                              <option value="">Select Review</option>
+                              {[1, 2, 3, 4, 5].map((rating) => (
+                                <option key={rating} value={rating}>
+                                  {rating}
+                                </option>
+                              ))}
+                            </select>
+                          )}
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -64,7 +122,11 @@ const Orders = () => {
                             src={`/api/v1/nescafe/product/product-photo/${p._id}`}
                             className="card-img-top"
                             alt={p.name}
-                            style={{width:"auto", height:"125px", margin:"auto !important"}}
+                            style={{
+                              width: "auto",
+                              height: "125px",
+                              margin: "auto !important",
+                            }}
                             width="100px"
                             height={"100px"}
                           />
