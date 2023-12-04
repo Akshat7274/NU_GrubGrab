@@ -17,27 +17,11 @@ const Orders = () => {
     }
   };
 
-  const handleChange = async (orderId, value) => {
-    try {
-      const { data } = await axios.put(`/api/v1/auth/order-status/${orderId}`, {
-        status: value,
-      });
-      getOrders();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const handleReviewChange = async (value, orderId) => {
     try {
       const { data } = await axios.put(`/api/v1/auth/review/${orderId}`, {
         review: value,
       });
-      // const updatedOrder = data;
-      // const updatedOrders = [...orders];
-      // const index = updatedOrders.findIndex((o) => o._id === orderId);
-      // updatedOrders[index].review = updatedOrder.review;
-      // setOrders(updatedOrders);
       getOrders();
     } catch (error) {
       console.log(error);

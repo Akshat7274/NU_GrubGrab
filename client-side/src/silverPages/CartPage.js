@@ -11,11 +11,6 @@ import "../styles/CartStyles.css";
 
 const CartPage = () => {
   const [auth, setAuth] = useAuth();
-  const [cart, setCart] = useCart();
-  const [clientToken, setClientToken] = useState("");
-  const [instance, setInstance] = useState("");
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
   const location = useLocation();
   const currentURL = location.pathname;
 
@@ -28,6 +23,13 @@ const CartPage = () => {
       break;
     }
   }
+  const [cart, setCart] = useCart();
+  const [clientToken, setClientToken] = useState("");
+  const [instance, setInstance] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [instructions, setInstructions] = useState("");
+  const [submittedInstructions, setSubmittedInstructions] = useState(false);
+  const navigate = useNavigate();
 
   //total price
   const totalPrice = () => {
@@ -60,7 +62,9 @@ const CartPage = () => {
   //get payment gateway token
   const getToken = async () => {
     try {
-      const { data } = await axios.get("/api/v1/silver-spoon/product/braintree/token");
+      const { data } = await axios.get(
+        "/api/v1/silver-spoon/product/braintree/token"
+      );
       setClientToken(data?.clientToken);
     } catch (error) {
       console.log(error);
@@ -77,10 +81,14 @@ const CartPage = () => {
     try {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post("/api/v1/silver-spoon/product/braintree/payment", {
-        nonce,
-        cart,
-      });
+      const { data } = await axios.post(
+        "/api/v1/silver-spoon/product/braintree/payment",
+        {
+          nonce,
+          instructions,
+          cart,
+        }
+      );
       setLoading(false);
       localStorage.removeItem("silver-spoon-cart");
       setCart([]);
@@ -97,9 +105,7 @@ const CartPage = () => {
         <div className="row">
           <div className="col-md-12">
             <h1 className="text-center p-2 mb-1">
-              {!auth?.token
-                ? "Hello Guest!!"
-                : `Hello  ${auth?.user?.name} !!`}
+              {!auth?.token ? "Hello Guest!!" : `Hello  ${auth?.user?.name} !!`}
               <p className="text-center">
                 {cart?.length
                   ? `You have ${cart.length} items in your cart ${
@@ -120,9 +126,11 @@ const CartPage = () => {
                       src={`/api/v1/silver-spoon/product/product-photo/${p._id}`}
                       className="card-img-top"
                       alt={p.name}
-                      style={{width:"auto", height:"125px", margin:"auto !important"}}
-                      // width = "100%"
-                      // height={"137px"}
+                      style={{
+                        width: "auto",
+                        height: "125px",
+                        margin: "auto !important",
+                      }}
                     />
                   </div>
                   <div className="col-md-4">
@@ -132,7 +140,8 @@ const CartPage = () => {
                   </div>
                   <div className="col-md-4 cart-remove-btn">
                     <button
-                      className="btn btn-outline-dark" style={{border:"2px solid"}}
+                      className="btn btn-outline-dark"
+                      style={{ border: "2px solid" }}
                       onClick={() => removeCartItem(p._id)}
                     >
                       Remove
@@ -140,13 +149,36 @@ const CartPage = () => {
                   </div>
                 </div>
               ))}
+              {!submittedInstructions ? (
+                <>
+                  <h6>Add additional instructions if any</h6>
+                  <textarea
+                    className="form-control"
+                    rows="4"
+                    placeholder="Enter additional instructions here..."
+                    value={instructions}
+                    onChange={(e) => setInstructions(e.target.value)}
+                  ></textarea>
+                  <button
+                    className="btn btn-primary mt-2"
+                    onClick={() => {setSubmittedInstructions(true);}}
+                  >
+                    Submit Instructions
+                  </button>
+                </>
+              ) : (
+                <>
+                  <h6>Instructions:</h6>
+                  <p>{instructions}</p>
+                </>
+              )}
             </div>
             <div className="col-md-5 cart-summary ">
               <h2>Cart Summary</h2>
               <h2>🛒</h2>
               <hr />
               <h4>Total : {totalPrice()} </h4>
-            <div className="mt-2">
+              <div className="mt-2">
                 {!clientToken || !auth?.token || !cart?.length ? (
                   ""
                 ) : (
