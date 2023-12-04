@@ -63,7 +63,7 @@ const AdminOrders = () => {
                       <th scope="col">Time</th>
                       <th scope="col">Payment</th>
                       <th scope="col">Quantity</th>
-                      <th scopt="col">Review</th>
+                      {o.status === "Collected" ? (<th>Review</th>) : (<></>)}
                     </tr>
                   </thead>
                   <tbody>
@@ -87,7 +87,7 @@ const AdminOrders = () => {
                       <td>{moment(o?.createdAt).format('HH:mm')}</td>
                       <td>{o?.payment.success ? "Success" : "Failed"}</td>
                       <td>{o?.products?.length}</td>
-                      <td>{o?.review}</td>
+                      {o.status === "Collected" ? (<td>{o?.review}</td>) : (<></>)}
                     </tr>
                   </tbody>
                 </table>
