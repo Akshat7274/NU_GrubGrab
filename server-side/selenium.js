@@ -1,22 +1,31 @@
 import assert from "assert";
-import { Builder, By, Key } from "selenium-webdriver"
+import { Builder, By, Key } from "selenium-webdriver";
 
 async function tester() {
-    let browser = await new Builder().forBrowser('chrome').build();
-    await browser.get('http://localhost:3000');
+  let browser = await new Builder().forBrowser("chrome").build();
+  await browser.get("http://localhost:3000");
 
-    await browser.findElement(By.xpath("/html/body/div/div/main/div[2]/div/div[2]/div/div/div[1]/a")).click();
+  await browser
+    .findElement(
+      By.xpath("/html/body/div/div/main/div[2]/div/div[2]/div/div/div[1]/a")
+    )
+    .click();
+  await new Promise((resolve) => setTimeout(resolve, 10000));
 
-    // Adding a 1-minute timeout
-    await new Promise(resolve => setTimeout(resolve, 10000));
-
-    let item = await browser.findElement(By.xpath("/html/body/div/div/div/main/div[2]/div[2]/div[1]/div[1]/div/div[1]/h5[1]")).getText().then(function (value) {
-        return value;
+  let item = await browser
+    .findElement(
+      By.xpath(
+        "/html/body/div/div/div/main/div[2]/div[2]/div[1]/div[1]/div/div[1]/h5[1]"
+      )
+    )
+    .getText()
+    .then(function (value) {
+      return value;
     });
 
-    assert.strictEqual(item, "Contc. Pizza Large");
+  assert.strictEqual(item, "Contc. Pizza Large");
 
-    await browser.quit();
+  await browser.quit();
 }
 
 tester();
