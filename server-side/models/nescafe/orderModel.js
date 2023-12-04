@@ -16,16 +16,22 @@ const orderSchema = new mongoose.Schema(
     status: {
       type: String,
       default: "Not Processed",
-      enum: ["Not Processed", "Processing", "Prepared", "Collected",  "Cancelled"],
+      enum: [
+        "Not Processed",
+        "Processing",
+        "Prepared",
+        "Collected",
+        "Cancelled",
+      ],
     },
     instruction: {
       type: String,
-      default: "",
+      default: "none",
     },
     review: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   { timestamps: true }
 );
