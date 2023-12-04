@@ -27,6 +27,8 @@ const CartPage = () => {
   const [clientToken, setClientToken] = useState("");
   const [instance, setInstance] = useState("");
   const [loading, setLoading] = useState(false);
+  const [instructions, setInstructions] = useState("");
+  const [submittedInstructions, setSubmittedInstructions] = useState(false);
   const navigate = useNavigate();
 
   //total price
@@ -60,7 +62,9 @@ const CartPage = () => {
   //get payment gateway token
   const getToken = async () => {
     try {
-      const { data } = await axios.get("/api/v1/nescafe/product/braintree/token");
+      const { data } = await axios.get(
+        "/api/v1/nescafe/product/braintree/token"
+      );
       setClientToken(data?.clientToken);
     } catch (error) {
       console.log(error);
@@ -77,10 +81,14 @@ const CartPage = () => {
     try {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post("/api/v1/nescafe/product/braintree/payment", {
-        nonce,
-        cart,
-      });
+      const { data } = await axios.post(
+        "/api/v1/nescafe/product/braintree/payment",
+        {
+          nonce,
+          instructions,
+          cart,
+        }
+      );
       setLoading(false);
       localStorage.removeItem("nescafe-cart");
       setCart([]);
@@ -97,9 +105,7 @@ const CartPage = () => {
         <div className="row">
           <div className="col-md-12">
             <h1 className="text-center p-2 mb-1">
-              {!auth?.token
-                ? "Hello Guest!!"
-                : `Hello  ${auth?.user?.name} !!`}
+              {!auth?.token ? "Hello Guest!!" : `Hello  ${auth?.user?.name} !!`}
               <p className="text-center">
                 {cart?.length
                   ? `You have ${cart.length} items in your cart ${
@@ -115,48 +121,64 @@ const CartPage = () => {
             <div className="col-md-7  p-0 m-0">
               {cart?.map((p) => (
                 <div className="row card flex-row" key={p._id}>
-  <div className="col-md-4">
-    <img
-      src={`/api/v1/nescafe/product/product-photo/${p._id}`}
-      className="card-img-top"
-      alt={p.name}
-      style={{ width: "auto", height: "125px", margin: "auto !important" }}
-    />
-  </div>
-  <div className="col-md-4">
-    <p>{p.name}</p>
-    <p>{p.description.substring(0, 30)}</p>
-    <p>Price : {p.price}</p>
-  </div>
-  <div className="col-md-4 cart-remove-btn">
-    <button
-      className="btn btn-outline-dark"
-      style={{ border: "2px solid" }}
-      onClick={() => removeCartItem(p._id)}
-    >
-      Remove
-    </button>
-  </div>
-
-  {/* Additional Instructions Textbox */}
-  <div className="col-md-12 mt-3">
-    <h6>Add additional instructions if any</h6>
-    <textarea
-      className="form-control"
-      rows="4"
-      placeholder="Enter additional instructions here..."
-    ></textarea>
-  </div>
-</div>
-
+                  <div className="col-md-4">
+                    <img
+                      src={`/api/v1/nescafe/product/product-photo/${p._id}`}
+                      className="card-img-top"
+                      alt={p.name}
+                      style={{
+                        width: "auto",
+                        height: "125px",
+                        margin: "auto !important",
+                      }}
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <p>{p.name}</p>
+                    <p>{p.description.substring(0, 30)}</p>
+                    <p>Price : {p.price}</p>
+                  </div>
+                  <div className="col-md-4 cart-remove-btn">
+                    <button
+                      className="btn btn-outline-dark"
+                      style={{ border: "2px solid" }}
+                      onClick={() => removeCartItem(p._id)}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
               ))}
+              {!submittedInstructions ? (
+                <>
+                  <h6>Add additional instructions if any</h6>
+                  <textarea
+                    className="form-control"
+                    rows="4"
+                    placeholder="Enter additional instructions here..."
+                    value={instructions}
+                    onChange={(e) => setInstructions(e.target.value)}
+                  ></textarea>
+                  <button
+                    className="btn btn-primary mt-2"
+                    onClick={() => {setSubmittedInstructions(true);}}
+                  >
+                    Submit Instructions
+                  </button>
+                </>
+              ) : (
+                <>
+                  <h6>Instructions:</h6>
+                  <p>{instructions}</p>
+                </>
+              )}
             </div>
             <div className="col-md-5 cart-summary ">
               <h2>Cart Summary</h2>
               <h2>🛒</h2>
               <hr />
               <h4>Total : {totalPrice()} </h4>
-            <div className="mt-2">
+              <div className="mt-2">
                 {!clientToken || !auth?.token || !cart?.length ? (
                   ""
                 ) : (
