@@ -15,12 +15,12 @@ pipeline {
             }
         }
 
-        stage('Cleanup') {
-            steps {
-                bat 'docker compose down'
-                bat 'docker rmi food-ordering-app-frontend food-ordering-app-backend'
-            }
-        }
+        // stage('Cleanup') {
+        //     steps {
+        //         bat 'docker compose down'
+        //         bat 'docker rmi food-ordering-app-frontend food-ordering-app-backend'
+        //     }
+        // }
 
         stage('Start Docker Compose') {
             steps {
