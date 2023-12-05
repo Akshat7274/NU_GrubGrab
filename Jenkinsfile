@@ -48,7 +48,7 @@ pipeline {
                     This mail is sent from Jenkins automated server for NU GrubGrab''',
                     to: 'vaibhavc608@gmail.com, akshat1205aj@gmail.com, gaytrisran03@gmail.com, atharv.deogaonkar01@gmail.com'
                 )
-                echo 'NU GRUBGRAB successfully deployed!'
+                echo 'NU GRUBGRAB successfully deployed!!'
             }
         }
 
