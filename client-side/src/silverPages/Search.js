@@ -33,7 +33,7 @@ const Search = () => {
                     {p.description.substring(0, 30)}...
                   </p>
                   <p className="card-text"> ₹ {p.price}</p>
-                  <button class="btn btn-outline-dark ms-1" onClick={() => navigate(`/product/${p.slug}`)}>More Details</button>
+                  <button class="btn btn-outline-dark ms-1" onClick={() => navigate(`silver-spoon/product/${p.slug}`)}>More Details</button>
                   <button class="btn btn-outline-dark ms-1" onClick={() => {
                     setCart([...cart, p]);
                     localStorage.setItem(

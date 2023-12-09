@@ -105,7 +105,7 @@ const ProductDetails = () => {
                 <div className="card-name-price">
                   <button
                     className="btn btn-warning"
-                    onClick={() => navigate(`/product/${p.slug}`)}
+                    onClick={() => navigate(`apno-gaon/product/${p.slug}`)}
                   >
                     More Details
                   </button>
