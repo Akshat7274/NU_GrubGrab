@@ -6,6 +6,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 const SearchInput = () => {
   const [values, setValues] = useSearch();
   const navigate = useNavigate();
+  
+  const location = useLocation();
   const currentURL = location.pathname;
 
   const segments = currentURL.split("/");
