@@ -34,7 +34,7 @@ const LandingPage = () => {
                     <a href="/apno-gaon" className="btn button d-flex align-items-center justify-content-center">APNO GAON</a>
                 </div>
                 <div className="col-md-4 subdiv d-flex justify-content-center">
-                    <a href="/silver-spoon" className="btn button d-flex align-items-center justify-content-center">SILVER SPOON</a>
+                    <a href="/silver-spoon" className="btn button d-flex align-items-center justify-content-center">SILVER SPOONS</a>
                 </div>
             </div>
         </div> 
