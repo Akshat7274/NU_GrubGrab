@@ -15,12 +15,12 @@ pipeline {
             }
         }
 
-        // stage('Cleanup') {
-        //     steps {
-        //         bat 'docker compose down'
-        //         bat 'docker rmi nugrubgrab-frontend nugrubgrab-backend'
-        //     }
-        // }
+        stage('Cleanup') {
+            steps {
+                bat 'docker compose down'
+                bat 'docker rmi nugrubgrab-frontend nugrubgrab-backend'
+            }
+        }
 
         stage('Start Docker Compose') {
             steps {
