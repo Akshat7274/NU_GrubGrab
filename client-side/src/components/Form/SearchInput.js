@@ -24,10 +24,10 @@ const SearchInput = () => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `/api/v1/nescafe/product/search/${values.keyword}`
+        `/api/v1/${foodPointName}/product/search/${values.keyword}`
       );
       setValues({ ...values, results: data });
-      navigate(`${foodPointName}/search`);
+      navigate(`/${foodPointName}/search`);
     } catch (error) {
       console.log(error);
     }
