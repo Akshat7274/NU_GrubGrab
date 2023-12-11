@@ -21,7 +21,7 @@ export const isAdmin = async (req, res, next) => {
   try {
     const user = await userModel.findOne({email:req.user.email});
     if (user.role !== 2) {
-      if (user.role === 1 && user.admin===req.body.outlet){
+      if (user.role === 1 && (user.admin===req.body.outlet || user.admin===req.baseUrl.split("/")[3])){
         next()
       }
       else {

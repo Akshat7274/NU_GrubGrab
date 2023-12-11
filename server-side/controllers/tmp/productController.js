@@ -6,6 +6,8 @@ import fs from "fs";
 import slugify from "slugify";
 import braintree from "braintree";
 import dotenv from "dotenv";
+import { findSourceMap } from "module";
+import userModel from "../../models/userModel.js";
 
 dotenv.config();
 
@@ -149,6 +151,11 @@ export const updateProductController = async (req, res) => {
     const { name, description, price, category, quantity, shipping } =
       req.fields;
     const { photo } = req.files;
+    const user = await userModel.findOne({email:req.user.email})
+    if (user.role===2){
+      const prod = await productModel.findById(req.params.pid)
+      req.fields.price = prod.price
+    }
     //alidation
     switch (true) {
       case !name:
@@ -345,7 +352,7 @@ export const braintreeTokenController = async (req, res) => {
 //payment
 export const brainTreePaymentController = async (req, res) => {
   try {
-    const { nonce, cart } = req.body;
+    const { nonce, instructions, cart } = req.body;
     let total = 0;
     cart.map((i) => {
       total += i.price;

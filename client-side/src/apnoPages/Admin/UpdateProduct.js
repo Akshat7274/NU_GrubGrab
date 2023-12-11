@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { Select } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "../../context/auth";
 const { Option } = Select;
 
 const UpdateProduct = () => {
@@ -19,6 +20,7 @@ const UpdateProduct = () => {
   const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
   const [id, setId] = useState("");
+  const [auth, setAuth] = useAuth();
 
   //get single product
   const getSingleProduct = async () => {
@@ -180,13 +182,24 @@ const UpdateProduct = () => {
               </div>
 
               <div className="mb-3">
-                <input
-                  type="number"
-                  value={price}
-                  placeholder="write a Price"
-                  className="form-control"
-                  onChange={(e) => setPrice(e.target.value)}
-                />
+              {auth?.user?.role === 2 ?
+                  <input
+                    type="number"
+                    value={price}
+                    placeholder="write a Price"
+                    className="form-control"
+                    onChange={(e) => setPrice(e.target.value)}
+                    disabled
+                  /> :
+                  <input
+                    type="number"
+                    value={price}
+                    placeholder="write a Price"
+                    className="form-control"
+                    onChange={(e) => setPrice(e.target.value)}
+                    
+                  />
+                }
               </div>
               <div className="mb-3">
                 <input

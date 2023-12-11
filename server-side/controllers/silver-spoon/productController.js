@@ -1,6 +1,7 @@
 import productModel from "../../models/silver-spoon/productModel.js";
 import categoryModel from "../../models/silver-spoon/categoryModel.js";
 import orderModel from "../../models/silver-spoon/orderModel.js";
+import userModel from "../../models/userModel.js";
 
 import fs from "fs";
 import slugify from "slugify";
@@ -149,6 +150,11 @@ export const updateProductController = async (req, res) => {
     const { name, description, price, category, quantity, shipping } =
       req.fields;
     const { photo } = req.files;
+    const user = await userModel.findOne({email:req.user.email})
+    if (user.role===2){
+      const prod = await productModel.findById(req.params.pid)
+      req.fields.price = prod.price
+    }
     //alidation
     switch (true) {
       case !name:

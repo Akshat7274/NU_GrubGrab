@@ -18,18 +18,20 @@ const Header = (userDetails) => {
   const segments = currentURL.split("/");
 
   let foodPointName = "";
+  let fnd = 0;
   for (let i = 0; i < segments.length; i++) {
-    if (
-      segments[i] == "nescafe" ||
-      segments[i] == "tmp" ||
-      segments[i] == "silver-spoon" ||
-      segments[i] == "apno-gaon" ||
-      segments[i] == "login" ||
-      segments[i] == "register" ||
-      segments[i] == "dashboard"
-    ) {
+    if (segments[i] === "nescafe" || segments[i] === "tmp" || segments[i] === "silver-spoon" || segments[i] === "apno-gaon") {
       foodPointName = segments[i];
+      fnd = 1;
       break;
+    }
+  }
+  if (fnd===0){
+    for (let i = 0; i < segments.length; i++) {
+      if (segments[i] === "login" || segments[i] === "register" || segments[i] === "dashboard") {
+        foodPointName = segments[i];
+        break;
+      }
     }
   }
 
@@ -105,9 +107,9 @@ const Header = (userDetails) => {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <img src="/images/logogg.png" className="image" alt="logo"/>
             <ul className="navbar-nav  ms-auto mb-2 mb-lg-0">
-              {foodPointName == "nescafe" || foodPointName == "silver-spoon" || foodPointName == "apno-gaon" || foodPointName == "tmp" ? (
+              {foodPointName === "nescafe" || foodPointName === "silver-spoon" || foodPointName === "apno-gaon" || foodPointName === "tmp" ? (
                 <SearchInput />):(<></>)}
-              {foodPointName == "nescafe" || foodPointName == "silver-spoon" || foodPointName == "apno-gaon" || foodPointName == "tmp" || foodPointName =="login" || foodPointName == "register" || foodPointName == "dashboard" ? (
+              {foodPointName === "nescafe" || foodPointName === "silver-spoon" || foodPointName === "apno-gaon" || foodPointName === "tmp" || foodPointName =="login" || foodPointName === "register" || foodPointName === "dashboard" ? (
                 <li className="nav-item nav-decor">
                 <NavLink to="/" className="nav-link nav-decor">
                   Home
@@ -116,7 +118,7 @@ const Header = (userDetails) => {
               ):(
                 <></>
               )}
-              {foodPointName == "nescafe" || foodPointName == "silver-spoon" || foodPointName == "apno-gaon" || foodPointName == "tmp" ? (
+              {foodPointName === "nescafe" || foodPointName === "silver-spoon" || foodPointName === "apno-gaon" || foodPointName === "tmp" ? (
                 <li className="nav-item dropdown nav-decor ">
                   <Link
                     className="nav-link dropdown-toggle nav-decor"
@@ -175,7 +177,7 @@ const Header = (userDetails) => {
                       {auth?.user?.name}
                     </NavLink>
                     <ul className="dropdown-menu nav-decor">
-                      {auth?.user?.role == 2 && foodPointName == "" ? (
+                      {auth?.user?.role === 2 && foodPointName === "" ? (
                         <>
                           <li className=" nav-decor">
                             <NavLink
@@ -239,7 +241,7 @@ const Header = (userDetails) => {
                   </li>
                 </>
               )}
-              {foodPointName == "nescafe" || foodPointName == "silver-spoon" || foodPointName == "apno-gaon" || foodPointName == "tmp" ? (
+              {foodPointName === "nescafe" || foodPointName === "silver-spoon" || foodPointName === "apno-gaon" || foodPointName === "tmp" ? (
                 <li className="nav-item ">
                 <NavLink
                   to={"/" + foodPointName + "/cart"}
