@@ -108,7 +108,11 @@ export const singleCategoryController = async (req, res) => {
 export const deleteCategoryCOntroller = async (req, res) => {
   try {
     const { id } = req.params;
-    await categoryModel.findByIdAndDelete(id);
+    await categoryModel.findByIdAndUpdate(
+      id,
+      {deleted: 1},
+      {new: true}
+    );
     res.status(200).send({
       success: true,
       message: "Categry Deleted Successfully",
