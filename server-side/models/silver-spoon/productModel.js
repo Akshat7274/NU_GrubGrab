@@ -34,6 +34,10 @@ const productSchema = new mongoose.Schema(
     shipping: {
       type: Boolean,
     },
+    deleted: {
+      type: Number,
+      default: 0
+    }
   },
   { timestamps: true }
 );
